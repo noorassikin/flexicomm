@@ -148,14 +148,14 @@ header("location: employee_login.html");
                                     
                                 </ul>
                             </li>
-                            <li class="footer">
+                             <!--<li class="footer">
                                 <a href="javascript:void(0);">View All Notifications</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
                     
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                    <!--<li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>-->
                 </ul>
             </div>
         </div>
@@ -167,7 +167,7 @@ header("location: employee_login.html");
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                    <!-- <img src="../../images/user.png" width="48" height="48" alt="User" />-->
                 </div>
 				
 				<?php
@@ -223,7 +223,7 @@ header("location: employee_login.html");
 					<li class="active">
                         <a href="javascript:void(0);">
                             <i class="material-icons">library_books</i>
-                            <span>Projects</span>
+                            <span>Assignments</span>
                         </a>
                     </li>
 					
@@ -406,7 +406,7 @@ header("location: employee_login.html");
                                     </a>
                                 </li>
                                 <li class="active">
-                                    <i class="material-icons">library_books</i> Project
+                                    <i class="material-icons">library_books</i> Assignments
                                 </li>
                             </ol>
                             
@@ -424,11 +424,11 @@ header("location: employee_login.html");
                     <div class="card">
                         <div class="header clearfix">
                             <h2>
-                                PROJECT LIST
+                                ASSIGNMENT LIST
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
                        
-						  <a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>New Project</a>
+						  <a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>NEW ASSIGNMENT</a>
                        
                                 </button>
                             </h2>
@@ -439,10 +439,10 @@ header("location: employee_login.html");
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-										<th>Project Title</th>
+										<th>Title</th>
 										<th>Description</th>
-										<th>Project Created</th>
-										<th>Project Due Date</th>
+										<th>Start Date</th>
+										<th>Due Date</th>
 										<th>Status</th>
 										<th>Action</th>
 									</tr>
@@ -539,7 +539,7 @@ header("location: employee_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Update Project</h4>
+														<h4 class="modal-title" id="defaultModalLabel">EDIT ASSIGNMENT</h4>
 													</div>
 													<div class="modal-body">
 
@@ -600,8 +600,8 @@ header("location: employee_login.html");
 															</div>
 															
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-danger waves-effect" name="update_project"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_project"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 															</div>
 														</form>													
 													</div>
@@ -729,7 +729,7 @@ header("location: employee_login.html");
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h4 class="modal-title" id="defaultModalLabel">ADD NEW PROJECT</h4>
+												<h4 class="modal-title" id="defaultModalLabel">ADD NEW ASSIGNMENT</h4>
 											</div>
 											<div class="modal-body">
 														<form action = "employee_add_project.php" method="post" class="form-horizontal" role="form">
@@ -740,7 +740,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" name="project_name" class="form-control" placeholder="Enter Project Title">
+																			<input type="text" name="project_name" class="form-control" placeholder="Enter Assignment Title">
 																		</div>
 																	</div>
 																</div>
@@ -753,7 +753,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																		<textarea name="project_description" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Project Description" required></textarea>
+																		<textarea name="project_description" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Assignment Description" required></textarea>
 																		</div>
 																	</div>
 																</div>
@@ -786,8 +786,8 @@ header("location: employee_login.html");
 															</div>
 															
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-danger waves-effect"><span class="glyphicon glyphicon-plus"></span>ADD NEW</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect"><span class="glyphicon glyphicon-plus"></span>SUBMIT</button>
 															</div>
 														</form>												
 											</div>
@@ -816,7 +816,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
+																			<input type="password" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
 																		</div>
 																	</div>
 																</div>
@@ -829,7 +829,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
+																			<input type="password" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
 																		</div>
 																	</div>
 																</div>
@@ -842,7 +842,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
+																			<input type="password" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
 																		</div>
 																	</div>
 																</div>
@@ -850,8 +850,8 @@ header("location: employee_login.html");
 																<input type="hidden" name="employee_id" value="<?php echo $_SESSION['employee_id']; ?>"  />
 
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
 															</div>
 															
 														<?php
@@ -876,7 +876,9 @@ header("location: employee_login.html");
 																if($employee_password == $password){
 																	if($password1===$password2){
 																		$query = "UPDATE employee SET employee_id= '$employee_id', employee_password='$password1' WHERE  employee_id='$employee_id'  ";
-																		$result = $con->query($query);
+																					echo "<script type = \"text/javascript\">
+																					alert(\"Password Updated\");
+																				</script>";																		$result = $con->query($query);
 																	}
 																	else{
 																		echo "<script type = \"text/javascript\">

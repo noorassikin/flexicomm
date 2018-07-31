@@ -157,7 +157,7 @@ header("location: employee_login.html");
                     </li>                    
 					<!-- #END# Notifications -->
                     
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                    <!--<li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>-->
                 </ul>
             </div>
         </div>
@@ -169,7 +169,7 @@ header("location: employee_login.html");
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                    <!--<img src="../../images/user.png" width="48" height="48" alt="User" />-->
                 </div>
 				
 				<?php
@@ -225,7 +225,7 @@ header("location: employee_login.html");
 					<li>
                         <a href="../../pages/tables/employee_view_project_list.php">
                             <i class="material-icons">view_list</i>
-                            <span>Projects</span>
+                            <span>Assignments</span>
                         </a>
                     </li>
 					
@@ -419,19 +419,8 @@ header("location: employee_login.html");
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>Profile Details</h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <h2>PROFILE DETAILS</h2>
+                            
                         </div>
                         <div class="body">
 						
@@ -515,7 +504,7 @@ header("location: employee_login.html");
                                 </div>
 								
 								<div class="form-group" align="right">
-                                <button type="submit" class="btn btn-primary waves-effect" type="submit"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
+                                <button type="submit" class="btn btn-success waves-effect" type="submit"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 								</div>
                             </form>
                         </div>
@@ -545,7 +534,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
+																			<input type="password" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
 																		</div>
 																	</div>
 																</div>
@@ -558,7 +547,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
+																			<input type="password" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
 																		</div>
 																	</div>
 																</div>
@@ -571,7 +560,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
+																			<input type="password" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
 																		</div>
 																	</div>
 																</div>
@@ -579,8 +568,8 @@ header("location: employee_login.html");
 																<input type="hidden" name="employee_id" value="<?php echo $_SESSION['employee_id']; ?>"  />
 
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
 															</div>
 															
 														<?php

@@ -160,9 +160,9 @@ $employee_id = $_SESSION['employee_id'];
                                     
                                 </ul>
                             </li>
-                            <li class="footer">
+                            <!-- <li class="footer">
                                 <a href="javascript:void(0);">View All Notifications</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
@@ -179,7 +179,7 @@ $employee_id = $_SESSION['employee_id'];
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                   <!-- <img src="../../images/user.png" width="48" height="48" alt="User" /> -->
                 </div>
 				
 				<?php
@@ -235,7 +235,7 @@ $employee_id = $_SESSION['employee_id'];
 					<li class="active">
                         <a href="../../pages/tables/employee_view_project_list.php">
                             <i class="material-icons">view_list</i>
-                            <span>Projects</span>
+                            <span>Assignments</span>
                         </a>
                     </li>
 					
@@ -266,7 +266,7 @@ $employee_id = $_SESSION['employee_id'];
         <aside id="rightsidebar" class="right-sidebar">
             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                 <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
-                <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
+                <!-- <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li> -->
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
@@ -420,11 +420,11 @@ $employee_id = $_SESSION['employee_id'];
                                 </li>
                                 <li>
 									<a href="../../pages/tables/employee_view_project_list.php">
-										<i class="material-icons">library_books</i> Projects
+										<i class="material-icons">library_books</i> Assignments
 									</a>
                                 </li>
 								<li class="active">
-                                    <i class="material-icons">details</i> Project Details
+                                    <i class="material-icons">details</i> Assignment Details
                                 </li>
                             </ol>
                             
@@ -438,7 +438,7 @@ $employee_id = $_SESSION['employee_id'];
 								<?php 
 									$project_name = $_GET['project_name'];
 									//echo "<label>Project Title:</label>" ;
-									echo 'Project Details :'; 
+									echo 'ASSIGNMENT : '; 
 									
 									echo '<font color= "red">' .$project_name. '</font>';
 								?>
@@ -536,7 +536,7 @@ $employee_id = $_SESSION['employee_id'];
 																			echo "</tr>";
 																			
 																			echo "<tr>";
-																				echo "<th>Date Created</th>";
+																				echo "<th>Start Date</th>";
 																				echo "<td>" . $row["project_date_created"]. "</td>";
 																			echo "</tr>";
 																			
@@ -551,7 +551,7 @@ $employee_id = $_SESSION['employee_id'];
 																			echo "</tr>";
 																			
 																			echo "<tr>";
-																				echo "<th>Employee (PIC)</th>";
+																				echo "<th>Staff (PIC)</th>";
 																				echo "<td>" . $row["pic"]. "</td>";
 																			echo "</tr>";
 																			
@@ -590,10 +590,10 @@ $employee_id = $_SESSION['employee_id'];
 																	<th width="5%">No.</th>
 																	<th width="25%">Tasks</th>
 																	<th width="15%">Start Date</th>
-																	<th width="15%">End Date</th>
+																	<th width="15%">Due Date</th>
 																	<th width="15%">Status</th>
 																	<th width="25%">Issues</th>
-																	<th width="25%">Solution(s)</th>
+																	<th width="25%">Solutions</th>
 																	<!--<th width="10%">Action</th>-->
 																</tr>
 																</tr>
@@ -811,7 +811,7 @@ $employee_id = $_SESSION['employee_id'];
 									
 								
 								<div role="tabpanel" class="tab-pane fade" id="messages_with_icon_title">
-                                    <b>Chatroom</b>
+                                    <center><font color = 'green'><b>CHAT WITH YOUR TEAM MEMBERS!</b></font></center>
                                     <p>
 									<!-- Basic Example -->
 									
@@ -861,7 +861,7 @@ $employee_id = $_SESSION['employee_id'];
 																	</div>
 																	<input type="hidden" name="project_id" class="form-control" value="<?php echo $_REQUEST['project_id']; ?>">
 																	<span class="input-group-btn">
-																	<button type="submit" name="submit" class="btn btn-warning">Send Chat</button>
+																	<button type="submit" name="submit" class="btn btn-success">SEND</button>
 																	</span>
 																</div>
 															</form>
@@ -928,7 +928,7 @@ $employee_id = $_SESSION['employee_id'];
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
+																			<input type="password" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
 																		</div>
 																	</div>
 																</div>
@@ -941,7 +941,7 @@ $employee_id = $_SESSION['employee_id'];
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
+																			<input type="password" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
 																		</div>
 																	</div>
 																</div>
@@ -954,7 +954,7 @@ $employee_id = $_SESSION['employee_id'];
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
+																			<input type="password" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
 																		</div>
 																	</div>
 																</div>
@@ -962,8 +962,8 @@ $employee_id = $_SESSION['employee_id'];
 																<input type="hidden" name="employee_id" value="<?php echo $_SESSION['employee_id']; ?>"  />
 
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
 															</div>
 															
 														<?php

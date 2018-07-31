@@ -745,12 +745,12 @@ header("location: manager_login.html");
 																						
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																								<label for="task_comment">Solution(s)</label>
+																								<label for="task_comment">Solutions</label>
 																							</div>
 																							<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																								<div class="form-group">
 																									<div class="form-line">
-																									<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Solution(s)"><?php echo $task_comment; ?></textarea>
+																									<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Correction Action"><?php echo $task_comment; ?></textarea>
 																									</div>
 																								</div>
 																							</div>
@@ -800,22 +800,22 @@ header("location: manager_login.html");
 																//Update Tasks
 																if(isset($_POST['update_task'])){
 																	$edit_task_id = $_POST['edit_task_id'];
+																	//$task_id = $_POST['task_id'];
+																	//$edit_employee_id = $_POST['edit_employee_id'];
 																	$project_name = $_POST['project_name'];
 																	$task_title = $_POST['task_title'];
 																	$task_due_date = $_POST['task_due_date'];
 																	$task_description = $_POST['task_description'];
 																	$task_comment = $_POST['task_comment'];
 																	$sql = "UPDATE task SET 
-																		
-																		task_comment = '$task_comment'
+																		task_comment='$task_comment'
 																	   WHERE task_id='$edit_task_id' ";
-																	if ($conn->query($sql) === TRUE) {
-																	echo '<script>window.location.href="../../pages/tables/manager_view_project_list.php"</script>';
+																	if ($con->query($sql) === TRUE) {
+																		echo "<script>alert('*Comment Updated*');window.location.href='javascript:history.back(-1);'</script>";
 																	} else {
 																		echo "Error updating record: " . $conn->error;
-																		}
+																	}
 																}
-
 																 if(isset($_POST['delete'])){
 																// sql to delete a record
 																$delete_id = $_POST['delete_id'];

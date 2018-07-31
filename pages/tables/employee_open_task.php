@@ -177,7 +177,7 @@ header("location: employee_login.html");
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                    <!--<img src="../../images/user.png" width="48" height="48" alt="User" />-->
                 </div>
 				
 				<?php
@@ -233,7 +233,7 @@ header("location: employee_login.html");
 					<li>
                         <a href="../../pages/tables/employee_view_project_list.php">
                             <i class="material-icons">library_books</i>
-                            <span>Projects</span>
+                            <span>Assignments</span>
                         </a>
                     </li>
 					
@@ -263,12 +263,12 @@ header("location: employee_login.html");
         <aside id="rightsidebar" class="right-sidebar">
             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                 <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
-                <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
+                <!--<li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li> -->
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
                     <ul class="demo-choose-skin">
-                        <li data-theme="red" class="active">
+                        <li data-theme="red">
                             <div class="red"></div>
                             <span>Red</span>
                         </li>
@@ -297,7 +297,7 @@ header("location: employee_login.html");
                             <span>Light Blue</span>
                         </li>
                         <li data-theme="cyan">
-                            <div class="cyan"></div>
+                            <div class="cyan" class="active"></div>
                             <span>Cyan</span>
                         </li>
                         <li data-theme="teal">
@@ -419,7 +419,9 @@ header("location: employee_login.html");
                                     <i class="material-icons">date_range</i> Tasks
                                 </li>
                             </ol>
-                            
+							
+							<center>ASSIGNMENT LIST</center>
+                            <BR>
                         </div>
              <!--<div class="block-header">
                 <h2>
@@ -440,12 +442,12 @@ header("location: employee_login.html");
 								<div class="col-md-3">
 								<input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date" /> 								</div>
 								<div class="btn-group" role='group' aria-label='...'>  
-								<input type="button" name="filter" id="filter" value="Search" class="btn btn-info" />  
+								<input type="button" name="filter" id="filter" value="SEARCH" class="btn btn-info" />  
 								</div>
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
                        
-						  <a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>New Task</a>
+						  <a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>NEW TASK</a>
                        
                                 
                             
@@ -456,13 +458,13 @@ header("location: employee_login.html");
                                 <thead>
                                     <tr>
                                         <th  width="5%">No.</th>
-										<th width="10%">Project</th>
+										<th width="10%">Assignment</th>
 										<th width="15%">Tasks</th>
 										<th width="15%">Start Date</th>
-										<th width="15%">End Date</th>
+										<th width="15%">Due Date</th>
 										<th width="10%">Status</th>
 										<th width="25%">Issues</th>
-										<th width="25%">Corrective Action</th>
+										<th width="25%">Solutions</th>
 										<th width="15%">Action</th>
 									</tr>
                                     </tr>
@@ -561,7 +563,7 @@ header("location: employee_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Update Task</h4>
+														<h4 class="modal-title" id="defaultModalLabel">UPDATE TASK</h4>
 													</div>
 													<div class="modal-body">
 
@@ -571,7 +573,7 @@ header("location: employee_login.html");
 														
 															<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																								<label for="task_title">Tasks</label>
+																								<label for="task_title">Task Details</label>
 																							</div>
 																							<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																								<div class="form-group">
@@ -610,7 +612,7 @@ header("location: employee_login.html");
 																						
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																								<label for="task_comment">Correction Action</label>
+																								<label for="task_comment">Solutions</label>
 																							</div>
 																							<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																								<div class="form-group">
@@ -622,8 +624,8 @@ header("location: employee_login.html");
 																						</div>
 															
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-danger waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 															</div>
 														</form>													
 													</div>
@@ -637,7 +639,7 @@ header("location: employee_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Delete Project</h4>
+														<h4 class="modal-title" id="defaultModalLabel">DELETE TASK</h4>
 													</div>
 													<div class="modal-body">
 
@@ -648,8 +650,8 @@ header("location: employee_login.html");
 															
 															
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
+																<button type="button" class="btn btn-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE TASK</button>
 															</div>
 														</form>													
 													</div>
@@ -752,14 +754,14 @@ header("location: employee_login.html");
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h4 class="modal-title" id="defaultModalLabel">Add New Task</h4>
+												<h4 class="modal-title" id="defaultModalLabel">ADD NEW TASK</h4>
 											</div>
 											<div class="modal-body">
 														<form action = "employee_add_task.php" method="post" class="form-horizontal" role="form">
 															<div class="row clearfix">
 															
 															<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																<label for="task_title">Project</label>
+																<label for="task_title">Assignment</label>
 															</div>
 																
 																 <div class="col-sm-10">
@@ -780,12 +782,12 @@ header("location: employee_login.html");
 															
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="task_title">Task</label>
+																	<label for="task_title">Task Details</label>
 																</div>
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" name="task_title" class="form-control" placeholder="Enter Your Task">
+																			<input type="text" name="task_title" class="form-control" placeholder="Enter Task Details">
 																		</div>
 																	</div>
 																</div>
@@ -832,8 +834,8 @@ header("location: employee_login.html");
 															</div>
 															
 															<div class="modal-footer">
-															<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-															<button type="submit" class="btn btn-danger waves-effect"><span class="glyphicon glyphicon-plus"></span>ADD NEW</button>
+															<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+															<button type="submit" class="btn btn-success waves-effect"><span class="glyphicon glyphicon-plus"></span>ADD NEW</button>
 															</div>
 														</form>												
 											</div>

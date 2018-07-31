@@ -110,7 +110,7 @@ header("location: employee_login.html");
                             <li class="body">
                                 <ul class="menu">
                                     <li>
-                                        <a href="employee_open_delay_task.php">
+                                        <a href="../../pages/tables/employee_open_delay_task.php">
                                             <div class="icon-circle bg-red">
                                                 <i class="material-icons">date_range</i>
                                             </div>
@@ -147,9 +147,9 @@ header("location: employee_login.html");
                                     
                                 </ul>
                             </li>
-                            <li class="footer">
+                            <!--<li class="footer">
                                 <a href="javascript:void(0);">View All Notifications</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
@@ -166,7 +166,7 @@ header("location: employee_login.html");
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                   <!-- <img src="../../images/user.png" width="48" height="48" alt="User" />-->
                 </div>
 				
 				<?php
@@ -221,7 +221,7 @@ header("location: employee_login.html");
 					<li>
                         <a href="../../pages/tables/employee_view_project_list.php">
                             <i class="material-icons">view_list</i>
-                            <span>Projects</span>
+                            <span>Assignments</span>
                         </a>
                     </li>
 					
@@ -250,7 +250,7 @@ header("location: employee_login.html");
         <aside id="rightsidebar" class="right-sidebar">
             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                 <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
-                <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
+               <!--<li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>-->
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
@@ -400,13 +400,15 @@ header("location: employee_login.html");
 			
 			 <!-- Widgets -->
             <div class="row clearfix">
+			
+				<a href= "../../pages/tables/employee_view_project_list.php">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-light-green hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">playlist_add_check</i>
                         </div>
                         <div class="content">
-                            <div class="text">PROJECT</div>
+                            <div class="text">ASSIGNMENTS</div>
                             <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20">
 							<?php
 
@@ -427,7 +429,10 @@ header("location: employee_login.html");
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                </a>
+				
+				<a href= "../../pages/tables/employee_open_task.php">
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-cyan hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">assignment</i>
@@ -450,17 +455,20 @@ header("location: employee_login.html");
 								$num_rows=$values2['total'];
 								echo '<div class="huge"> '.$num_rows.'</div>'
 								?>
-							</div>
-                        </div>
-                    </div>
+						</div>
+                     </div>
+                 </div>
                 </div>
+				</a>
+				
+				<a href= "../../pages/tables/employee_open_inprogress_task.php">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-orange hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">insert_invitation</i>
                         </div>
                         <div class="content">
-                            <div class="text">UPCOMING DATES</div>
+                            <div class="text">IN PROGRESS</div>
                             <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20">
 							<?php
 
@@ -484,6 +492,9 @@ header("location: employee_login.html");
                         </div>
                     </div>
                 </div>
+				</a>
+			
+				<a href= "../../pages/tables/employee_open_delay_task.php">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-red hover-expand-effect">
                         <div class="icon">
@@ -515,6 +526,8 @@ header("location: employee_login.html");
                     </div>
                 </div>
             </div>
+			</a>
+			
             <!-- #END# Widgets -->
 			
 			
@@ -523,9 +536,9 @@ header("location: employee_login.html");
                 <!-- Task Info -->
                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
-                        <div class="header">
+                        <div class="header bg-blue-grey">
                             <h2>
-                                HIGHLIGHTS
+                                <center><strong>HIGHLIGHTS</strong></center>
                             </h2>
                               
                         </div>
@@ -877,354 +890,7 @@ header("location: employee_login.html");
             </div>
 			
 			<br>
-			<!-- Basic Example -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
-                    <div class="card">
-                        <div class="header bg-">
-                            <h2>
-                                DELAYED TASKS
-                            </h2>
-                           
-                        </div>
-						<div class="body">
-						
-							<!-- Exportable Table -->
-                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                <thead>
-                                    <tr>
-                                        <th  width="5%">No.</th>
-										<th width="10%">Project</th>
-										<th width="25%">Tasks</th>
-										<th width="10%">Status</th>
-										<th width="20%">Issues</th>
-										<th width="20%">Solution (s)</th>
-										<th width="20%">Action</th>
-									</tr>
-                                    </tr>
-                                </thead>
-                                
-                                <tbody>
-                                    <?php
-									$conn=mysqli_connect("localhost","root","","task");
-
-									if (mysqli_connect_errno())
-									  {
-									  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-									  }
-									
-									$sql2 = "UPDATE task  
-										SET task_status =  
-										CASE  
-											 WHEN NOW() > task_due_date THEN 'Delayed' 
-											 WHEN NOW() < task_due_date THEN 'In Progress'
-										END ";
-					$result2 = $conn -> query($sql2);									
-									$abc=$_SESSION['employee_id']; 
-									
-									$sql = "SELECT task.task_id,task.task_title, task.task_status, task.task_created, task.task_due_date, task.task_description, task.task_comment, project.project_id, project.project_name, employee.employee_id
-											FROM task,project, employee
-											WHERE task.project_id = project.project_id 
-											AND task.employee_id = employee.employee_id 
-											AND task.task_status = 'Delayed'
-											AND  task.employee_id = '$abc'";
-									$result = $conn->query($sql);
-									if ($result->num_rows > 0) {
-										// output data of each row
-										$x=1;
-										while($row = $result->fetch_assoc()) {
-											$task_id = $row['task_id'];
-											$task_title = $row['task_title'];
-											$project_name = $row['project_name'];
-											$task_status = $row['task_status'];
-											
-											if($task_status == 'Delayed'){
-												$alert = "<div class='badge bg-red'>
-												<strong>$task_status</strong> 
-												</div>";
-											}else if($task_status == 'In Progress'){
-												$alert = "<div class='badge bg-blue'>
-												<strong>$task_status</strong> 
-												</div>";
-											}else {
-												$alert = $alert = "<div class='badge bg-green'>
-												<strong>$task_status</strong> 
-												</div>";
-											}
-											
-											$task_created = $row['task_created'];
-											$task_due_date = $row['task_due_date'];
-											$task_description = $row['task_description'];
-											$task_comment = $row['task_comment'];
-											
-											
-									?>
-											<tr>
-												<td><?php echo $x; ?></td>
-												<td><?php echo $project_name; ?></td>
-												<td><?php echo $task_title; ?></td>
-												<td><?php echo $alert; ?></td>
-												<td><?php echo nl2br($task_description); ?></td>
-												<td><?php echo nl2br($task_comment); ?></td>												
-												
-									
-									<td>
-										<div class='btn-btn'>
-											<a href="#defaultModal<?php echo $task_id;?>" data-toggle="modal"><button type='button' class='btn btn-warning btn-sm'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button></a>
-											<a href="#delete<?php echo $task_id;?>" data-toggle="modal"><button type='button' class='btn btn-danger btn-sm'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></a>
-
-										</div>
-									</td>
-
-									
-											
-									 <!-- Update Task List -->
-										<div class="modal fade" id="defaultModal<?php echo $task_id; ?>" tabindex="-1" role="dialog">
-											<div class="modal-dialog" role="document">
-												<div class="modal-content">
-													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Update Task</h4>
-													</div>
-													<div class="modal-body">
-
-														<form method="post" class="form-horizontal" role="form">
-															<input type="hidden" name="edit_task_id" value="<?php echo $task_id; ?>">
-															<input type="hidden" name="edit_employee_id" value="<?php echo $employee_id;  ?>">
-														
-															<div class="row clearfix">
-																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																								<label for="task_title">Tasks</label>
-																							</div>
-																							<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																								<div class="form-group">
-																									<div class="form-line">
-																										<input type="text" id="task_title" name="task_title" value="<?php echo $task_title; ?>" class="form-control" placeholder="Enter Tasks Title" required>
-																									</div>
-																								</div>
-																							</div>
-																						</div>																			
-																						
-																						<div class="row clearfix">
-																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																								<label for="task_due_date">Due Date</label>
-																							</div>
-																							<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																								<div class="form-group">
-																									<div class="form-line">
-																										<input type="date" id="task_due_date" name="task_due_date" value="<?php echo $before30=date('Y-m-d', strtotime("$task_due_date")); ?>" class="form-control date" placeholder="Ex: 30/07/2018">
-																									</div>
-																								</div>
-																							</div>
-																						</div>
-																						
-																						<div class="row clearfix">
-																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																								<label for="task_description">Issues</label>
-																							</div>
-																							<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																								<div class="form-group">
-																									<div class="form-line">
-																									<textarea name="task_description" id="task_description" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Issues"><?php echo $task_description; ?></textarea>
-																									</div>
-																								</div>
-																							</div>
-																						</div>
-																						
-																						<div class="row clearfix">
-																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																								<label for="task_comment">Correction Action</label>
-																							</div>
-																							<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																								<div class="form-group">
-																									<div class="form-line">
-																									<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Correction Action"><?php echo $task_comment; ?></textarea>
-																									</div>
-																								</div>
-																							</div>
-																						</div>
-															
-															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-danger waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
-															</div>
-														</form>													
-													</div>
-												</div>
-											</div>
-										</div>
-										
-										
-									 <!-- Delete Project List -->
-										<div class="modal fade" id="delete<?php echo $task_id; ?>" tabindex="-1" role="dialog">
-											<div class="modal-dialog" role="document">
-												<div class="modal-content">
-													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Delete Project</h4>
-													</div>
-													<div class="modal-body">
-
-														<form method="post" class="form-horizontal" role="form">
-															<input type="hidden" name="delete_id" value="<?php echo $task_id; ?>">
-															
-																<p><strong>Are you sure you want to delete <?php echo $task_title; ?> ?</strong></p>
-															
-															
-															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
-															</div>
-														</form>													
-													</div>
-												</div>
-											</div>
-										</div>
-
-									
-									
-									<?php
-									$x++;}
-									
-									//Update Task
-									if(isset($_POST['update_task'])){
-										$edit_task_id = $_POST['edit_task_id'];
-										//$task_id = $_POST['task_id'];
-										//$edit_employee_id = $_POST['edit_employee_id'];
-										$project_name = $_POST['project_name'];
-										$task_title = $_POST['task_title'];
-										$task_due_date = $_POST['task_due_date'];
-										$task_description = $_POST['task_description'];
-										$task_comment = $_POST['task_comment'];
-										$sql = "UPDATE task SET 
-											task_title='$task_title',
-											task_due_date='$task_due_date',
-											task_description='$task_description',
-											task_comment='$task_comment'
-										   WHERE task_id='$edit_task_id' ";
-										if ($conn->query($sql) === TRUE) {
-											echo '<script>window.location.href="employee_open_delay_task.php"</script>';
-										} else {
-											echo "Error updating record: " . $conn->error;
-										}
-									}
-
-									if(isset($_POST['delete'])){
-										// sql to delete a record
-										$delete_id = $_POST['delete_id'];
-										$sql = "DELETE FROM task WHERE task_id='$delete_id' ";
-										if ($conn->query($sql) === TRUE) {
-											echo '<script>window.location.href="employee_open_delay_task.php"</script>';
-											} else {
-												echo "Error deleting record: " . $conn->error;
-											}
-										} 
-									
-								}
-									?>
-									
-								<!-- Add New Task -->
-								<div class="modal fade" id="addProject" tabindex="-1" role="dialog">
-									<div class="modal-dialog" role="document">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h4 class="modal-title" id="defaultModalLabel">Add New Task</h4>
-											</div>
-											<div class="modal-body">
-														<form action = "employee_add_task.php" method="post" class="form-horizontal" role="form">
-															<div class="row clearfix">
-															
-															<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																<label for="task_title">Project</label>
-															</div>
-																
-																 <div class="col-sm-10">
-																 	<select name='project_id' class="form-control show-tick" id="project_id">
-																		<option value='' selected='selected'>-- Please select --</option>
-																		<?php
-																		$conn=mysqli_connect("localhost","root","","task");
-																		$t = "select * from project ";
-																		$result2 = $conn -> query($t);
-																		while ($row = $result2 -> fetch_assoc()){
-																
-																			echo "<option value='".$row['project_id']."'>".$row['project_name']."</option>";
-																		}
-																		?>
-																	</select>
-																</div>
-															</div>
-															
-															<div class="row clearfix">
-																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="task_title">Task</label>
-																</div>
-																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																	<div class="form-group">
-																		<div class="form-line">
-																			<input type="text" name="task_title" class="form-control" placeholder="Enter Your Task">
-																		</div>
-																	</div>
-																</div>
-															</div>
-															
-															<!-- <div class="row clearfix">
-																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="task_created">Start Date</label>
-																</div>
-																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																	<div class="form-group">
-																		<div class="form-line">
-																			<input type="date" name="task_created" class="form-control date">
-																		</div>
-																	</div>
-																</div>
-															</div> -->
-															
-															<div class="row clearfix">
-																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="task_due_date">End Date</label>
-																</div>
-																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																	<div class="form-group">
-																		<div class="form-line">
-																			<input type="date" name="task_due_date" class="form-control">
-																		</div>
-																	</div>
-																</div>
-															</div>
-															
-															
-															<div class="row clearfix">
-																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="task_description">Issues</label>
-																</div>
-																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																	<div class="form-group">
-																		<div class="form-line">
-																		<textarea name="task_description" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Task Issues"></textarea>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															
-															<div class="modal-footer">
-															<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-															<button type="submit" class="btn btn-danger waves-effect"><span class="glyphicon glyphicon-plus"></span>ADD NEW</button>
-															</div>
-														</form>												
-											</div>
-											
-										</div>
-									</div>
-								</div>
-                                </tbody>
-                            </table>
-                       
-            <!-- #END# Exportable Table -->	
-						
-                        </div>                    
-					</div>
-                </div>
-            </div>
-            <!-- #END# Basic Example -->
+			
 			
 										<!-- Update Password -->
 										<div class="modal fade" id="changepass" tabindex="-1" role="dialog">
@@ -1246,7 +912,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
+																			<input type="password" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
 																		</div>
 																	</div>
 																</div>
@@ -1259,7 +925,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
+																			<input type="password" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
 																		</div>
 																	</div>
 																</div>
@@ -1272,7 +938,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
+																			<input type="password" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
 																		</div>
 																	</div>
 																</div>
@@ -1280,8 +946,8 @@ header("location: employee_login.html");
 																<input type="hidden" name="employee_id" value="<?php echo $_SESSION['employee_id']; ?>"  />
 
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
 															</div>
 															
 														<?php
@@ -1306,6 +972,10 @@ header("location: employee_login.html");
 																if($employee_password == $password){
 																	if($password1===$password2){
 																		$query = "UPDATE employee SET employee_id= '$employee_id', employee_password='$password1' WHERE  employee_id='$employee_id'  ";
+																		echo "<script type = \"text/javascript\">
+																					alert(\"Password Updated\");
+																					
+																				</script>";
 																		$result = $con->query($query);
 																	}
 																	else{

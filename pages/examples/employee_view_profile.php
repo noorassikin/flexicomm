@@ -114,7 +114,7 @@ header("location: employee_login.html");
                             <li class="body">
                                 <ul class="menu">
                                     <li>
-                                        <a href="employee_open_delay_task.php">
+                                        <a href="../../pages/tables/employee_open_delay_task.php">
                                             <div class="icon-circle bg-red">
                                                 <i class="material-icons">date_range</i>
                                             </div>
@@ -151,14 +151,14 @@ header("location: employee_login.html");
                                     
                                 </ul>
                             </li>
-                            <li class="footer">
+                             <!--<li class="footer">
                                 <a href="javascript:void(0);">View All Notifications</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
                    
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                   <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li> -->
                 </ul>
             </div>
         </div>
@@ -170,7 +170,7 @@ header("location: employee_login.html");
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                     <!--<img src="../../images/user.png" width="48" height="48" alt="User" />-->
                 </div>
 				
 				<?php
@@ -226,7 +226,7 @@ header("location: employee_login.html");
 					<li>
                         <a href="../../pages/tables/employee_view_project_list.php">
                             <i class="material-icons">view_list</i>
-                            <span>Projects</span>
+                            <span>Assignments</span>
                         </a>
                     </li>
 					
@@ -529,7 +529,7 @@ header("location: employee_login.html");
 								</div>
 								
 								<div class="form-group" align="right">
-									<a href = "employee_update_profile.php" class="btn btn-primary waves-effect"><span class="glyphicon glyphicon-edit"></span>UPDATE</button></a>
+									<a href = "employee_update_profile.php" class="btn btn-success waves-effect"><span class="glyphicon glyphicon-edit"></span>UPDATE</button></a>
 								</div>                            
 							</form>
                         </div>
@@ -560,7 +560,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
+																			<input type="password" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
 																		</div>
 																	</div>
 																</div>
@@ -573,7 +573,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
+																			<input type="password" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
 																		</div>
 																	</div>
 																</div>
@@ -586,7 +586,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
+																			<input type="password" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
 																		</div>
 																	</div>
 																</div>
@@ -594,8 +594,8 @@ header("location: employee_login.html");
 																<input type="hidden" name="employee_id" value="<?php echo $_SESSION['employee_id']; ?>"  />
 
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
 															</div>
 															
 														<?php
