@@ -166,7 +166,7 @@ header("location: sign-in.html");
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                    <!-- <img src="../../images/user.png" width="48" height="48" alt="User" /> -->
                 </div>
 
 				<?php
@@ -211,14 +211,14 @@ header("location: sign-in.html");
                         </a>
                     </li>
 
-					<li>
+					          <li>
                         <a href="../../pages/examples/employee_view_profile.php">
                             <i class="material-icons">person</i>
                             <span>Profile</span>
                         </a>
                     </li>
 
-					<li>
+					          <li>
                         <a href="../../pages/tables/employee_view_project_list.php">
                             <i class="material-icons">view_list</i>
                             <span>Assignments</span>
@@ -226,33 +226,10 @@ header("location: sign-in.html");
                     </li>
 
                    <li>
-                        <a href="../../pages/tables/employee_view_employee_task.php">
+                        <a href="../../pages/tables/employee_open_task.php">
                             <i class="material-icons">date_range</i>
                             <span>Tasks</span>
                         </a>
-                    </li>
-
-					<li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">group</i>
-                            <span>Staff</span>
-                        </a>
-                        <ul class="ml-menu">
-							<li>
-                                <a href="../../pages/tables/register_employee.php">Register Staff</a>
-                            </li>
-							<li>
-                                <a href="../../pages/tables/register_employee.php">Register employee</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/tables/employee_view_employee.php">Profiles Staff</a>
-                            </li>
-							 <li>
-                                <a href="../../pages/tables/employee_view_employee.php">Profiles employee</a>
-                            </li>
-
-                        </ul>
-                    </li>
                     </li>
                 </ul>
             </div>
@@ -559,14 +536,14 @@ header("location: sign-in.html");
                 <!-- Task Info -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
-                        <div class="header">
-                                <h2>
+                        <div class="header bg-blue-grey">
+                                <h2><center><strong>
                                 HIGHLIGHTS
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
 
 
-                            </h2>
+                            </strong></center></h2>
 
                         </div>
                         <div class="body">
@@ -735,7 +712,7 @@ header("location: sign-in.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">CHANGE PASSWORD</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>CHANGE PASSWORD</center></h4>
 													</div>
 													<div class="modal-body">
 

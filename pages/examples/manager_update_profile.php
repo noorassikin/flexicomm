@@ -440,8 +440,8 @@ header("location: manager_login.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>Profile Details</h2>
+                        <div class="header bg-blue-grey">
+                            <h2><center><strong>Profile Details</strong></center></h2>
 
                         </div>
                         <div class="body">
@@ -506,7 +506,7 @@ header("location: manager_login.html");
                                 </div>
 
 								<div class="form-group" align="right">
-                                <button type="submit" class="btn btn-success waves-effect" type="submit"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
+                                <button type="submit" class="btn btn-success waves-effect" type="submit"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 								</div>
                             </form>
                         </div>

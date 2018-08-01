@@ -227,7 +227,7 @@ header("location: manager_login.html");
 					<li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
-                            <span>Employee</span>
+                            <span>Staff</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
@@ -237,7 +237,7 @@ header("location: manager_login.html");
                                 <a href="../../pages/tables/register_manager.php">Register Manager</a>
                             </li>
                             <li>
-                                <a href="../../pages/tables/manager_view_employee.php">Profiles Employee</a>
+                                <a href="../../pages/tables/manager_view_employee.php">Profiles Staff</a>
                             </li>
 							<li class="active">
                                 <a href="../../pages/tables/manager_view_manager.php">Profiles Manager</a>
@@ -435,8 +435,8 @@ header("location: manager_login.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header clearfix">
-                            <h2>
+                        <div class="header clearfix bg-blue-grey">
+                            <h2><center><strong>
                                 MANAGER LIST
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
@@ -444,7 +444,7 @@ header("location: manager_login.html");
 						  <a href= "register_manager.php" class="btn btn-success pull-right"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>Register Manager</a>
 
                                 </button>
-                            </h2>
+                            </strong></center></h2>
                         </div>
                         <div class="body">
 
@@ -503,7 +503,7 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">View Manager Profile</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>MANAGER PROFILE</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -581,7 +581,7 @@ header("location: manager_login.html");
 															</div>
 
 															<div class="modal-footer">
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 															</div>
 														</form>
 													</div>
@@ -595,7 +595,7 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Update Manager Details</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>EDIT MANAGER PROFILE</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -632,9 +632,10 @@ header("location: manager_login.html");
 
 
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect" name="update_manager"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-															</div>
+
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+                                <button type="submit" class="btn btn-success waves-effect" name="update_manager"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
+                              </div>
 														</form>
 													</div>
 												</div>
@@ -647,18 +648,18 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Delete Manager</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>DELETE MANAGER</center></h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="delete_id" value="<?php echo $id; ?>">
-
+                              <div class="alert bg-red">
 																<p><strong>Are you sure you want to delete <?php echo $manager_id; ?> ?</strong></p>
-
+                              </div>
 
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 																<button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 															</div>
 														</form>

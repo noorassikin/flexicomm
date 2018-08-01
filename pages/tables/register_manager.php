@@ -12,7 +12,7 @@ header("location: manager_login.html");
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>FlexiCOMM | Register Employee</title>
+    <title>FlexiCOMM | Register Manager</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -227,7 +227,7 @@ header("location: manager_login.html");
 					<li  class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
-                            <span>Employee</span>
+                            <span>Staff</span>
                         </a>
                         <ul class="ml-menu">
 							<li>
@@ -431,10 +431,10 @@ header("location: manager_login.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>
+                        <div class="header bg-blue-grey">
+                            <h2><center><strong>
                                Manager Details
-                            </h2>
+                            </strong></center></h2>
 
                         </div>
                         <div class="body">
@@ -451,7 +451,7 @@ header("location: manager_login.html");
                                         <input type="password" id="manager_password" name="manager_password" class="form-control" placeholder="Enter manager password">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">REGISTER</button>
+                                <button type="submit" class="btn btn-success m-t-15 waves-effect">REGISTER</button>
                             </form>
                         </div>
                     </div>

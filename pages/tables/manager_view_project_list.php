@@ -235,7 +235,7 @@ header("location: manager_login.html");
 					<li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
-                            <span>Employee</span>
+                            <span>Staff</span>
                         </a>
                         <ul class="ml-menu">
 							<li>
@@ -442,8 +442,8 @@ header("location: manager_login.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header clearfix">
-                            <h2>
+                        <div class="header clearfix bg-blue-grey">
+                            <h2><center><strong>
                                 ASSIGNMENT LIST
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
@@ -451,7 +451,7 @@ header("location: manager_login.html");
 								<a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>NEW ASSIGNMENT</a>
 
                                 </button>
-                            </h2>
+                            </strong></center></h2>
                         </div>
                         <div class="body">
 
@@ -558,7 +558,7 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">UPDATE ASSIGNMENT</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>EDIT ASSIGNMENT</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -620,7 +620,7 @@ header("location: manager_login.html");
 
 															<div class="modal-footer">
 																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-success waves-effect" name="update_project"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_project"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 															</div>
 														</form>
 													</div>
@@ -634,7 +634,7 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Delete Assignment</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>DELETE ASSIGNMENT</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -646,7 +646,7 @@ header("location: manager_login.html");
 
 															<div class="modal-footer">
 																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-success waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
+																<button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 															</div>
 														</form>
 													</div>
@@ -659,19 +659,19 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Completed Assignment</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>COMPLETE ASSIGNMENT</center></h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_project_complete" value="<?php echo $project_id; ?>">
 
-																<p><strong>Change status <?php echo $project_name; ?> to <font color = 'blue'>Completed</font>?</strong></p>
+																<p><strong>Change status <?php echo $project_name; ?> to <font color = 'green'>Completed</font>?</strong></p>
 
 
 															<div class="modal-footer">
-																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>Close</button>
-																<button type="submit" class="btn btn-success waves-effect" name="complete"><span class="glyphicon glyphicon-ok"></span>Completed</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="complete"><span class="glyphicon glyphicon-ok"></span>YES</button>
 															</div>
 														</form>
 													</div>
@@ -747,7 +747,7 @@ header("location: manager_login.html");
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h4 class="modal-title" id="defaultModalLabel">ADD NEW ADDRESS</h4>
+												<h4 class="modal-title" id="defaultModalLabel"><center>ADD NEW ASSIGNMENT</center></h4>
 											</div>
 											<div class="modal-body">
 														<form action = "manager_add_project.php" method="post" class="form-horizontal" role="form">
@@ -804,8 +804,9 @@ header("location: manager_login.html");
 															</div>
 
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect"><span class="glyphicon glyphicon-plus"></span>ADD NEW</button>
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+                                <button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+                                <button type="submit" class="btn btn-success waves-effect"><span class="glyphicon glyphicon-plus"></span>SUBMIT</button>
+
 															</div>
 														</form>
 											</div>

@@ -245,7 +245,7 @@ header("location: manager_login.html");
 					<li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
-                            <span>Employee</span>
+                            <span>Staff</span>
                         </a>
                         <ul class="ml-menu">
 							<li>
@@ -449,16 +449,16 @@ header("location: manager_login.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>
+                        <div class="header bg-blue-grey">
+                            <h2><center>
 								<?php
 									$project_name = $_GET['project_name'];
 									//echo "<label>Project Title:</label>" ;
-									echo 'Assignment Details :';
+									echo 'ASSIGNMENT : ';
 
-									echo '<font color= "red">' .$project_name. '</font>';
+									echo '<font color= "black"><strong>' .$project_name. '</strong></font>';
 								?>
-                            </h2>
+              </center></h2>
 
                         </div>
                         <div class="body">
@@ -789,7 +789,7 @@ header("location: manager_login.html");
 																		<div class="modal-dialog" role="document">
 																			<div class="modal-content">
 																				<div class="modal-header">
-																					<h4 class="modal-title" id="defaultModalLabel">UPDATE TASK</h4>
+																					<h4 class="modal-title" id="defaultModalLabel"><center>EDIT TASK DETAILS</center></h4>
 																				</div>
 																				<div class="modal-body">
 
@@ -845,7 +845,7 @@ header("location: manager_login.html");
 																							<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																								<div class="form-group">
 																									<div class="form-line">
-																									<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Correction Action"><?php echo $task_comment; ?></textarea>
+																									<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Solutions"><?php echo $task_comment; ?></textarea>
 																									</div>
 																								</div>
 																							</div>
@@ -853,7 +853,7 @@ header("location: manager_login.html");
 
 																						<div class="modal-footer">
 																							<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																							<button type="submit" class="btn btn-success waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
+																							<button type="submit" class="btn btn-success waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 																						</div>
 																					</form>
 																				</div>
