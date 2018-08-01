@@ -8,7 +8,7 @@ header("location: manager_login.html");
 ?>
 <?php
 // Create connection
-$con=mysqli_connect("localhost","root","","task");
+$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 // Check connection
 if (mysqli_connect_errno())
@@ -20,18 +20,18 @@ if(isset($_POST['manager_name'])){
 	$a = $_POST['manager_name'];
 	$d = $_POST['manager_email'];
 	$e = $_POST['manager_phoneno'];
-	$f = $_POST['manager_address'];  
-	//$g = $_POST['ID'];  
-	  
-	$sql = "UPDATE manager SET 
-				manager_name='$a', 
+	$f = $_POST['manager_address'];
+	//$g = $_POST['ID'];
+
+	$sql = "UPDATE manager SET
+				manager_name='$a',
 				manager_email='$d',
 				manager_phoneno= '$e',
-				manager_address= '$f' 
+				manager_address= '$f'
 			WHERE manager_id='$abc'";
 
 	$result = mysqli_query($con,$sql);
-}  
+}
 
 header('Location: manager_view_profile.php');
 ?>

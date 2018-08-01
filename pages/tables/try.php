@@ -314,7 +314,7 @@ header("location: employee_login.html");
                             <span>Home</span>
                         </a>
                     </li>
-					
+
 					<li class="active">
                         <a href="../../pages/tables/employee_view_project_list.php">
                             <i class="material-icons">view_list</i>
@@ -322,8 +322,8 @@ header("location: employee_login.html");
                         </a>
                     </li>
 
-					
-                    
+
+
                 </ul>
             </div>
             <!-- #Menu -->
@@ -487,9 +487,9 @@ header("location: employee_login.html");
 
     <section class="content">
         <div class="container-fluid">
-		
+
 				<div class="body">
-                           
+
                             <ol class="breadcrumb">
                                 <li>
                                     <a href="javascript:void(0);">
@@ -503,7 +503,7 @@ header("location: employee_login.html");
                                     <i class="material-icons">library_books</i> Project Detail
                                 </li>
                             </ol>
-                            
+
                  </div>
                         <!-- Tabs With Icon Title -->
             <div class="row clearfix">
@@ -511,13 +511,13 @@ header("location: employee_login.html");
                     <div class="card">
                         <div class="header">
                             <h2>
-								<?php 
+								<?php
 									$project_name = $_GET['project_name'];
 									//echo "<label>Project Title:</label>" ;
 									echo $project_name;
 								?>
                             </h2>
-                            
+
                         </div>
                         <div class="body">
                             <!-- Nav tabs -->
@@ -537,14 +537,14 @@ header("location: employee_login.html");
                                         <i class="material-icons">chat_bubble_outline</i> Discussion
                                     </a>
                                 </li>
-                                
+
                             </ul>
 
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active" id="home_with_icon_title">
-                                   
-									
+
+
                                     <p>
 									  <!-- Basic Table -->
             <div class="row clearfix">
@@ -552,31 +552,31 @@ header("location: employee_login.html");
                     <div class="card">
                        <!-- <div class="header">
                             <h2>
-                                <?php 
+                                <?php
 										$project_name = $_GET['project_name'];
 										//echo "<label>Project Title:</label>" ;
-										echo $project_name; 
+										echo $project_name;
 									?>
                             </h2>
-                            
+
                         </div> -->
                         <div class="body table-responsive">
                             <table class="table">
-                               
+
                                 <tbody>
-                                    						
+
 										 <?php
-											$con=mysqli_connect("localhost","root","","task");
+											$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 											$project_id = $_GET['project_id'];
 
 											if (mysqli_connect_errno())
 											  {
 											  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 											  }
-                   
-							
-											$sql = "SELECT project.project_id, project.project_name, project.project_description, project.project_date_created, project.project_due_date, project.project_status, employee.employee_id, employee.employee_name, task.employee_id, 
-													GROUP_CONCAT( DISTINCT employee.employee_name ) AS employee 
+
+
+											$sql = "SELECT project.project_id, project.project_name, project.project_description, project.project_date_created, project.project_due_date, project.project_status, employee.employee_id, employee.employee_name, task.employee_id,
+													GROUP_CONCAT( DISTINCT employee.employee_name ) AS employee
 													FROM project, task, employee
 													WHERE project.project_id = task.project_id
 													AND task.employee_id = employee.employee_id
@@ -584,7 +584,7 @@ header("location: employee_login.html");
 													GROUP BY project.project_id
 													";
 											$result = $con->query($sql);
-											
+
 
 											if ($result->num_rows > 0) {
 												// output data of each row
@@ -594,38 +594,38 @@ header("location: employee_login.html");
 														echo "<th>ID</th>";
 														echo "<td>" . $row["project_id"]. "</td>";
 													echo "</tr>";
-													
+
 													echo "<tr>";
 														echo "<th>Title</th>";
 														echo "<td>" . $row["project_name"]. "</td>";
 													echo "</tr>";
-													
+
 													echo "<tr>";
 														echo "<th>Description</th>";
 														echo "<td>" . $row["project_description"]. "</td>";
 													echo "</tr>";
-													
+
 													echo "<tr>";
 														echo "<th>Date Created</th>";
 														echo "<td>" . $row["project_date_created"]. "</td>";
 													echo "</tr>";
-													
+
 													echo "<tr>";
 														echo "<th>Due Date</th>";
 														echo "<td>" . $row["project_due_date"]. "</td>";
 													echo "</tr>";
-													
+
 													echo "<tr>";
 														echo "<th>Status</th>";
 														echo "<td>" . $row["project_status"]. "</td>";
 													echo "</tr>";
-													
+
 													echo "<tr>";
 														echo "<th>Employee (PIC)</th>";
 														echo "<td>" . $row["employee"]. "</td>";
 													echo "</tr>";
-													
-													
+
+
 												}
 											} else {
 												echo "0 results";
@@ -648,9 +648,9 @@ header("location: employee_login.html");
 										<div class="row clearfix">
 											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 												<div class="card">
-													
+
 													<div class="body">
-													
+
 														<table class="table table-bordered table-striped table-hover dataTable js-exportable">
 															<thead>
 																<tr>
@@ -663,21 +663,21 @@ header("location: employee_login.html");
 																</tr>
 																</tr>
 															</thead>
-															
+
 															<tbody>
 																<?php
-																$conn=mysqli_connect("localhost","root","","task");
+																$conn=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 																if (mysqli_connect_errno())
 																  {
 																  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 																  }
-																  
+
 																$abc=$_SESSION['employee_id'];
 																$sql = "SELECT task.task_id,task.task_title, task.task_status, task.task_due_date, task.task_description, project.project_id, project.project_name, employee.employee_id
 																		FROM task,project, employee
-																		WHERE task.project_id = project.project_id 
-																		AND task.employee_id = employee.employee_id 
+																		WHERE task.project_id = project.project_id
+																		AND task.employee_id = employee.employee_id
 																		AND task.employee_id = '$abc'
 																		AND task.project_id =  '$project_id'";
 																$result = $conn->query($sql);
@@ -697,7 +697,7 @@ header("location: employee_login.html");
 																			  <td>$task_status</td>
 																			  <td>$task_due_date</td>
 																			  <td>$task_description</td>
-																		   
+
 																			";
 																?>
 																<td>
@@ -708,8 +708,8 @@ header("location: employee_login.html");
 																	</div>
 																</td>
 
-																
-																		
+
+
 																 <!-- Update Task List -->
 																	<div class="modal fade" id="defaultModal<?php echo $task_id; ?>" tabindex="-1" role="dialog">
 																		<div class="modal-dialog" role="document">
@@ -723,7 +723,7 @@ header("location: employee_login.html");
 																						<input type="hidden" name="edit_task_id" value="<?php echo $task_id;  ?>">
 																						<input type="hidden" name="edit_employee_id" value="<?php echo $employee_id;  ?>">
 
-																					
+
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																								<label for="task_title">Tasks</label>
@@ -735,8 +735,8 @@ header("location: employee_login.html");
 																									</div>
 																								</div>
 																							</div>
-																						</div>																			
-																						
+																						</div>
+
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																								<label for="task_due_date">Due Date</label>
@@ -749,7 +749,7 @@ header("location: employee_login.html");
 																								</div>
 																							</div>
 																						</div>
-																						
+
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																								<label for="task_description">Issues</label>
@@ -762,18 +762,18 @@ header("location: employee_login.html");
 																								</div>
 																							</div>
 																						</div>
-																						
+
 																						<div class="modal-footer">
 																							<button type="submit" class="btn btn-info waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
 																							<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 																						</div>
-																					</form>													
+																					</form>
 																				</div>
 																			</div>
 																		</div>
 																	</div>
-																	
-																	
+
+
 																 <!-- Delete Project List -->
 																	<div class="modal fade" id="delete<?php echo $task_id; ?>" tabindex="-1" role="dialog">
 																		<div class="modal-dialog" role="document">
@@ -788,22 +788,22 @@ header("location: employee_login.html");
 																						<div class="alert bg-red">
 																							<p><strong>Are you sure you want to delete <?php echo $task_title; ?> ?</strong></p>
 																						</div>
-																						
+
 																						<div class="modal-footer">
 																							<button type="submit" class="btn btn-info waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 																							<button type="button" class="btn btn bg-pink waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 																						</div>
-																					</form>													
+																					</form>
 																				</div>
 																			</div>
 																		</div>
 																	</div>
 
-																
-																
+
+
 																<?php
 																$x++;}
-																
+
 																//Update Tasks
 																if(isset($_POST['update_task'])){
 																	$edit_task_id = $_POST['edit_task_id'];
@@ -811,7 +811,7 @@ header("location: employee_login.html");
 																	$task_title = $_POST['task_title'];
 																	$task_due_date = $_POST['task_due_date'];
 																	$task_description = $_POST['task_description'];
-																	$sql = "UPDATE task SET 
+																	$sql = "UPDATE task SET
 																		task_title='$task_title',
 																		task_due_date='$task_due_date',
 																		task_description='$task_description'
@@ -832,8 +832,8 @@ header("location: employee_login.html");
 																	} else {
 																		echo "Error deleting record: " . $conn->error;
 																		}
-																	} 
-																
+																	}
+
 															}
 																?>
 															</tbody>
@@ -842,10 +842,10 @@ header("location: employee_login.html");
 												</div>
 											</div>
 										</div>
-										<!-- #END# Exportable Table -->       
+										<!-- #END# Exportable Table -->
 									</p>
 										</div>
-										
+
 										 <div role="tabpanel" class="tab-pane fade" id="messages">
                                     <b>Message Content</b>
                                     <p>
@@ -855,9 +855,9 @@ header("location: employee_login.html");
                                         sadipscing mel.
                                     </p>
                                 </div>
-										
-										
-										
+
+
+
     </section>
 
     <!-- Jquery Core Js -->

@@ -10,7 +10,7 @@ header("location: employee_login.html");
 <?php
 
 // Create connection
-$con=mysqli_connect("localhost","root","","task");
+$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 // Check connection
 if (mysqli_connect_errno())
@@ -32,4 +32,3 @@ $result = mysqli_query($con,$sql);
 header('Location: employee_open_task.php');
 
 ?>
-

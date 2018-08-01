@@ -4,7 +4,7 @@
 session_start();
 error_reporting(0);
 if(!isset($_SESSION['admin_id'])){
-header("location: admin_login.html");
+header("location: sign-in.html");
 }
 ?>
 <html>
@@ -795,14 +795,14 @@ header("location: admin_login.html");
         </aside>
         <!-- #END# Right Sidebar -->
     </section>
-	
+
         <!-- Coding dalam container -->
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
                 <h2>DASHBOARD</h2>
             </div>
-			
+
 			 <!-- Widgets -->
             <div class="row clearfix">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -851,8 +851,8 @@ header("location: admin_login.html");
                 </div>
             </div>
             <!-- #END# Widgets -->
-			
-			
+
+
         </div>
     </section>
 	        <!-- #END# Coding dalam container -->

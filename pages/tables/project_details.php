@@ -15,7 +15,7 @@ $employee_id = $_SESSION['employee_id'];
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>FlexiCOMM| Project Details</title>
+    <title>FlexiCOMM| Assignment Details</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -40,7 +40,7 @@ $employee_id = $_SESSION['employee_id'];
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../../css/themes/all-themes.css" rel="stylesheet" />
-	
+
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
 	<style>
@@ -74,7 +74,7 @@ $employee_id = $_SESSION['employee_id'];
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
-    
+
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
@@ -89,9 +89,9 @@ $employee_id = $_SESSION['employee_id'];
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
-							
+
 							 <?php
-								$con=mysqli_connect("localhost","root","","task");
+								$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 								if (mysqli_connect_errno())
 								{
@@ -99,22 +99,22 @@ $employee_id = $_SESSION['employee_id'];
 								}
 								$abc=$_SESSION['employee_id'];
 								$sql  = '
-										SELECT employee_id,task_status, COUNT(*) 
+										SELECT employee_id,task_status, COUNT(*)
 										 AS count
 										 FROM task
 										 WHERE task_status="delayed"
 										 AND employee_id = "'.$_SESSION['employee_id'].'"
 										 ';
-										 
+
 										 $result=mysqli_query($con,$sql);
 											if($result)
 											{
 												while($row=mysqli_fetch_assoc($result))
 												{
 													//echo $row['c'];
-													
+
 													echo '<span class="label-count">'.$row['count'].'</span>';
-												}       
+												}
 											}
 							?>
                         </a>
@@ -128,36 +128,36 @@ $employee_id = $_SESSION['employee_id'];
                                                 <i class="material-icons">date_range</i>
                                             </div>
                                             <div class="menu-info">
-                                                
+
 													<?php
-														$con=mysqli_connect("localhost","root","","task");
-														$t = "SELECT employee_id,task_status, COUNT(*) 
+														$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
+														$t = "SELECT employee_id,task_status, COUNT(*)
 																	 AS count
 																	 FROM task
 																	 WHERE task_status='delayed'
 																	 AND employee_id = '".$_SESSION['employee_id']."'
 																	 '";
 														$result=mysqli_query($con,$sql);
-														
+
 														if($result)
 														{
 															while($row=mysqli_fetch_assoc($result))
 															{
-														echo '<h4>'; 
+														echo '<h4>';
 														 echo '
 																 You have '.$row['count'].' delayed task
 																';
 																echo '<h4>';
 														 }}
 													?>
-												
+
                                                <p>
-                                                    <i class="material-icons">access_time</i> 
+                                                    <i class="material-icons">access_time</i>
                                                 </p>
                                             </div>
                                         </a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                             <!-- <li class="footer">
@@ -166,7 +166,7 @@ $employee_id = $_SESSION['employee_id'];
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
-                    
+
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
             </div>
@@ -181,10 +181,10 @@ $employee_id = $_SESSION['employee_id'];
                 <div class="image">
                    <!-- <img src="../../images/user.png" width="48" height="48" alt="User" /> -->
                 </div>
-				
+
 				<?php
 
-							$con=mysqli_connect("localhost","root","","task");
+							$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 							if (mysqli_connect_errno())
 							  {
@@ -196,8 +196,8 @@ $employee_id = $_SESSION['employee_id'];
 							$employee_id=$row['employee_id'];
 							$employee_name=$row['employee_name'];
 							$employee_email=$row['employee_email'];
-				?>	
-				
+				?>
+
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $employee_name; ?></div>
                     <div class="email"><?php echo $employee_email; ?></div>
@@ -224,21 +224,21 @@ $employee_id = $_SESSION['employee_id'];
                             <span>Home</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="../../pages/examples/employee_view_profile.php">
                             <i class="material-icons">person</i>
                             <span>Profile</span>
                         </a>
                     </li>
-					
+
 					<li class="active">
                         <a href="../../pages/tables/employee_view_project_list.php">
                             <i class="material-icons">view_list</i>
                             <span>Assignments</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="../../pages/tables/employee_open_task.php">
                             <i class="material-icons">date_range</i>
@@ -409,9 +409,9 @@ $employee_id = $_SESSION['employee_id'];
 
     <section class="content">
         <div class="container-fluid">
-		
+
 				<div class="body">
-                           
+
                             <ol class="breadcrumb">
                                 <li>
                                     <a href="../../pages/examples/employee_home.php">
@@ -427,7 +427,7 @@ $employee_id = $_SESSION['employee_id'];
                                     <i class="material-icons">details</i> Assignment Details
                                 </li>
                             </ol>
-                            
+
                  </div>
                         <!-- Tabs With Icon Title -->
             <div class="row clearfix">
@@ -435,15 +435,15 @@ $employee_id = $_SESSION['employee_id'];
                     <div class="card">
                         <div class="header">
                             <h2>
-								<?php 
+								<?php
 									$project_name = $_GET['project_name'];
 									//echo "<label>Project Title:</label>" ;
-									echo 'ASSIGNMENT : '; 
-									
+									echo 'ASSIGNMENT : ';
+
 									echo '<font color= "red">' .$project_name. '</font>';
 								?>
                             </h2>
-                            
+
                         </div>
                         <div class="body">
                             <!-- Nav tabs -->
@@ -463,16 +463,16 @@ $employee_id = $_SESSION['employee_id'];
                                         <i class="material-icons">chat_bubble_outline</i> Discussion
                                     </a>
                                 </li>
-                                
+
                             </ul>
 
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active" id="home_with_icon_title">
                                     <b>
-									
+
 									</b>
-									
+
                                     <p>
                                     <!-- Basic Table -->
 									<div class="row clearfix">
@@ -480,33 +480,33 @@ $employee_id = $_SESSION['employee_id'];
 											<div class="card">
 											   <!-- <div class="header">
 													<h2>
-														<?php 
+														<?php
 																$project_name = $_GET['project_name'];
 																//echo "<label>Project Title:</label>" ;
-																echo $project_name; 
+																echo $project_name;
 															?>
 													</h2>
-													
+
 												</div> -->
 												<div class="body table-responsive">
 													<table class="table">
-													   
+
 														<tbody>
-																					
+
 																 <?php
-																	$con=mysqli_connect("localhost","root","","task");
+																	$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 																	$project_id = $_GET['project_id'];
 
 																	if (mysqli_connect_errno())
 																	  {
 																	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 																	  }
-										   
-													
-																	$sql = "SELECT project.project_id, project.project_name, project.project_description, 
-																			project.project_date_created, project.project_due_date, project.project_status, employee.employee_id, 
+
+
+																	$sql = "SELECT project.project_id, project.project_name, project.project_description,
+																			project.project_date_created, project.project_due_date, project.project_status, employee.employee_id,
 																			employee.employee_name, task.employee_id,
-																			GROUP_CONCAT( DISTINCT employee.employee_name ) AS pic 
+																			GROUP_CONCAT( DISTINCT employee.employee_name ) AS pic
 																			FROM project, task, employee
 																			WHERE project.project_id = task.project_id
 																			AND task.employee_id = employee.employee_id
@@ -514,7 +514,7 @@ $employee_id = $_SESSION['employee_id'];
 																			GROUP BY project.project_id
 																			";
 																	$result = $con->query($sql);
-																	
+
 
 																	if ($result->num_rows > 0) {
 																		// output data of each row
@@ -524,38 +524,38 @@ $employee_id = $_SESSION['employee_id'];
 																				echo "<th>ID</th>";
 																				echo "<td>" . $row["project_id"]. "</td>";
 																			echo "</tr>";
-																			
+
 																			echo "<tr>";
 																				echo "<th>Title</th>";
 																				echo "<td>" . $row["project_name"]. "</td>";
 																			echo "</tr>";
-																			
+
 																			echo "<tr>";
 																				echo "<th>Description</th>";
 																				echo "<td>" . $row["project_description"]. "</td>";
 																			echo "</tr>";
-																			
+
 																			echo "<tr>";
 																				echo "<th>Start Date</th>";
 																				echo "<td>" . $row["project_date_created"]. "</td>";
 																			echo "</tr>";
-																			
+
 																			echo "<tr>";
 																				echo "<th>Due Date</th>";
 																				echo "<td>" . $row["project_due_date"]. "</td>";
 																			echo "</tr>";
-																			
+
 																			echo "<tr>";
 																				echo "<th>Status</th>";
 																				echo "<td>" . $row["project_status"]. "</td>";
 																			echo "</tr>";
-																			
+
 																			echo "<tr>";
 																				echo "<th>Staff (PIC)</th>";
 																				echo "<td>" . $row["pic"]. "</td>";
 																			echo "</tr>";
-																			
-																			
+
+
 																		}
 																	} else {
 																		echo "0 results";
@@ -571,9 +571,9 @@ $employee_id = $_SESSION['employee_id'];
 									<!-- #END# Basic Table -->
                                     </p>
                                 </div>
-								
-								
-								
+
+
+
                                 <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
                                     <!--<b>Profile Content</b>-->
                                     <p>
@@ -581,9 +581,9 @@ $employee_id = $_SESSION['employee_id'];
 										<div class="row clearfix">
 											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 												<div class="card">
-													
+
 													<div class="body">
-													
+
 														<table class="table table-bordered table-striped table-hover dataTable js-exportable">
 															<thead>
 																<tr>
@@ -598,21 +598,21 @@ $employee_id = $_SESSION['employee_id'];
 																</tr>
 																</tr>
 															</thead>
-															
+
 															<tbody>
 																<?php
-																$conn=mysqli_connect("localhost","root","","task");
+																$conn=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 																if (mysqli_connect_errno())
 																  {
 																  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 																  }
-																  
+
 																$abc=$_SESSION['employee_id'];
 																$sql = "SELECT task.task_id,task.task_title, task.task_status, task.task_created, task.task_due_date, task.task_description, task.task_comment, project.project_id, project.project_name, employee.employee_id
 																		FROM task,project, employee
-																		WHERE task.project_id = project.project_id 
-																		AND task.employee_id = employee.employee_id 
+																		WHERE task.project_id = project.project_id
+																		AND task.employee_id = employee.employee_id
 																		AND task.employee_id = '$abc'
 																		AND task.project_id =  '$project_id'";
 																$result = $conn->query($sql);
@@ -624,19 +624,19 @@ $employee_id = $_SESSION['employee_id'];
 																		$task_title = $row['task_title'];
 																		$project_name = $row['project_name'];
 																		$task_status = $row['task_status'];
-																		
+
 																		if($task_status == 'Delayed'){
 																		$alert = "<div class='badge bg-red'>
-																		<strong>$task_status</strong> 
+																		<strong>$task_status</strong>
 																		</div>";
 																			}else if($task_status == 'In Progress'){
 																				$alert = "<div class='badge bg-green'>
-																				<strong>$task_status</strong> 
+																				<strong>$task_status</strong>
 																				</div>";
 																			}else {
 																				$alert = $task_status;
 																			}
-																			
+
 																		$task_created = $row['task_created'];
 																		$task_due_date = $row['task_due_date'];
 																		$task_description = $row['task_description'];
@@ -651,7 +651,7 @@ $employee_id = $_SESSION['employee_id'];
 																			  <td>$task_comment</td>
 																			"; */
 																?>
-																
+
 																			<tr>
 																			<td><?php echo $x; ?></td>
 																			<td><?php echo $task_title; ?></td>
@@ -668,8 +668,8 @@ $employee_id = $_SESSION['employee_id'];
 																	</div>
 																</td> -->
 
-																
-																		
+
+
 																 <!-- Update Task List -->
 																	<div class="modal fade" id="defaultModal<?php echo $task_id; ?>" tabindex="-1" role="dialog">
 																		<div class="modal-dialog" role="document">
@@ -682,7 +682,7 @@ $employee_id = $_SESSION['employee_id'];
 																					<form method="post" class="form-horizontal" role="form">
 																						<input type="hidden" name="edit_task_id" value="<?php echo $task_id; ?>">
 																						<input type="hidden" name="edit_employee_id" value="<?php echo $employee_id;  ?>">
-																					
+
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																								<label for="task_title">Tasks</label>
@@ -694,8 +694,8 @@ $employee_id = $_SESSION['employee_id'];
 																									</div>
 																								</div>
 																							</div>
-																						</div>																			
-																						
+																						</div>
+
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																								<label for="task_due_date">Due Date</label>
@@ -708,7 +708,7 @@ $employee_id = $_SESSION['employee_id'];
 																								</div>
 																							</div>
 																						</div>
-																						
+
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																								<label for="task_description">Issues</label>
@@ -721,12 +721,12 @@ $employee_id = $_SESSION['employee_id'];
 																								</div>
 																							</div>
 																						</div>
-															
+
 																						<div class="modal-footer">
 																							<button type="submit" class="btn btn-info waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
 																							<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 																						</div>
-																					</form>													
+																					</form>
 																				</div>
 																			</div>
 																		</div>
@@ -736,7 +736,7 @@ $employee_id = $_SESSION['employee_id'];
 																		<div class="modal-dialog" role="document">
 																			<div class="modal-content">
 																				<div class="modal-header">
-																					<h4 class="modal-title" id="defaultModalLabel">Delete Project</h4>
+																					<h4 class="modal-title" id="defaultModalLabel">Delete Assignment</h4>
 																				</div>
 																				<div class="modal-body">
 
@@ -745,22 +745,22 @@ $employee_id = $_SESSION['employee_id'];
 																						<div class="alert bg-red">
 																							<p><strong>Are you sure you want to delete <?php echo $task_title; ?> ?</strong></p>
 																						</div>
-																						
+
 																						<div class="modal-footer">
 																							<button type="submit" class="btn btn-info waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 																							<button type="button" class="btn btn bg-pink waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 																						</div>
-																					</form>													
+																					</form>
 																				</div>
 																			</div>
 																		</div>
 																	</div>
 
-																
-																
+
+
 																<?php
 																$x++;}
-																
+
 																//Update Tasks
 																if(isset($_POST['update_task'])){
 																	$edit_task_id = $_POST['edit_task_id'];
@@ -770,7 +770,7 @@ $employee_id = $_SESSION['employee_id'];
 																	$task_title = $_POST['task_title'];
 																	$task_due_date = $_POST['task_due_date'];
 																	$task_description = $_POST['task_description'];
-																	$sql = "UPDATE task SET 
+																	$sql = "UPDATE task SET
 																		task_title='$task_title',
 																		task_due_date='$task_due_date',
 																		task_description='$task_description'
@@ -791,50 +791,50 @@ $employee_id = $_SESSION['employee_id'];
 																	} else {
 																		echo "Error deleting record: " . $conn->error;
 																		}
-																	} 
-																
+																	}
+
 															}
 																?>
-																
-																
+
+
 															</tbody>
 														</table>
 													</div>
 												</div>
 											</div>
 										</div>
-										<!-- #END# Exportable Table -->                                       
+										<!-- #END# Exportable Table -->
 										</p>
-										
+
 									</div>
-                                
-									
-								
+
+
+
 								<div role="tabpanel" class="tab-pane fade" id="messages_with_icon_title">
                                     <center><font color = 'green'><b>CHAT WITH YOUR TEAM MEMBERS!</b></font></center>
                                     <p>
 									<!-- Basic Example -->
-									
+
 									<?php
-									$con=mysqli_connect("localhost","root","","task");
+									$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 									if (mysqli_connect_errno())
 									  {
 									  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 									  }
-									
+
 									$project_idd = $_GET['project_id'];
 									$select = "SELECT employee_id from task where project_id = $project_idd";
 									$result = $con->query($select);
 									while($rows = $result->fetch_assoc()){
 										$employeeid = $rows["employee_id"];
-									
+
 										if ($employeeid == $employee_id){
 									?>
 												<div class="row clearfix">
 													<div class="col-lg-12 col-md-4 col-sm-6 col-xs-12" >
 														<div class="card">
-															
+
 															<div class="body">
 															<div class="scroll-box">
 															<div id="news" onload="GetNews()"></div>
@@ -842,7 +842,7 @@ $employee_id = $_SESSION['employee_id'];
 															<script>
 															function GetNews() {
 																$.ajax({
-																	url: "loaddata.php?id=<?php echo $_REQUEST['project_id']; ?>", 
+																	url: "loaddata.php?id=<?php echo $_REQUEST['project_id']; ?>",
 																	success: (function (result) {
 																		$("#news").html(result);
 																	})
@@ -877,37 +877,37 @@ $employee_id = $_SESSION['employee_id'];
 																});
 															  });
 															</script>
-															
-															
-															
-															
+
+
+
+
 															</div>
 														</div>
 													</div>
 												</div>
-												<!-- #END# Basic Example -->                                    
+												<!-- #END# Basic Example -->
 												</p>
-												<?php 
+												<?php
 												break;
 												}
 												/*elseif($employeeid != $employee_id){
 												echo '<div class="alert alert-warning">';
 												echo "Sorry! Not part of project team";
 												echo '</div>';
-												
+
 												break;
 												}*/
 												}
 												?>
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- #END# Tabs With Icon Title -->
-			
+
 				<!-- Update Password -->
 										<div class="modal fade" id="changepass" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
@@ -920,7 +920,7 @@ $employee_id = $_SESSION['employee_id'];
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_id" value="<?php echo $employee_id; ?>">
 
-														
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="employee_password">Current Password</label>
@@ -933,7 +933,7 @@ $employee_id = $_SESSION['employee_id'];
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="password1">New Password</label>
@@ -946,7 +946,7 @@ $employee_id = $_SESSION['employee_id'];
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="password2">Confirm Password</label>
@@ -965,7 +965,7 @@ $employee_id = $_SESSION['employee_id'];
 																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
 															</div>
-															
+
 														<?php
 
 															if(isset($_POST['update_password'])){
@@ -973,25 +973,25 @@ $employee_id = $_SESSION['employee_id'];
 																$user = "root";
 																$pass = "";
 																$db = "task";
-																
-																$employee_id = mysqli_real_escape_string($con,$_POST['employee_id']); 
+
+																$employee_id = mysqli_real_escape_string($con,$_POST['employee_id']);
 																$password1 = mysqli_real_escape_string($con,$_POST['password1']);
 																$password2 = mysqli_real_escape_string($con,$_POST['password2']);
 																$employee_password = mysqli_real_escape_string($con,$_POST['employee_password']);
-																
-																$select = "SELECT * FROM employee WHERE employee_id = '$employee_id' ";						
+
+																$select = "SELECT * FROM employee WHERE employee_id = '$employee_id' ";
 																$result = $con->query($select);
 																while($row = $result->fetch_assoc()){
 																	$password = $row["employee_password"];
 																}
-																
+
 																if($employee_password == $password){
 																	if($password1===$password2){
-																	
+
 																		$query = "UPDATE employee SET employee_id= '$employee_id', employee_password='$password1' WHERE  employee_id='$employee_id'  ";
 																		echo "<script type = \"text/javascript\">
 																					alert(\"Password Updated\");
-																					
+
 																				</script>";
 																		$result = $con->query($query);
 																	}
@@ -1010,8 +1010,8 @@ $employee_id = $_SESSION['employee_id'];
 																}
 															}
 														?>
-														
-														</form>													
+
+														</form>
 													</div>
 												</div>
 											</div>

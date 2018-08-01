@@ -61,7 +61,7 @@ header("location: manager_login.html");
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
-    
+
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
@@ -76,32 +76,32 @@ header("location: manager_login.html");
 <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
-							
+
 							 <?php
-								$con=mysqli_connect("localhost","root","","task");
+								$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 								if (mysqli_connect_errno())
 								{
 								echo "Failed to connect to MySQL: " . mysqli_connect_error();
 								}
-								
+
 								$sql  = '
-										SELECT employee_id,task_status, COUNT(*) 
+										SELECT employee_id,task_status, COUNT(*)
 										 AS count
 										 FROM task
 										 WHERE task_status="delayed"
-										 
+
 										 ';
-										 
+
 										 $result=mysqli_query($con,$sql);
 											if($result)
 											{
 												while($row=mysqli_fetch_assoc($result))
 												{
 													//echo $row['c'];
-													
+
 													echo '<span class="label-count">'.$row['count'].'</span>';
-												}       
+												}
 											}
 							?>
                         </a>
@@ -115,36 +115,36 @@ header("location: manager_login.html");
                                                 <i class="material-icons">date_range</i>
                                             </div>
                                             <div class="menu-info">
-                                                
+
 													<?php
-														$con=mysqli_connect("localhost","root","","task");
-														$t = "SELECT employee_id,task_status, COUNT(*) 
+														$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
+														$t = "SELECT employee_id,task_status, COUNT(*)
 																	 AS count
 																	 FROM task
 																	 WHERE task_status='delayed'
-																	 
+
 																	 '";
 														$result=mysqli_query($con,$sql);
-														
+
 														if($result)
 														{
 															while($row=mysqli_fetch_assoc($result))
 															{
-														echo '<h4>'; 
+														echo '<h4>';
 														 echo '
 																 '.$row['count'].' delayed task
 																';
 																echo '<h4>';
 														 }}
 													?>
-												
+
                                                <p>
-                                                    <i class="material-icons">access_time</i> 
+                                                    <i class="material-icons">access_time</i>
                                                 </p>
                                             </div>
                                         </a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                             <li class="footer">
@@ -166,10 +166,10 @@ header("location: manager_login.html");
                 <div class="image">
                     <img src="../../images/user.png" width="48" height="48" alt="User" />
                 </div>
-				
+
 				<?php
 
-							$con=mysqli_connect("localhost","root","","task");
+							$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 							if (mysqli_connect_errno())
 							  {
@@ -182,7 +182,7 @@ header("location: manager_login.html");
 							$manager_name=$row['manager_name'];
 							$manager_email=$row['manager_email'];
 				?>
-				
+
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $manager_name; ?></div>
                     <div class="email"><?php echo $manager_email; ?></div>
@@ -209,21 +209,21 @@ header("location: manager_login.html");
                             <span>Home</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="../../pages/tables/manager_view_project_list.php">
                             <i class="material-icons">view_list</i>
-                            <span>Projects</span>
+                            <span>Assignments</span>
                         </a>
                     </li>
-					
+
                    <li>
                         <a href="../../pages/tables/manager_view_employee_task.php">
                             <i class="material-icons">date_range</i>
                             <span>Tasks</span>
                         </a>
                     </li>
-					
+
 					<li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
@@ -242,7 +242,7 @@ header("location: manager_login.html");
 							<li>
                                 <a href="../../pages/tables/manager_view_manager.php">Profiles Manager</a>
                             </li>
-                           
+
                         </ul>
                     </li>
                 </ul>
@@ -408,9 +408,9 @@ header("location: manager_login.html");
 
     <section class="content">
         <div class="container-fluid">
-		
+
 		 <div class="body">
-                           
+
                             <ol class="breadcrumb">
                                 <li>
                                     <a href="javascript:void(0);">
@@ -421,7 +421,7 @@ header("location: manager_login.html");
                                     <i class="material-icons">group</i> Employee List
                                 </li>
                             </ol>
-                            
+
         </div>
              <!--<div class="block-header">
                 <h2>
@@ -429,38 +429,38 @@ header("location: manager_login.html");
                     <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
                 </h2>
             </div>-->
-          
+
             <!-- Exportable Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header clearfix">
                             <h2>
-                                EMPLOYEE LIST
+                                STAFF LIST
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
-                       
-						  <a href= "register_employee.php" class="btn btn-success pull-right"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>Register Employee</a>
-                       
+
+						  <a href= "register_employee.php" class="btn btn-success pull-right"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>REGISTER STAFF</a>
+
                                 </button>
                             </h2>
                         </div>
                         <div class="body">
-						
+
                             <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
                                     <tr>
                                         <th width = "10%">No.</th>
-										<th>Employee ID</th>
-										
+										<th>Staff ID</th>
+
 										<th width = "20%">Action</th>
 									</tr>
                                     </tr>
                                 </thead>
-                                
+
                                 <tbody>
                                     <?php
-									$conn=mysqli_connect("localhost","root","","task");
+									$conn=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 									if (mysqli_connect_errno())
 									  {
@@ -482,12 +482,12 @@ header("location: manager_login.html");
 											$employee_phoneno =  $row['employee_phoneno'];
 											$employee_address =  $row['employee_address'];
 
-											
-											
+
+
 											echo "<tr>
 												<td>$x</td>
 												<td>$employee_id</td>
-												
+
 												";
 									?>
 									<td>
@@ -504,14 +504,14 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">View Employee Profile</h4>
+														<h4 class="modal-title" id="defaultModalLabel">VIEW STAFF PROFILE</h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="profile_id" value="<?php echo $id; ?>">
 
-														
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="employee_id">ID</label>
@@ -524,7 +524,7 @@ header("location: manager_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="employee_name">Name</label>
@@ -538,8 +538,8 @@ header("location: manager_login.html");
 																</div>
 															</div>
 
-															
-															
+
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="employee_department">Department</label>
@@ -552,7 +552,7 @@ header("location: manager_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="employee_position">Position</label>
@@ -565,7 +565,7 @@ header("location: manager_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="employee_email">Email</label>
@@ -578,7 +578,7 @@ header("location: manager_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="employee_phoneno">Phone No.</label>
@@ -591,7 +591,7 @@ header("location: manager_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="employee_address">Address</label>
@@ -604,46 +604,46 @@ header("location: manager_login.html");
 																	</div>
 																</div>
 															</div>
-																														
+
 															<div class="modal-footer">
 																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 															</div>
-														</form>													
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
-										
-											
+
+
 									 <!-- Update Employee Password -->
 										<div class="modal fade" id="defaultModal<?php echo $id; ?>" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Update Employee Details</h4>
+														<h4 class="modal-title" id="defaultModalLabel">Update Staff Details</h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_id" value="<?php echo $id; ?>">
 
-														
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="employee_id">Employee ID</label>
+																	<label for="employee_id">Staff ID</label>
 																</div>
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="employee_id" name="employee_id" value="<?php echo $employee_id; ?>" class="form-control" placeholder="Enter Employee ID">
+																			<input type="text" id="employee_id" name="employee_id" value="<?php echo $employee_id; ?>" class="form-control" placeholder="Enter Staff ID">
 																		</div>
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="project_name">Employee Password</label>
+																	<label for="project_name">Staff Password</label>
 																</div>
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
@@ -653,20 +653,20 @@ header("location: manager_login.html");
 																	</div>
 																</div>
 															</div>
-															
-															
-															
+
+
+
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect" name="update_employee"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-															</div>
-														</form>													
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+                                <button type="submit" class="btn btn-success waves-effect" name="update_employee"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
+                              </div>
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
-										
-										
+
+
 									 <!-- Delete Employee List -->
 										<div class="modal fade" id="delete<?php echo $id; ?>" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
@@ -681,22 +681,22 @@ header("location: manager_login.html");
 															<div class="alert bg-red">
 																<p><strong>Are you sure you want to delete <?php echo $employee_id; ?> ?</strong></p>
 															</div>
-															
+
 															<div class="modal-footer">
 																<button type="submit" class="btn btn-info waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 																<button type="button" class="btn btn bg-pink waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 															</div>
-														</form>													
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
 
-									
-									
+
+
 									<?php
 									$x++;}
-									
+
 									//View Employee Profile
 									if(isset($_POST['profile_employee'])){
 										$profile_id = $_POST['profile_id'];
@@ -714,7 +714,7 @@ header("location: manager_login.html");
 											echo "Error updating record: " . $conn->error;
 										}
 									}
-									
+
 									//Update Password
 									if(isset($_POST['update_employee'])){
 										$edit_id = $_POST['edit_id'];
@@ -723,7 +723,7 @@ header("location: manager_login.html");
 										//$item_code = $_POST['item_code'];
 										//$item_category = $_POST['item_category'];
 										//$item_description = $_POST['item_description'];
-										$sql = "UPDATE employee SET 
+										$sql = "UPDATE employee SET
 											employee_id='$employee_id',
 											employee_password='$employee_password'
 											WHERE id='$edit_id' ";
@@ -743,11 +743,11 @@ header("location: manager_login.html");
 											} else {
 												echo "Error deleting record: " . $conn->error;
 											}
-										} 
-									
+										}
+
 								}
 									?>
-								
+
                                 </tbody>
                             </table>
                         </div>

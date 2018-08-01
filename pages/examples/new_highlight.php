@@ -37,10 +37,10 @@ $manager_idd = $_SESSION['manager_id'];
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../../css/themes/all-themes.css" rel="stylesheet" />
-	
+
 	<!-- Bootstrap Select Css -->
     <link href="../../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
-	
+
 
 
 
@@ -67,7 +67,7 @@ $manager_idd = $_SESSION['manager_id'];
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
-    
+
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
@@ -78,37 +78,37 @@ $manager_idd = $_SESSION['manager_id'];
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                   
+
                     <!-- Notifications -->
                      <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
-							
+
 							 <?php
-								$con=mysqli_connect("localhost","root","","task");
+								$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 								if (mysqli_connect_errno())
 								{
 								echo "Failed to connect to MySQL: " . mysqli_connect_error();
 								}
-								
+
 								$sql  = '
-										SELECT employee_id,task_status, COUNT(*) 
+										SELECT employee_id,task_status, COUNT(*)
 										 AS count
 										 FROM task
 										 WHERE task_status="delayed"
-										 
+
 										 ';
-										 
+
 										 $result=mysqli_query($con,$sql);
 											if($result)
 											{
 												while($row=mysqli_fetch_assoc($result))
 												{
 													//echo $row['c'];
-													
+
 													echo '<span class="label-count">'.$row['count'].'</span>';
-												}       
+												}
 											}
 							?>
                         </a>
@@ -122,45 +122,45 @@ $manager_idd = $_SESSION['manager_id'];
                                                 <i class="material-icons">date_range</i>
                                             </div>
                                             <div class="menu-info">
-                                                
+
 													<?php
-														$con=mysqli_connect("localhost","root","","task");
-														$t = "SELECT employee_id,task_status, COUNT(*) 
+														$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
+														$t = "SELECT employee_id,task_status, COUNT(*)
 																	 AS count
 																	 FROM task
 																	 WHERE task_status='delayed'
-																	 
+
 																	 '";
 														$result=mysqli_query($con,$sql);
-														
+
 														if($result)
 														{
 															while($row=mysqli_fetch_assoc($result))
 															{
-														echo '<h4>'; 
+														echo '<h4>';
 														 echo '
 																 '.$row['count'].' delayed task
 																';
 																echo '<h4>';
 														 }}
 													?>
-												
+
                                                <p>
-                                                    <i class="material-icons">access_time</i> 
+                                                    <i class="material-icons">access_time</i>
                                                 </p>
                                             </div>
                                         </a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
-                            <li class="footer">
+                            <!--<li class="footer">
                                 <a href="javascript:void(0);">View All Notifications</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
-                   
+
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
             </div>
@@ -175,9 +175,9 @@ $manager_idd = $_SESSION['manager_id'];
                 <div class="image">
                     <img src="../../images/user.png" width="48" height="48" alt="User" />
                 </div>
-				
+
 				<?php
-							$con=mysqli_connect("localhost","root","","task");
+							$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 							if (mysqli_connect_errno())
 							  {
@@ -190,7 +190,7 @@ $manager_idd = $_SESSION['manager_id'];
 							$manager_name=$row['manager_name'];
 							$manager_email=$row['manager_email'];
 				?>
-				
+
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $manager_name; ?></div>
                     <div class="email"><?php echo $manager_email; ?></div>
@@ -217,28 +217,28 @@ $manager_idd = $_SESSION['manager_id'];
                             <span>Home</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="../../pages/examples/manager_view_profile.php">
                             <i class="material-icons">person</i>
                             <span>Profile</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="../../pages/tables/manager_view_project_list.php">
                             <i class="material-icons">view_list</i>
-                            <span>Projects</span>
+                            <span>Assignments</span>
                         </a>
                     </li>
-					
+
                    <li>
                         <a href="../../pages/tables/manager_view_employee_task.php">
                             <i class="material-icons">date_range</i>
                             <span>Tasks</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
@@ -257,7 +257,7 @@ $manager_idd = $_SESSION['manager_id'];
 							 <li>
                                 <a href="../../pages/tables/manager_view_manager.php">Profiles Manager</a>
                             </li>
-                           
+
                         </ul>
                     </li>
                     </li>
@@ -280,7 +280,7 @@ $manager_idd = $_SESSION['manager_id'];
         <aside id="rightsidebar" class="right-sidebar">
             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                 <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
-                <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
+                <!--<li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>-->
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
@@ -420,15 +420,15 @@ $manager_idd = $_SESSION['manager_id'];
         </aside>
         <!-- #END# Right Sidebar -->
     </section>
-	
+
         <!-- Coding dalam container -->
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
                 <h2>DASHBOARD</h2>
             </div>
-			
-			 
+
+
 			<div class="row clearfix">
                 <!-- Task Info -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -438,12 +438,12 @@ $manager_idd = $_SESSION['manager_id'];
                                 HIGHLIGHTS
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
-                       
+
 								<a class="btn btn-success pull-right" data-toggle="modal" data-target="#addHighlight"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></a>
-                       
+
                                 </button>
                             </h2>
-                              
+
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -454,26 +454,26 @@ $manager_idd = $_SESSION['manager_id'];
                                             <th width= '50%'>Details</th>
                                             <th width= '15%'>Status</th>
 											<th width= '15%'>Action</th>
-                                            
+
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-									$conn=mysqli_connect("localhost","root","","task");
+									$conn=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 									if (mysqli_connect_errno())
 									  {
 									  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 									  }
-									
-									/*$sql2 = "UPDATE project  
-										SET project_status =  
-										CASE  
-											 WHEN NOW() > project_due_date THEN 'Delayed' 
+
+									/*$sql2 = "UPDATE project
+										SET project_status =
+										CASE
+											 WHEN NOW() > project_due_date THEN 'Delayed'
 											 WHEN NOW() < project_due_date THEN 'In Progress'
 										END ";
 									$result2 = $conn -> query($sql2);*/
-	
+
 									$sql = "SELECT * from highlight";
 									$result = $conn->query($sql);
 									if ($result->num_rows > 0) {
@@ -485,41 +485,41 @@ $manager_idd = $_SESSION['manager_id'];
 											$highlight_message = $row['highlight_message'];
 											$highlight_status = $row['highlight_status'];
 											$manager_id = $row['manager_id'];
-											
-											
+
+
 											if($highlight_status == 'Important'){
 												$alert = "<div class='badge bg-red'>
-												<strong>$highlight_status</strong> 
+												<strong>$highlight_status</strong>
 												</div>";
-												
+
 											}else if($highlight_status == 'All'){
 												$alert = "<div class='badge bg-blue'>
-												<strong>$highlight_status</strong> 
+												<strong>$highlight_status</strong>
 												</div>";
-												
+
 											}else if($highlight_status == 'Manager'){
 												$alert = "<div class='badge bg-orange'>
-												<strong>$highlight_status</strong> 
+												<strong>$highlight_status</strong>
 												</div>";
-												
+
 											}else if($highlight_status == 'Staff'){
 												$alert = "<div class='badge bg-green'>
-												<strong>$highlight_status</strong> 
+												<strong>$highlight_status</strong>
 												</div>";
-												
+
 											}else  {
 												$alert = "<div class='badge bg-cyan'>
-												<strong>$highlight_status</strong> 
-												</div>";	
+												<strong>$highlight_status</strong>
+												</div>";
 												}
-												
-											
+
+
 									?>
 										<tr>
-											<td><?php echo $highlight_date; ?></td>		
+											<td><?php echo $highlight_date; ?></td>
 											<td><?php echo $highlight_message; ?></td>
 											<td><?php echo $alert;?></td>
-											
+
 											<td>
 												<div class='btn-group' role='group' aria-label='...'>
 													<a href="#defaultModal<?php echo $id_highlight;?>" data-toggle="modal"><button type='button' class='btn btn-warning btn-sm'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button></a>
@@ -528,21 +528,21 @@ $manager_idd = $_SESSION['manager_id'];
 											</td>
 
 
-									
-											
+
+
 									 <!-- Update Project List -->
 										<div class="modal fade" id="defaultModal<?php echo $id_highlight; ?>" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Update Highlight</h4>
+														<h4 class="modal-title" id="defaultModalLabel">UPDATE HIGHLIGHT</h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_id" value="<?php echo $id_highlight; ?>">
 
-														
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="highlight_message">Details</label>
@@ -555,7 +555,7 @@ $manager_idd = $_SESSION['manager_id'];
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="highlight_status">Status</label>
@@ -571,18 +571,18 @@ $manager_idd = $_SESSION['manager_id'];
 																	</select>
 																</div>
 															</div>
-															
+
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect" name="update_highlight"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-															</div>
-														</form>													
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+	                              <button type="submit" class="btn btn-success waves-effect" name="update_highlight"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
+                              </div>
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
-										
-										
+
+
 									 <!-- Delete Project List -->
 										<div class="modal fade" id="delete<?php echo $id_highlight; ?>" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
@@ -594,34 +594,34 @@ $manager_idd = $_SESSION['manager_id'];
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="delete_id" value="<?php echo $id_highlight; ?>">
-															
+
 																<p><strong>Are you sure you want to delete?</strong></p>
-															
-															
+
+
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 															</div>
-														</form>													
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
-									
+
 									<?php
 									$x++;}
-									
+
 									//Update Highlight
 									if(isset($_POST['update_highlight'])){
 										$edit_id = $_POST['edit_id'];
-										
+
 										$highlight_message = $_POST['highlight_message'];
 										$highlight_status = $_POST['highlight_status'];
 
 										//$item_code = $_POST['item_code'];
 										//$item_category = $_POST['item_category'];
 										//$item_description = $_POST['item_description'];
-										$sql = "UPDATE highlight SET 
+										$sql = "UPDATE highlight SET
 											highlight_date=NOW(),
 											highlight_message='$highlight_message',
 											highlight_status='$highlight_status'
@@ -632,8 +632,8 @@ $manager_idd = $_SESSION['manager_id'];
 											echo "Error updating record: " . $conn->error;
 										}
 									}
-									
-							
+
+
 
 									if(isset($_POST['delete'])){
 										// sql to delete a record
@@ -644,11 +644,11 @@ $manager_idd = $_SESSION['manager_id'];
 											} else {
 												echo "Error deleting record: " . $conn->error;
 											}
-										} 
-									
+										}
+
 								}
 									?>
-									
+
 								<!-- Add New Highlights -->
 								<div class="modal fade" id="addHighlight" tabindex="-1" role="dialog">
 									<div class="modal-dialog" role="document">
@@ -658,7 +658,7 @@ $manager_idd = $_SESSION['manager_id'];
 											</div>
 											<div class="modal-body">
 														<form action = "manager_add_highlight.php" method="post" class="form-horizontal" role="form">
-																														
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="highlight_message">Details</label>
@@ -671,7 +671,7 @@ $manager_idd = $_SESSION['manager_id'];
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="highlight_status">Status</label>
@@ -687,16 +687,16 @@ $manager_idd = $_SESSION['manager_id'];
 																	</select>
 																</div>
 															</div>
-															
-															
-															
+
+
+
 															<div class="modal-footer">
 																<button type="submit" class="btn btn-info waves-effect"><span class="glyphicon glyphicon-plus"></span>ADD NEW</button>
 																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 															</div>
-														</form>												
+														</form>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -707,9 +707,9 @@ $manager_idd = $_SESSION['manager_id'];
                     </div>
                 </div>
                 <!-- #END# Task Info -->
-              
+
             </div>
-			
+
 			<!-- Update Password -->
 										<div class="modal fade" id="changepass" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
@@ -722,7 +722,7 @@ $manager_idd = $_SESSION['manager_id'];
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_id" value="<?php echo $manager_id; ?>">
 
-														
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="manager_password">Current Password</label>
@@ -735,7 +735,7 @@ $manager_idd = $_SESSION['manager_id'];
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="password1">New Password</label>
@@ -748,7 +748,7 @@ $manager_idd = $_SESSION['manager_id'];
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="password2">Confirm Password</label>
@@ -767,7 +767,7 @@ $manager_idd = $_SESSION['manager_id'];
 																<button type="submit" class="btn btn-info waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
 																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 															</div>
-															
+
 														<?php
 
 															if(isset($_POST['update_password'])){
@@ -775,18 +775,18 @@ $manager_idd = $_SESSION['manager_id'];
 																$user = "root";
 																$pass = "";
 																$db = "task";
-																
-																$manager_id = mysqli_real_escape_string($con,$_POST['manager_id']); 
+
+																$manager_id = mysqli_real_escape_string($con,$_POST['manager_id']);
 																$password1 = mysqli_real_escape_string($con,$_POST['password1']);
 																$password2 = mysqli_real_escape_string($con,$_POST['password2']);
 																$manager_password = mysqli_real_escape_string($con,$_POST['manager_password']);
-																
-																$select = "SELECT * FROM manager WHERE manager_id = '$manager_id' ";						
+
+																$select = "SELECT * FROM manager WHERE manager_id = '$manager_id' ";
 																$result = $con->query($select);
 																while($row = $result->fetch_assoc()){
 																	$password = $row["manager_password"];
 																}
-																
+
 																if($manager_password == $password){
 																	if($password1===$password2){
 																		$query = "UPDATE manager SET manager_id= '$manager_id', manager_password='$password1' WHERE  manager_id='$manager_id'  ";
@@ -807,8 +807,8 @@ $manager_idd = $_SESSION['manager_id'];
 																}
 															}
 														?>
-														
-														</form>													
+
+														</form>
 													</div>
 												</div>
 											</div>
@@ -837,12 +837,12 @@ $manager_idd = $_SESSION['manager_id'];
 
     <!-- Demo Js -->
     <script src="../../js/demo.js"></script>
-		
-	 <!-- Select Plugin Js 
+
+	 <!-- Select Plugin Js
     <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>-->
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
-	
-	
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
 
 
 

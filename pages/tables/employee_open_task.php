@@ -32,7 +32,7 @@ header("location: employee_login.html");
 
     <!-- JQuery DataTable Css -->
     <link href="../../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-	
+
 	<!-- Bootstrap Select Css -->
     <link href="../../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
@@ -41,12 +41,12 @@ header("location: employee_login.html");
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../../css/themes/all-themes.css" rel="stylesheet" />
-	
-	<!-- Bootstrap Select Css 
+
+	<!-- Bootstrap Select Css
     <link href="../../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />-->
-	
+
 	<!-- Calendar for date range -->
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 </head>
 
@@ -71,7 +71,7 @@ header("location: employee_login.html");
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
-   
+
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
@@ -82,14 +82,14 @@ header("location: employee_login.html");
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                   
+
                     <!-- Notifications -->
                    <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
-							
+
 							 <?php
-								$con=mysqli_connect("localhost","root","","task");
+								$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 								if (mysqli_connect_errno())
 								{
@@ -97,22 +97,22 @@ header("location: employee_login.html");
 								}
 								$abc=$_SESSION['employee_id'];
 								$sql  = '
-										SELECT employee_id,task_status, COUNT(*) 
+										SELECT employee_id,task_status, COUNT(*)
 										 AS count
 										 FROM task
 										 WHERE task_status="delayed"
 										 AND employee_id = "'.$_SESSION['employee_id'].'"
 										 ';
-										 
+
 										 $result=mysqli_query($con,$sql);
 											if($result)
 											{
 												while($row=mysqli_fetch_assoc($result))
 												{
 													//echo $row['c'];
-													
+
 													echo '<span class="label-count">'.$row['count'].'</span>';
-												}       
+												}
 											}
 							?>
                         </a>
@@ -126,36 +126,36 @@ header("location: employee_login.html");
                                                 <i class="material-icons">date_range</i>
                                             </div>
                                             <div class="menu-info">
-                                                
+
 													<?php
-														$con=mysqli_connect("localhost","root","","task");
-														$t = "SELECT employee_id,task_status, COUNT(*) 
+														$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
+														$t = "SELECT employee_id,task_status, COUNT(*)
 																	 AS count
 																	 FROM task
 																	 WHERE task_status='delayed'
 																	 AND employee_id = '".$_SESSION['employee_id']."'
 																	 '";
 														$result=mysqli_query($con,$sql);
-														
+
 														if($result)
 														{
 															while($row=mysqli_fetch_assoc($result))
 															{
-														echo '<h4>'; 
+														echo '<h4>';
 														 echo '
 																 You have '.$row['count'].' delayed task
 																';
 																echo '<h4>';
 														 }}
 													?>
-												
+
                                                <p>
-                                                    <i class="material-icons">access_time</i> 
+                                                    <i class="material-icons">access_time</i>
                                                 </p>
                                             </div>
                                         </a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                             <li class="footer">
@@ -164,7 +164,7 @@ header("location: employee_login.html");
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
-                    
+
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
             </div>
@@ -179,10 +179,10 @@ header("location: employee_login.html");
                 <div class="image">
                     <!--<img src="../../images/user.png" width="48" height="48" alt="User" />-->
                 </div>
-				
+
 				<?php
 
-							$con=mysqli_connect("localhost","root","","task");
+							$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 							if (mysqli_connect_errno())
 							  {
@@ -194,8 +194,8 @@ header("location: employee_login.html");
 							$employee_id=$row['employee_id'];
 							$employee_name=$row['employee_name'];
 							$employee_email=$row['employee_email'];
-				?>	
-				
+				?>
+
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $employee_name; ?></div>
                     <div class="email"><?php echo $employee_email; ?></div>
@@ -222,21 +222,21 @@ header("location: employee_login.html");
                             <span>Home</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="../../pages/examples/employee_view_profile.php">
                             <i class="material-icons">person</i>
                             <span>Profile</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="../../pages/tables/employee_view_project_list.php">
                             <i class="material-icons">library_books</i>
                             <span>Assignments</span>
                         </a>
                     </li>
-					
+
 					<li class="active">
                         <a href="../../pages/tables/employee_open_task.php">
                             <i class="material-icons">date_range</i>
@@ -406,9 +406,9 @@ header("location: employee_login.html");
 
     <section class="content">
         <div class="container-fluid">
-		
+
 		 <div class="body">
-                           
+
                             <ol class="breadcrumb">
                                 <li>
                                     <a href="javascript:void(0);">
@@ -419,7 +419,7 @@ header("location: employee_login.html");
                                     <i class="material-icons">date_range</i> Tasks
                                 </li>
                             </ol>
-							
+
 							<center>ASSIGNMENT LIST</center>
                             <BR>
                         </div>
@@ -429,31 +429,31 @@ header("location: employee_login.html");
                     <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
                 </h2>
             </div>-->
-          
+
             <!-- Exportable Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header clearfix">
-                            
-                                <div class="col-md-3">  
+
+                                <div class="col-md-3">
 								<input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date" />
 								</div>
 								<div class="col-md-3">
 								<input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date" /> 								</div>
-								<div class="btn-group" role='group' aria-label='...'>  
-								<input type="button" name="filter" id="filter" value="SEARCH" class="btn btn-info" />  
+								<div class="btn-group" role='group' aria-label='...'>
+								<input type="button" name="filter" id="filter" value="SEARCH" class="btn btn-info" />
 								</div>
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
-                       
+
 						  <a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>NEW TASK</a>
-                       
-                                
-                            
+
+
+
                         </div>
                         <div class="body">
-						<div id="task_table"> 
+						<div id="task_table">
                             <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
                                     <tr>
@@ -469,22 +469,22 @@ header("location: employee_login.html");
 									</tr>
                                     </tr>
                                 </thead>
-                                
+
                                 <tbody>
                                     <?php
-									$conn=mysqli_connect("localhost","root","","task");
+									$conn=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 									if (mysqli_connect_errno())
 									  {
 									  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 									  }
-									  
-									$abc=$_SESSION['employee_id']; 
-									
+
+									$abc=$_SESSION['employee_id'];
+
 									$sql = "SELECT task.task_id,task.task_title, task.task_status, task.task_created, task.task_due_date, task.task_description, task.task_comment, project.project_id, project.project_name, employee.employee_id
 											FROM task,project, employee
-											WHERE task.project_id = project.project_id 
-											AND task.employee_id = employee.employee_id 
+											WHERE task.project_id = project.project_id
+											AND task.employee_id = employee.employee_id
 											AND  task.employee_id = '$abc'";
 									$result = $conn->query($sql);
 									if ($result->num_rows > 0) {
@@ -495,27 +495,27 @@ header("location: employee_login.html");
 											$task_title = $row['task_title'];
 											$project_name = $row['project_name'];
 											$task_status = $row['task_status'];
-											
+
 											if($task_status == 'Delayed'){
 												$alert = "<div class='badge bg-red'>
-												<strong>$task_status</strong> 
+												<strong>$task_status</strong>
 												</div>";
 											}else if($task_status == 'In Progress'){
 												$alert = "<div class='badge bg-blue'>
-												<strong>$task_status</strong> 
+												<strong>$task_status</strong>
 												</div>";
 											}else {
 												$alert = $alert = "<div class='badge bg-green'>
-												<strong>$task_status</strong> 
+												<strong>$task_status</strong>
 												</div>";
 											}
-											
+
 											$task_created = $row['task_created'];
 											$task_due_date = $row['task_due_date'];
 											$task_description = $row['task_description'];
 											$task_comment = $row['task_comment'];
-											
-											
+
+
 									?>
 											<tr>
 												<td><?php echo $x; ?></td>
@@ -523,30 +523,30 @@ header("location: employee_login.html");
 												<td><?php echo $task_title; ?></td>
 												<td><?php echo $task_created; ?></td>
 												<td><?php echo $task_due_date; ?></td>
-												<td><?php echo $alert; 
-												
+												<td><?php echo $alert;
+
 												if ($task_status == "Completed"){
 												}
 												else{
-												
-												
-												$sql2 = "UPDATE task  
-													SET task_status =  
-													CASE  
-														 WHEN NOW() > task_due_date THEN 'Delayed' 
+
+
+												$sql2 = "UPDATE task
+													SET task_status =
+													CASE
+														 WHEN NOW() > task_due_date THEN 'Delayed'
 														 WHEN NOW() < task_due_date THEN 'In Progress'
-													END 
+													END
 													WHERE task_id = $task_id
 													";
-												
+
 												$result2 = $conn -> query($sql2);
-												
+
 												}
 												?></td>
 												<td><?php echo nl2br($task_description); ?></td>
-												<td><?php echo nl2br($task_comment); ?></td>												
-												
-									
+												<td><?php echo nl2br($task_comment); ?></td>
+
+
 									<td>
 										<div class='btn-btn'>
 											<a href="#defaultModal<?php echo $task_id;?>" data-toggle="modal"><button type='button' class='btn btn-warning btn-sm'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button></a>
@@ -556,8 +556,8 @@ header("location: employee_login.html");
 										</div>
 									</td>
 
-									
-											
+
+
 									 <!-- Update Task List -->
 										<div class="modal fade" id="defaultModal<?php echo $task_id; ?>" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
@@ -570,7 +570,7 @@ header("location: employee_login.html");
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_task_id" value="<?php echo $task_id; ?>">
 															<input type="hidden" name="edit_employee_id" value="<?php echo $employee_id;  ?>">
-														
+
 															<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																								<label for="task_title">Task Details</label>
@@ -582,8 +582,8 @@ header("location: employee_login.html");
 																									</div>
 																								</div>
 																							</div>
-																						</div>																			
-																						
+																						</div>
+
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																								<label for="task_due_date">Due Date</label>
@@ -596,7 +596,7 @@ header("location: employee_login.html");
 																								</div>
 																							</div>
 																						</div>
-																						
+
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																								<label for="task_description">Issues</label>
@@ -609,7 +609,7 @@ header("location: employee_login.html");
 																								</div>
 																							</div>
 																						</div>
-																						
+
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																								<label for="task_comment">Solutions</label>
@@ -622,18 +622,18 @@ header("location: employee_login.html");
 																								</div>
 																							</div>
 																						</div>
-															
+
 															<div class="modal-footer">
 																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 																<button type="submit" class="btn btn-success waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 															</div>
-														</form>													
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
-										
-										
+
+
 									 <!-- Delete Task List -->
 										<div class="modal fade" id="delete<?php echo $task_id; ?>" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
@@ -645,21 +645,21 @@ header("location: employee_login.html");
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="delete_id" value="<?php echo $task_id; ?>">
-															
+
 																<p><strong>Are you sure you want to delete <?php echo $task_title; ?> ?</strong></p>
-															
-															
+
+
 															<div class="modal-footer">
 																<button type="button" class="btn btn-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 																<button type="submit" class="btn btn-success waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE TASK</button>
 															</div>
-														</form>													
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
-										
-										
+
+
 									<!-- Complete Task List -->
 										<div class="modal fade" id="complete<?php echo $task_id; ?>" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
@@ -671,24 +671,24 @@ header("location: employee_login.html");
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_task_complete" value="<?php echo $task_id; ?>">
-															
+
 																<p><strong>Change status <?php echo $task_title; ?> to <font color = 'blue'>Completed</font>?</strong></p>
-															
-															
+
+
 															<div class="modal-footer">
 																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>Close</button>
 																<button type="submit" class="btn btn-success waves-effect" name="complete"><span class="glyphicon glyphicon-ok"></span>Completed</button>
 															</div>
-														</form>													
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
-									
-									
+
+
 									<?php
 									$x++;}
-									
+
 									//Update Task
 									if(isset($_POST['update_task'])){
 										$edit_task_id = $_POST['edit_task_id'];
@@ -699,7 +699,7 @@ header("location: employee_login.html");
 										$task_due_date = $_POST['task_due_date'];
 										$task_description = $_POST['task_description'];
 										$task_comment = $_POST['task_comment'];
-										$sql = "UPDATE task SET 
+										$sql = "UPDATE task SET
 											task_title='$task_title',
 											task_due_date='$task_due_date',
 											task_description='$task_description',
@@ -711,7 +711,7 @@ header("location: employee_login.html");
 											echo "Error updating record: " . $conn->error;
 										}
 									}
-									
+
 									//Complete Task
 									if(isset($_POST['complete'])){
 										$edit_task_complete = $_POST['edit_task_complete'];
@@ -722,9 +722,9 @@ header("location: employee_login.html");
 										$task_due_date = $_POST['task_due_date'];
 										$task_description = $_POST['task_description'];
 										$task_comment = $_POST['task_comment'];
-										$sql = "UPDATE task SET 
+										$sql = "UPDATE task SET
 											task_status='Completed'
-											
+
 										   WHERE task_id='$edit_task_complete' ";
 										if ($conn->query($sql) === TRUE) {
 											echo '<script>window.location.href="employee_open_task.php"</script>';
@@ -732,11 +732,11 @@ header("location: employee_login.html");
 											echo "Error updating record: " . $conn->error;
 										}
 									}
-									
-									
+
+
 									// Delete Task
 									if(isset($_POST['delete'])){
-										
+
 										$delete_id = $_POST['delete_id'];
 										$sql = "DELETE FROM task WHERE task_id='$delete_id' ";
 										if ($conn->query($sql) === TRUE) {
@@ -744,11 +744,11 @@ header("location: employee_login.html");
 											} else {
 												echo "Error deleting record: " . $conn->error;
 											}
-										} 
-									
+										}
+
 								}
 									?>
-									
+
 								<!-- Add New Task -->
 								<div class="modal fade" id="addProject" tabindex="-1" role="dialog">
 									<div class="modal-dialog" role="document">
@@ -759,27 +759,27 @@ header("location: employee_login.html");
 											<div class="modal-body">
 														<form action = "employee_add_task.php" method="post" class="form-horizontal" role="form">
 															<div class="row clearfix">
-															
+
 															<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																<label for="task_title">Assignment</label>
 															</div>
-																
+
 																 <div class="col-sm-10">
 																 	<select name='project_id' class="form-control show-tick" id="project_id">
 																		<option value='' selected='selected'>-- Please select --</option>
 																		<?php
-																		$conn=mysqli_connect("localhost","root","","task");
+																		$conn=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 																		$t = "select * from project ";
 																		$result2 = $conn -> query($t);
 																		while ($row = $result2 -> fetch_assoc()){
-																
+
 																			echo "<option value='".$row['project_id']."'>".$row['project_name']."</option>";
 																		}
 																		?>
 																	</select>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="task_title">Task Details</label>
@@ -792,7 +792,7 @@ header("location: employee_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<!-- <div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="task_created">Start Date</label>
@@ -805,7 +805,7 @@ header("location: employee_login.html");
 																	</div>
 																</div>
 															</div> -->
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="task_due_date">End Date</label>
@@ -818,8 +818,8 @@ header("location: employee_login.html");
 																	</div>
 																</div>
 															</div>
-															
-															
+
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="task_description">Issues</label>
@@ -832,14 +832,14 @@ header("location: employee_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="modal-footer">
 															<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 															<button type="submit" class="btn btn-success waves-effect"><span class="glyphicon glyphicon-plus"></span>ADD NEW</button>
 															</div>
-														</form>												
+														</form>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
@@ -850,7 +850,7 @@ header("location: employee_login.html");
                 </div>
             </div>
             <!-- #END# Exportable Table -->
-			
+
 			<!-- Update Password -->
 										<div class="modal fade" id="changepass" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
@@ -863,7 +863,7 @@ header("location: employee_login.html");
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_id" value="<?php echo $employee_id; ?>">
 
-														
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="employee_password">Current Password</label>
@@ -876,7 +876,7 @@ header("location: employee_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="password1">New Password</label>
@@ -889,7 +889,7 @@ header("location: employee_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="password2">Confirm Password</label>
@@ -908,7 +908,7 @@ header("location: employee_login.html");
 																<button type="submit" class="btn btn-info waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
 																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 															</div>
-															
+
 														<?php
 
 															if(isset($_POST['update_password'])){
@@ -916,25 +916,25 @@ header("location: employee_login.html");
 																$user = "root";
 																$pass = "";
 																$db = "task";
-																
-																$employee_id = mysqli_real_escape_string($con,$_POST['employee_id']); 
+
+																$employee_id = mysqli_real_escape_string($con,$_POST['employee_id']);
 																$password1 = mysqli_real_escape_string($con,$_POST['password1']);
 																$password2 = mysqli_real_escape_string($con,$_POST['password2']);
 																$employee_password = mysqli_real_escape_string($con,$_POST['employee_password']);
-																
-																$select = "SELECT * FROM employee WHERE employee_id = '$employee_id' ";						
+
+																$select = "SELECT * FROM employee WHERE employee_id = '$employee_id' ";
 																$result = $con->query($select);
 																while($row = $result->fetch_assoc()){
 																	$password = $row["employee_password"];
 																}
-																
+
 																if($employee_password == $password){
 																	if($password1===$password2){
-																	
+
 																		$query = "UPDATE employee SET employee_id= '$employee_id', employee_password='$password1' WHERE  employee_id='$employee_id'  ";
 																		echo "<script type = \"text/javascript\">
 																					alert(\"Password Updated\");
-																					
+
 																				</script>";
 																		$result = $con->query($query);
 																	}
@@ -953,8 +953,8 @@ header("location: employee_login.html");
 																}
 															}
 														?>
-														
-														</form>													
+
+														</form>
 													</div>
 												</div>
 											</div>
@@ -994,41 +994,41 @@ header("location: employee_login.html");
 
     <!-- Demo Js -->
     <script src="../../js/demo.js"></script>
-	
-	 <!-- Select Plugin Js 
+
+	 <!-- Select Plugin Js
     <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>-->
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
-	
-	<script>  
-      $(document).ready(function(){  
-           $.datepicker.setDefaults({  
-                dateFormat: 'yy-mm-dd'   
-           });  
-           $(function(){  
-                $("#from_date").datepicker();  
-                $("#to_date").datepicker();  
-           });  
-           $('#filter').click(function(){  
-                var from_date = $('#from_date').val();  
-                var to_date = $('#to_date').val();  
-                if(from_date != '' && to_date != '')  
-                {  
-                     $.ajax({  
-                          url:"employee_filter_task.php",  
-                          method:"POST",  
-                          data:{from_date:from_date, to_date:to_date},  
-                          success:function(data)  
-                          {  
-                               $('#task_table').html(data);  
-                          }  
-                     });  
-                }  
-                else  
-                {  
-                     alert("Please Select Date");  
-                }  
-           });  
-      });  
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+	<script>
+      $(document).ready(function(){
+           $.datepicker.setDefaults({
+                dateFormat: 'yy-mm-dd'
+           });
+           $(function(){
+                $("#from_date").datepicker();
+                $("#to_date").datepicker();
+           });
+           $('#filter').click(function(){
+                var from_date = $('#from_date').val();
+                var to_date = $('#to_date').val();
+                if(from_date != '' && to_date != '')
+                {
+                     $.ajax({
+                          url:"employee_filter_task.php",
+                          method:"POST",
+                          data:{from_date:from_date, to_date:to_date},
+                          success:function(data)
+                          {
+                               $('#task_table').html(data);
+                          }
+                     });
+                }
+                else
+                {
+                     alert("Please Select Date");
+                }
+           });
+      });
 	</script>
 
 </body>

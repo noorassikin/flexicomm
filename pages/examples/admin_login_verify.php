@@ -1,11 +1,11 @@
 <?php
 session_start();
-// from form 
-$admin_id=$_POST['admin_id']; 
-$admin_password=$_POST['admin_password']; 
+// from form
+$admin_id=$_POST['admin_id'];
+$admin_password=$_POST['admin_password'];
 
 // Create connection
-$con=mysqli_connect("localhost","root","","task");
+$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 // Check connection
 if (mysqli_connect_errno())
@@ -34,7 +34,7 @@ else {
 
 // Register $myusername, $mypassword and redirect to file "login_success.php"
 session_register("a");
-session_register("b"); 
+session_register("b");
 header("location: admin_home.php");
 }
 else {

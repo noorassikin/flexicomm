@@ -6,9 +6,6 @@ session_start();
 if(!isset($_SESSION['employee_id'])){
 header("location: sign-in.html");
 }
-
-
-
 ?>
 <html>
 
@@ -37,6 +34,10 @@ header("location: sign-in.html");
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../../css/themes/all-themes.css" rel="stylesheet" />
+
+	<!--WaitMe Css-->
+    <link href="../../../plugins/waitme/waitMe.css" rel="stylesheet" />
+
 </head>
 
 <body class="theme-cyan">
@@ -71,9 +72,8 @@ header("location: sign-in.html");
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-
                     <!-- Notifications -->
-                     <li class="dropdown">
+                    <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
 
@@ -84,13 +84,13 @@ header("location: sign-in.html");
 								{
 								echo "Failed to connect to MySQL: " . mysqli_connect_error();
 								}
-
+								$abc=$_SESSION['employee_id'];
 								$sql  = '
 										SELECT employee_id,task_status, COUNT(*)
 										 AS count
 										 FROM task
 										 WHERE task_status="delayed"
-
+										 AND employee_id = "'.$_SESSION['employee_id'].'"
 										 ';
 
 										 $result=mysqli_query($con,$sql);
@@ -122,7 +122,7 @@ header("location: sign-in.html");
 																	 AS count
 																	 FROM task
 																	 WHERE task_status='delayed'
-
+																	 AND employee_id = '".$_SESSION['employee_id']."'
 																	 '";
 														$result=mysqli_query($con,$sql);
 
@@ -132,7 +132,7 @@ header("location: sign-in.html");
 															{
 														echo '<h4>';
 														 echo '
-																 '.$row['count'].' delayed task
+																 You have '.$row['count'].' delayed task
 																';
 																echo '<h4>';
 														 }}
@@ -147,9 +147,9 @@ header("location: sign-in.html");
 
                                 </ul>
                             </li>
-                            <li class="footer">
+                            <!--<li class="footer">
                                 <a href="javascript:void(0);">View All Notifications</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
@@ -166,10 +166,11 @@ header("location: sign-in.html");
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                   <!-- <img src="../../images/user.png" width="48" height="48" alt="User" />-->
                 </div>
 
 				<?php
+
 							$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 							if (mysqli_connect_errno())
@@ -183,14 +184,13 @@ header("location: sign-in.html");
 							$employee_name=$row['employee_name'];
 							$employee_email=$row['employee_email'];
 				?>
-
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $employee_name; ?></div>
                     <div class="email"><?php echo $employee_email; ?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="employee_update_profile.php"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="employee_update_profile.php"><i class="material-icons">person</i>Edit Profile</a></li>
                             <li role="seperator" class="divider"></li>
                             <li><a href="#changepass" data-toggle="modal"><i class="material-icons">create</i>Edit Password</a></li>
                             <li role="seperator" class="divider"></li>
@@ -226,33 +226,10 @@ header("location: sign-in.html");
                     </li>
 
                    <li>
-                        <a href="../../pages/tables/employee_view_employee_task.php">
+                        <a href="../../pages/tables/employee_open_task.php">
                             <i class="material-icons">date_range</i>
                             <span>Tasks</span>
                         </a>
-                    </li>
-
-					<li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">group</i>
-                            <span>Staff</span>
-                        </a>
-                        <ul class="ml-menu">
-							<li>
-                                <a href="../../pages/tables/register_employee.php">Register Staff</a>
-                            </li>
-							<li>
-                                <a href="../../pages/tables/register_employee.php">Register employee</a>
-                            </li>
-                            <li>
-                                <a href="../../pages/tables/employee_view_employee.php">Profiles Staff</a>
-                            </li>
-							 <li>
-                                <a href="../../pages/tables/employee_view_employee.php">Profiles employee</a>
-                            </li>
-
-                        </ul>
-                    </li>
                     </li>
                 </ul>
             </div>
@@ -273,7 +250,7 @@ header("location: sign-in.html");
         <aside id="rightsidebar" class="right-sidebar">
             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                 <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
-                <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
+               <!--<li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>-->
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
@@ -306,8 +283,8 @@ header("location: sign-in.html");
                             <div class="light-blue"></div>
                             <span>Light Blue</span>
                         </li>
-                        <li data-theme="cyan"  class="active">
-                            <div class="cyan" ></div>
+                        <li data-theme="cyan" class="active">
+                            <div class="cyan"></div>
                             <span>Cyan</span>
                         </li>
                         <li data-theme="teal">
@@ -557,15 +534,11 @@ header("location: sign-in.html");
 
 			<div class="row clearfix">
                 <!-- Task Info -->
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
-                        <div class="header">
-                                <h2>
-                                HIGHLIGHTS
-								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
-                                     <i class="material-icons">add_circle_outline</i>New Project -->
-
-
+                        <div class="header bg-blue-grey">
+                            <h2>
+                                <center><strong>HIGHLIGHTS</strong></center>
                             </h2>
 
                         </div>
@@ -620,7 +593,7 @@ header("location: sign-in.html");
 												<strong>$highlight_status</strong>
 												</div>";
 
-											}else if($highlight_status == 'employee'){
+											}else if($highlight_status == 'Manager'){
 												$alert = "<div class='badge bg-orange'>
 												<strong>$highlight_status</strong>
 												</div>";
@@ -644,6 +617,7 @@ header("location: sign-in.html");
 											<td><?php echo $alert;?>
 											</td>
 
+
 									<?php
 									$x++;}
 								}
@@ -657,7 +631,7 @@ header("location: sign-in.html");
 												<h4 class="modal-title" id="defaultModalLabel">Post Announcement</h4>
 											</div>
 											<div class="modal-body">
-														<form action = "employee_add_highlight.php" method="post" class="form-horizontal" role="form">
+														<form action = "manager_add_highlight.php" method="post" class="form-horizontal" role="form">
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="highlight_date">Message Title</label>
@@ -699,7 +673,7 @@ header("location: sign-in.html");
 
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="project_due_date">Due Date</label>
+																	<label for="project_due_date">End Date</label>
 																</div>
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
@@ -730,12 +704,15 @@ header("location: sign-in.html");
 
             </div>
 
-			<!-- Update Password -->
+			<br>
+
+
+										<!-- Update Password -->
 										<div class="modal fade" id="changepass" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">CHANGE PASSWORD</h4>
+														<h4 class="modal-title" id="defaultModalLabel">Change Password</h4>
 													</div>
 													<div class="modal-body">
 
@@ -810,6 +787,10 @@ header("location: sign-in.html");
 																if($employee_password == $password){
 																	if($password1===$password2){
 																		$query = "UPDATE employee SET employee_id= '$employee_id', employee_password='$password1' WHERE  employee_id='$employee_id'  ";
+																		echo "<script type = \"text/javascript\">
+																					alert(\"Password Updated\");
+
+																				</script>";
 																		$result = $con->query($query);
 																	}
 																	else{
@@ -833,6 +814,7 @@ header("location: sign-in.html");
 												</div>
 											</div>
 										</div>
+
         </div>
     </section>
 	        <!-- #END# Coding dalam container -->
@@ -854,9 +836,14 @@ header("location: sign-in.html");
 
     <!-- Custom Js -->
     <script src="../../js/admin.js"></script>
+	<script src="../../../js/pages/cards/colored.js"></script>
 
     <!-- Demo Js -->
     <script src="../../js/demo.js"></script>
+
+	<!-- Wait Me Plugin Js -->
+    <script src="../../../plugins/waitme/waitMe.js"></script>
+
 </body>
 
 </html>

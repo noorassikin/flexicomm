@@ -4,7 +4,7 @@
 session_start();
 //error_reporting(0);
 if(!isset($_SESSION['employee_id'])){
-header("location: employee_login.html");
+header("location: sign-in.html");
 }
 ?>
 <html>
@@ -34,11 +34,11 @@ header("location: employee_login.html");
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../../css/themes/all-themes.css" rel="stylesheet" />
-	
+
 	<!-- Sweet Alert Css -->
     <link href="../../pages/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
-	
-   
+
+
 
 
 </head>
@@ -64,7 +64,7 @@ header("location: employee_login.html");
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
-    
+
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
@@ -79,9 +79,9 @@ header("location: employee_login.html");
 					<li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
-							
+
 							 <?php
-								$con=mysqli_connect("localhost","root","","task");
+								$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 								if (mysqli_connect_errno())
 								{
@@ -89,22 +89,22 @@ header("location: employee_login.html");
 								}
 								$abc=$_SESSION['employee_id'];
 								$sql  = '
-										SELECT employee_id,task_status, COUNT(*) 
+										SELECT employee_id,task_status, COUNT(*)
 										 AS count
 										 FROM task
 										 WHERE task_status="delayed"
 										 AND employee_id = "'.$_SESSION['employee_id'].'"
 										 ';
-										 
+
 										 $result=mysqli_query($con,$sql);
 											if($result)
 											{
 												while($row=mysqli_fetch_assoc($result))
 												{
 													//echo $row['c'];
-													
+
 													echo '<span class="label-count">'.$row['count'].'</span>';
-												}       
+												}
 											}
 							?>
                         </a>
@@ -118,45 +118,45 @@ header("location: employee_login.html");
                                                 <i class="material-icons">date_range</i>
                                             </div>
                                             <div class="menu-info">
-                                                
+
 													<?php
-														$con=mysqli_connect("localhost","root","","task");
-														$t = "SELECT employee_id,task_status, COUNT(*) 
+														$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
+														$t = "SELECT employee_id,task_status, COUNT(*)
 																	 AS count
 																	 FROM task
 																	 WHERE task_status='delayed'
 																	 AND employee_id = '".$_SESSION['employee_id']."'
 																	 '";
 														$result=mysqli_query($con,$sql);
-														
+
 														if($result)
 														{
 															while($row=mysqli_fetch_assoc($result))
 															{
-														echo '<h4>'; 
+														echo '<h4>';
 														 echo '
 																 You have '.$row['count'].' delayed task
 																';
 																echo '<h4>';
 														 }}
 													?>
-												
+
                                                <p>
-                                                    <i class="material-icons">access_time</i> 
+                                                    <i class="material-icons">access_time</i>
                                                 </p>
                                             </div>
                                         </a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                             <li class="footer">
                                 <a href="javascript:void(0);">View All Notifications</a>
                             </li>
                         </ul>
-                    </li>                    
+                    </li>
 					<!-- #END# Notifications -->
-                    
+
                     <!--<li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>-->
                 </ul>
             </div>
@@ -171,10 +171,10 @@ header("location: employee_login.html");
                 <div class="image">
                     <!--<img src="../../images/user.png" width="48" height="48" alt="User" />-->
                 </div>
-				
+
 				<?php
 
-							$con=mysqli_connect("localhost","root","","task");
+							$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 							if (mysqli_connect_errno())
 							  {
@@ -186,8 +186,8 @@ header("location: employee_login.html");
 							$employee_id=$row['employee_id'];
 							$employee_name=$row['employee_name'];
 							$employee_email=$row['employee_email'];
-				?>	
-				
+				?>
+
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $employee_name; ?></div>
                     <div class="email"><?php echo $employee_email; ?></div>
@@ -214,21 +214,21 @@ header("location: employee_login.html");
                             <span>Home</span>
                         </a>
                     </li>
-					
+
 					<li  class="active">
                         <a href="../../pages/examples/employee_view_profile.php">
                             <i class="material-icons">person</i>
                             <span>Profile</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="../../pages/tables/employee_view_project_list.php">
                             <i class="material-icons">view_list</i>
                             <span>Assignments</span>
                         </a>
                     </li>
-					
+
                    <li>
                         <a href="../../pages/tables/employee_open_task.php">
                             <i class="material-icons">date_range</i>
@@ -399,7 +399,7 @@ header("location: employee_login.html");
         <div class="container-fluid">
             <div class="block-header">
             </div>
-			
+
 			<div class="body">
                 <ol class="breadcrumb">
 					<li>
@@ -413,20 +413,20 @@ header("location: employee_login.html");
              </ol>
             </div>
         </div>
-		
+
 		<!-- Basic Validation -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>PROFILE DETAILS</h2>
-                            
+
                         </div>
                         <div class="body">
-						
+
 						<?php
 
-							$con=mysqli_connect("localhost","root","","task");
+							$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 							if (mysqli_connect_errno())
 							  {
@@ -444,11 +444,11 @@ header("location: employee_login.html");
 							$employee_address=$row['employee_address'];
 
 							//$result = $con -> query($sql);
-							
-						?>	
+
+						?>
                             <form id="form_validation" action="update_employee_profile.php" method="post">
-                                
-								
+
+
 								<div class="form-group form-float">
                                     <div class="form-line">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -457,7 +457,7 @@ header("location: employee_login.html");
 										<input type="text" class="form-control" name="employee_name" value="<?php echo $employee_name; ?>" required>
                                     </div>
                                 </div>
-								
+
 								<div class="form-group form-float">
                                     <div class="form-line">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -466,7 +466,7 @@ header("location: employee_login.html");
 										<input type="text" class="form-control" name="employee_department" value="<?php echo $employee_department; ?>" required>
                                     </div>
                                 </div>
-								
+
 								<div class="form-group form-float">
                                     <div class="form-line">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -475,7 +475,7 @@ header("location: employee_login.html");
 										<input type="text" class="form-control" name="employee_position" value="<?php echo $employee_position; ?>" required>
                                     </div>
                                 </div>
-								
+
 								<div class="form-group form-float">
                                     <div class="form-line">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -484,7 +484,7 @@ header("location: employee_login.html");
 										<input type="email" class="form-control" name="employee_email" value="<?php echo $employee_email; ?>" required>
                                     </div>
                                 </div>
-								
+
 								<div class="form-group form-float">
                                     <div class="form-line">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -493,7 +493,7 @@ header("location: employee_login.html");
 										<input type="text" class="form-control" name="employee_phoneno" value="<?php echo $employee_phoneno; ?>" required>
                                     </div>
                                 </div>
-								
+
 								<div class="form-group form-float">
                                     <div class="form-line">
                                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -502,7 +502,7 @@ header("location: employee_login.html");
 										<input type="text" class="form-control" name="employee_address" value="<?php echo $employee_address; ?>" required>
                                     </div>
                                 </div>
-								
+
 								<div class="form-group" align="right">
                                 <button type="submit" class="btn btn-success waves-effect" type="submit"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 								</div>
@@ -512,8 +512,8 @@ header("location: employee_login.html");
                 </div>
             </div>
             <!-- #END# Basic Validation -->
-			
-			
+
+
 			<!-- Update Password -->
 										<div class="modal fade" id="changepass" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
@@ -526,7 +526,7 @@ header("location: employee_login.html");
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_id" value="<?php echo $employee_id; ?>">
 
-														
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="employee_password">Current Password</label>
@@ -539,7 +539,7 @@ header("location: employee_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="password1">New Password</label>
@@ -552,7 +552,7 @@ header("location: employee_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="password2">Confirm Password</label>
@@ -571,7 +571,7 @@ header("location: employee_login.html");
 																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
 															</div>
-															
+
 														<?php
 
 															if(isset($_POST['update_password'])){
@@ -579,25 +579,25 @@ header("location: employee_login.html");
 																$user = "root";
 																$pass = "";
 																$db = "task";
-																
-																$employee_id = mysqli_real_escape_string($con,$_POST['employee_id']); 
+
+																$employee_id = mysqli_real_escape_string($con,$_POST['employee_id']);
 																$password1 = mysqli_real_escape_string($con,$_POST['password1']);
 																$password2 = mysqli_real_escape_string($con,$_POST['password2']);
 																$employee_password = mysqli_real_escape_string($con,$_POST['employee_password']);
-																
-																$select = "SELECT * FROM employee WHERE employee_id = '$employee_id' ";						
+
+																$select = "SELECT * FROM employee WHERE employee_id = '$employee_id' ";
 																$result = $con->query($select);
 																while($row = $result->fetch_assoc()){
 																	$password = $row["employee_password"];
 																}
-																
+
 																if($employee_password == $password){
 																	if($password1===$password2){
-																	
+
 																		$query = "UPDATE employee SET employee_id= '$employee_id', employee_password='$password1' WHERE  employee_id='$employee_id'  ";
 																		echo "<script type = \"text/javascript\">
 																					alert(\"Password Updated\");
-																					
+
 																				</script>";
 																		$result = $con->query($query);
 																	}
@@ -616,8 +616,8 @@ header("location: employee_login.html");
 																}
 															}
 														?>
-														
-														</form>													
+
+														</form>
 													</div>
 												</div>
 											</div>
@@ -644,13 +644,13 @@ header("location: employee_login.html");
 
     <!-- Demo Js -->
     <script src="../../js/demo.js"></script>
-	
+
 	<!-- Sweet Alert Plugin Js -->
     <script src="../../plugins/sweetalert/sweetalert.min.js"></script>
-	
+
 	<!-- Jquery Validation Plugin Css -->
     <script src="../../plugins/jquery-validation/jquery.validate.js"></script>
-	
+
 	<!-- Custom Js -->
     <script src="../../js/admin.js"></script>
     <script src="../../js/pages/forms/form-validation.js"></script>

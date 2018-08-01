@@ -7,17 +7,17 @@ header("location: employee_login.html");
 ?>
 
 <?php
-if(isset($_POST["from_date"], $_POST["to_date"]))  
- {  
-      $connect = mysqli_connect("localhost", "root", "", "task");  
-      $output = ''; 
-	 /* $abc=$_SESSION['employee_id']; 
+if(isset($_POST["from_date"], $_POST["to_date"]))
+ {
+      $connect = mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
+      $output = '';
+	 /* $abc=$_SESSION['employee_id'];
                     $query = "SELECT task.task_id,task.task_title, task.task_status, task.task_due_date, task.task_description, project.project_id, project.project_name, employee.employee_id
 							FROM task,project, employee
 							WHERE task_created BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'
-							
-							";	
-$result = mysqli_query($connect, $query);   */ 
+
+							";
+$result = mysqli_query($connect, $query);   */
 $output .= '
 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
     <thead>
@@ -31,18 +31,18 @@ $output .= '
         </tr>
     </thead>
 ';
-$abc=$_SESSION['employee_id']; 
+$abc=$_SESSION['employee_id'];
                     $sql = "SELECT task.task_id,task.task_title, task.task_status, task.task_due_date, task.task_description, project.project_id, project.project_name, employee.employee_id
 							FROM task,project, employee
 							WHERE task_created BETWEEN '".$_POST["from_date"]."' AND '".$_POST["to_date"]."'
-							AND task.project_id = project.project_id 
-							AND task.employee_id = employee.employee_id 
+							AND task.project_id = project.project_id
+							AND task.employee_id = employee.employee_id
 							AND  task.employee_id = '$abc'";
                     $result = $connect->query($sql);
-if(mysqli_num_rows($result) > 0)  
+if(mysqli_num_rows($result) > 0)
     {
-	$x=1;	
-        while($row = mysqli_fetch_array($result))  
+	$x=1;
+        while($row = mysqli_fetch_array($result))
         {
 			/*$task_id = $row['task_id'];
             $task_title = $row['task_title'];
@@ -50,7 +50,7 @@ if(mysqli_num_rows($result) > 0)
 			$task_status = $row['task_status'];
             $task_due_date = $row['task_due_date'];
 			$task_description = $row['task_description'];*/
-			
+
             $output .= '
 				<tbody>
 					<tr>
@@ -60,21 +60,21 @@ if(mysqli_num_rows($result) > 0)
 						<td>'. $row["task_status"] .'</td>
 						<td>'. $row["task_due_date"] .'</td>
 						<td>'. nl2br($row["task_description"]) .'</td>
-						
+
 						</tr>
 				</tbody>
 			';
 		$x++;  }
-	}  
-	else  
-	{  
+	}
+	else
+	{
 			$output .= '
-			 <tr>  
-                     <td colspan="6">No Task Found</td>  
-                </tr>  
-           ';  
-		   
-	}  
+			 <tr>
+                     <td colspan="6">No Task Found</td>
+                </tr>
+           ';
+
+	}
 			$output .= '</table>';
 			echo $output;
 }

@@ -1,31 +1,31 @@
 
 
-<?php 
+<?php
 	$project_name = $_GET['project_name'];
 	$project_id = $_GET['project_id'];
 	//echo "<label>Project Name:</label>" ;
 	//echo $project_name;
 ?>
-						
+
  <?php
-$con=mysqli_connect("localhost","root","","task");
+$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 $project_id = $_GET['project_id'];
 
 if (mysqli_connect_errno())
   {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
-  
-					$abc=$_SESSION['employee_id']; 		
+
+					$abc=$_SESSION['employee_id'];
 					$sql = "SELECT task.task_id,task.task_title, task.task_status, task.task_due_date, task.task_description, project.project_id, project.project_name, employee.employee_id
 							FROM task,project, employee
-							WHERE task.project_id = project.project_id 
-							AND task.employee_id = employee.employee_id 
+							WHERE task.project_id = project.project_id
+							AND task.employee_id = employee.employee_id
 							AND task.employee_id = '$abc'
 							AND task.project_id =  '$project_id'
 							";
                     $result = $con->query($sql);
-					
+
 
                     if ($result->num_rows > 0) {
                         // output data of each row
@@ -44,5 +44,3 @@ if (mysqli_connect_errno())
 					}
 $con->close();
 ?>
-
-

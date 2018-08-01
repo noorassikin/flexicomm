@@ -13,7 +13,7 @@ header("location: manager_login.html");
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>FlexiCOMM| Employee Task List</title>
+    <title>FlexiCOMM| Staff Task List</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -61,7 +61,7 @@ header("location: manager_login.html");
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
-    
+
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
@@ -76,32 +76,32 @@ header("location: manager_login.html");
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
-							
+
 							 <?php
-								$con=mysqli_connect("localhost","root","","task");
+								$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 								if (mysqli_connect_errno())
 								{
 								echo "Failed to connect to MySQL: " . mysqli_connect_error();
 								}
-								
+
 								$sql  = '
-										SELECT employee_id,task_status, COUNT(*) 
+										SELECT employee_id,task_status, COUNT(*)
 										 AS count
 										 FROM task
 										 WHERE task_status="delayed"
-										 
+
 										 ';
-										 
+
 										 $result=mysqli_query($con,$sql);
 											if($result)
 											{
 												while($row=mysqli_fetch_assoc($result))
 												{
 													//echo $row['c'];
-													
+
 													echo '<span class="label-count">'.$row['count'].'</span>';
-												}       
+												}
 											}
 							?>
                         </a>
@@ -115,36 +115,36 @@ header("location: manager_login.html");
                                                 <i class="material-icons">date_range</i>
                                             </div>
                                             <div class="menu-info">
-                                                
+
 													<?php
-														$con=mysqli_connect("localhost","root","","task");
-														$t = "SELECT employee_id,task_status, COUNT(*) 
+														$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
+														$t = "SELECT employee_id,task_status, COUNT(*)
 																	 AS count
 																	 FROM task
 																	 WHERE task_status='delayed'
-																	 
+
 																	 '";
 														$result=mysqli_query($con,$sql);
-														
+
 														if($result)
 														{
 															while($row=mysqli_fetch_assoc($result))
 															{
-														echo '<h4>'; 
+														echo '<h4>';
 														 echo '
 																 '.$row['count'].' delayed task
 																';
 																echo '<h4>';
 														 }}
 													?>
-												
+
                                                <p>
-                                                    <i class="material-icons">access_time</i> 
+                                                    <i class="material-icons">access_time</i>
                                                 </p>
                                             </div>
                                         </a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                             <li class="footer">
@@ -153,7 +153,7 @@ header("location: manager_login.html");
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
-                    
+
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
             </div>
@@ -168,10 +168,10 @@ header("location: manager_login.html");
                 <div class="image">
                     <img src="../../images/user.png" width="48" height="48" alt="User" />
                 </div>
-				
+
 				<?php
 
-							$con=mysqli_connect("localhost","root","","task");
+							$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 							if (mysqli_connect_errno())
 							  {
@@ -183,8 +183,8 @@ header("location: manager_login.html");
 							$manager_id=$row['manager_id'];
 							$manager_name=$row['manager_name'];
 							$manager_email=$row['manager_email'];
-				?>	
-				
+				?>
+
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $manager_name; ?></div>
                     <div class="email"><?php echo $manager_email; ?></div>
@@ -211,32 +211,32 @@ header("location: manager_login.html");
                             <span>Home</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="../../pages/examples/manager_view_profile.php">
                             <i class="material-icons">person</i>
                             <span>Profile</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="../../pages/tables/manager_view_project_list.php">
                             <i class="material-icons">view_list</i>
-                            <span>Projects</span>
+                            <span>Assignments</span>
                         </a>
                     </li>
-					
+
                    <li class="active">
                         <a href="../../pages/tables/manager_view_employee_task.php">
                             <i class="material-icons">date_range</i>
                             <span>Tasks</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
-                            <span>Employee</span>
+                            <span>Staff</span>
                         </a>
                         <ul class="ml-menu">
 							<li>
@@ -251,7 +251,7 @@ header("location: manager_login.html");
 							 <li>
                                 <a href="../../pages/tables/manager_view_manager.php">Profiles Manager</a>
                             </li>
-                           
+
                         </ul>
                     </li>
                 </ul>
@@ -417,9 +417,9 @@ header("location: manager_login.html");
 
     <section class="content">
         <div class="container-fluid">
-		
+
 			<div class="body">
-                           
+
                             <ol class="breadcrumb">
                                 <li>
                                     <a href="../../pages/examples/manager_home.php">
@@ -430,7 +430,7 @@ header("location: manager_login.html");
                                     <i class="material-icons">date_range</i> Tasks
                                 </li>
                             </ol>
-                            
+
             </div>
              <!--<div class="block-header">
                 <h2>
@@ -438,7 +438,7 @@ header("location: manager_login.html");
                     <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
                 </h2>
             </div>-->
-			
+
 			 <!-- Exportable Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -447,7 +447,7 @@ header("location: manager_login.html");
                             <h2>
                                 TASK LIST : STAFF
                             </h2>
-                            
+
                         </div>
                         <div class="body">
                             <table class="table table-striped table-bordered table-hover">
@@ -455,40 +455,40 @@ header("location: manager_login.html");
                                     <tr class="bg-blue-grey">
                                         <th>No</th>
 										<th>Staff Name</th>
-										<th>Projects</th>
+										<th>Assignments</th>
 										<th>Tasks</th>
 										<th>Start Date</th>
-										<th>End Date</th>
+										<th>Due Date</th>
 										<th>Status</th>
-										
-										
+
+
                                     </tr>
                                 </thead>
-                                
+
                                 <tbody>
-                                 
+
 								<?php
-								$con=mysqli_connect("localhost","root","","task");
+								$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 								if (mysqli_connect_errno())
 								{
 								  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 								}
-								
-								$sql2 = "UPDATE task  
-										 SET task_status =  
-										 CASE  
-											 WHEN NOW() > task_due_date THEN 'Delayed' 
+
+								$sql2 = "UPDATE task
+										 SET task_status =
+										 CASE
+											 WHEN NOW() > task_due_date THEN 'Delayed'
 											 WHEN NOW() < task_due_date THEN 'In Progress'
 										END ";
-										$result2 = mysql_query($sql2);
-										
-									$sql  = 'SELECT employee.employee_name,employee.employee_id, task.task_id, 
+										$result2 = mysqli_query($sql2);
+
+									$sql  = 'SELECT employee.employee_name,employee.employee_id, task.task_id,
 											task.task_title,project.project_id,project.project_name, task.task_status, task.task_created, task.task_due_date,
 											task.task_description,task.task_comment,
-											(SELECT COUNT(task.employee_id) 
-												FROM task 
-												WHERE employee.employee_id=task.employee_id) 
+											(SELECT COUNT(task.employee_id)
+												FROM task
+												WHERE employee.employee_id=task.employee_id)
 												AS jumlah
 
 											FROM task
@@ -502,57 +502,57 @@ header("location: manager_login.html");
 									$no = 1;
 									$jum = 1;
 									while ($row = $result -> fetch_assoc()) {
-									
+
 										$project_name = $row['project_name'];
 										$task_title = $row['task_title'];
 										$task_status = $row['task_status'];
-										
+
 										if($task_status == 'Delayed'){
 												$alert = "<div class='badge bg-red'>
-												<strong>$task_status</strong> 
+												<strong>$task_status</strong>
 												</div>";
 											}else if($task_status == 'In Progress'){
 												$alert = "<div class='badge bg-blue'>
-												<strong>$task_status</strong> 
+												<strong>$task_status</strong>
 												</div>";
 											}else {
 												$alert = $alert = "<div class='badge bg-green'>
-												<strong>$task_status</strong> 
+												<strong>$task_status</strong>
 												</div>";
 											}
-										
+
 										$task_created = $row['task_created'];
 										$task_due_date = $row['task_due_date'];
 										$task_description = $row['task_description'];
 										$task_comment = $row['task_comment'];
 										$employee_id = $row['employee_id'];
 										$employee_name = $row['employee_name'];
-										
+
 										echo "<tr>";
 											if($jum <= 1) {
 												echo "<td align='center' rowspan='".$row['jumlah']."'>$no</td>
 												<td rowspan='".$row['jumlah']."'><a href = 'manager_view_details_task.php?employee_id=$employee_id'>$employee_name</a></td>";
-												$jum = $row['jumlah'];       
-												$no++;                     
-											} 
+												$jum = $row['jumlah'];
+												$no++;
+											}
 											else {
 												$jum = $jum - 1;
 											}
-												
+
 												echo "<td>$project_name</td>
 												<td>$task_title</td>
 												<td>$task_created</td>
 												<td>$task_due_date</td>
 												<td>$alert</td>
-												
-												
-												
-												
-												";										
+
+
+
+
+												";
 									}
-								}	
+								}
 								$con -> close();
-								?>    
+								?>
                                 </tbody>
                             </table>
                         </div>
@@ -560,7 +560,7 @@ header("location: manager_login.html");
                 </div>
             </div>
             <!-- #END# Exportable Table -->
-          
+
 
         </div>
     </section>

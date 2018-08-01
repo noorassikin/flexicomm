@@ -13,7 +13,7 @@ header("location: manager_login.html");
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>FlexiCOMM| Project List</title>
+    <title>FlexiCOMM| Assignment List</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -61,7 +61,7 @@ header("location: manager_login.html");
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
-    
+
     <!-- Top Bar -->
     <nav class="navbar">
         <div class="container-fluid">
@@ -76,32 +76,32 @@ header("location: manager_login.html");
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
-							
+
 							 <?php
-								$con=mysqli_connect("localhost","root","","task");
+								$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 								if (mysqli_connect_errno())
 								{
 								echo "Failed to connect to MySQL: " . mysqli_connect_error();
 								}
-								
+
 								$sql  = '
-										SELECT employee_id,task_status, COUNT(*) 
+										SELECT employee_id,task_status, COUNT(*)
 										 AS count
 										 FROM task
 										 WHERE task_status="delayed"
-										 
+
 										 ';
-										 
+
 										 $result=mysqli_query($con,$sql);
 											if($result)
 											{
 												while($row=mysqli_fetch_assoc($result))
 												{
 													//echo $row['c'];
-													
+
 													echo '<span class="label-count">'.$row['count'].'</span>';
-												}       
+												}
 											}
 							?>
                         </a>
@@ -115,45 +115,45 @@ header("location: manager_login.html");
                                                 <i class="material-icons">date_range</i>
                                             </div>
                                             <div class="menu-info">
-                                                
+
 													<?php
-														$con=mysqli_connect("localhost","root","","task");
-														$t = "SELECT employee_id,task_status, COUNT(*) 
+														$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
+														$t = "SELECT employee_id,task_status, COUNT(*)
 																	 AS count
 																	 FROM task
 																	 WHERE task_status='delayed'
-																	 
+
 																	 '";
 														$result=mysqli_query($con,$sql);
-														
+
 														if($result)
 														{
 															while($row=mysqli_fetch_assoc($result))
 															{
-														echo '<h4>'; 
+														echo '<h4>';
 														 echo '
 																 '.$row['count'].' delayed task
 																';
 																echo '<h4>';
 														 }}
 													?>
-												
+
                                                <p>
-                                                    <i class="material-icons">access_time</i> 
+                                                    <i class="material-icons">access_time</i>
                                                 </p>
                                             </div>
                                         </a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                             <li class="footer">
                                 <a href="javascript:void(0);">View All Notifications</a>
                             </li>
                         </ul>
-                    </li>   
+                    </li>
                     <!-- #END# Notifications -->
-                    
+
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
             </div>
@@ -168,10 +168,10 @@ header("location: manager_login.html");
                 <div class="image">
                     <img src="../../images/user.png" width="48" height="48" alt="User" />
                 </div>
-				
+
 				<?php
 
-							$con=mysqli_connect("localhost","root","","task");
+							$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 							if (mysqli_connect_errno())
 							  {
@@ -183,7 +183,7 @@ header("location: manager_login.html");
 							$manager_id=$row['manager_id'];
 							$manager_name=$row['manager_name'];
 							$manager_email=$row['manager_email'];
-				?>	
+				?>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $manager_name; ?></div>
                     <div class="email"><?php echo $manager_email; ?></div>
@@ -210,28 +210,28 @@ header("location: manager_login.html");
                             <span>Home</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="../../pages/examples/manager_view_profile.php">
                             <i class="material-icons">person</i>
                             <span>Profile</span>
                         </a>
                     </li>
-					
+
 					<li class="active">
                         <a href="../../pages/tables/manager_view_project_list.php">
                             <i class="material-icons">view_list</i>
-                            <span>Projects</span>
+                            <span>Assignments</span>
                         </a>
                     </li>
-					
+
                    <li>
                         <a href="../../pages/tables/manager_view_employee_task.php">
                             <i class="material-icons">date_range</i>
                             <span>Tasks</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
@@ -250,7 +250,7 @@ header("location: manager_login.html");
 							 <li>
                                 <a href="../../pages/tables/manager_view_manager.php">Profiles Manager</a>
                             </li>
-                           
+
                         </ul>
                     </li>
                 </ul>
@@ -416,9 +416,9 @@ header("location: manager_login.html");
 
     <section class="content">
         <div class="container-fluid">
-		
+
 		 <div class="body">
-                           
+
                             <ol class="breadcrumb">
                                 <li>
                                     <a href="../../pages/examples/manager_home.php">
@@ -426,10 +426,10 @@ header("location: manager_login.html");
                                     </a>
                                 </li>
                                 <li class="active">
-                                    <i class="material-icons">library_books</i> Project
+                                    <i class="material-icons">library_books</i> Assignment
                                 </li>
                             </ol>
-                            
+
                         </div>
              <!--<div class="block-header">
                 <h2>
@@ -437,55 +437,55 @@ header("location: manager_login.html");
                     <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
                 </h2>
             </div>-->
-          
+
             <!-- Exportable Table -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header clearfix">
                             <h2>
-                                PROJECT LIST
+                                ASSIGNMENT LIST
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
-                       
-								<a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>New Project</a>
-                       
+
+								<a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>NEW ASSIGNMENT</a>
+
                                 </button>
                             </h2>
                         </div>
                         <div class="body">
-						
+
                             <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
                                     <tr>
                                         <th width="5%">No.</th>
-										<th width="10%">Project</th>
+										<th width="10%">Assignment</th>
 										<th width="25%">Description</th>
 										<th width="15%">Start Date</th>
-										<th width="15%">End Date</th>
+										<th width="15%">Due Date</th>
 										<th width="10%">Status</th>
 										<th width="15%">Action</th>
 									</tr>
                                     </tr>
                                 </thead>
-                                
+
                                 <tbody>
                                     <?php
-									$conn=mysqli_connect("localhost","root","","task");
+									$conn=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
 									if (mysqli_connect_errno())
 									  {
 									  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 									  }
-									
-									/*$sql2 = "UPDATE project  
-										SET project_status =  
-										CASE  
-											 WHEN NOW() > project_due_date THEN 'Delayed' 
+
+									/*$sql2 = "UPDATE project
+										SET project_status =
+										CASE
+											 WHEN NOW() > project_due_date THEN 'Delayed'
 											 WHEN NOW() < project_due_date THEN 'In Progress'
 										END ";
 									$result2 = $conn -> query($sql2);*/
-	
+
 									$sql = "SELECT * from project";
 									$result = $conn->query($sql);
 									if ($result->num_rows > 0) {
@@ -498,47 +498,47 @@ header("location: manager_login.html");
 											$project_date_created = $row['project_date_created'];
 											$project_due_date = $row['project_due_date'];
 											$project_status = $row['project_status'];
-											
+
 											if($project_status == 'Delayed'){
 												$alert = "<div class='badge bg-red'>
-												<strong>$project_status</strong> 
+												<strong>$project_status</strong>
 												</div>";
-												
+
 											}else if($project_status == 'In Progress'){
 												$alert = "<div class='badge bg-blue'>
-												<strong>$project_status</strong> 
+												<strong>$project_status</strong>
 												</div>";
-												
+
 											}else {
 												$alert = $alert = "<div class='badge bg-green'>
-												<strong>$project_status</strong> 
-												</div>";	
+												<strong>$project_status</strong>
+												</div>";
 												}
-												
+
 											echo "<tr>
 													<td>$x</td>
 													<td><a href = 'manager_project_details.php?project_id=$project_id&project_name=$project_name'>$project_name</a></td>
-													";	
+													";
 									?>
-													
+
 											<td><?php echo $project_description; ?></td>
 											<td><?php echo $project_date_created; ?></td>
 											<td><?php echo $project_due_date; ?></td>
 											<td><?php echo $alert;
-																
+
 												if ($project_status == "Completed"){
 												}
 												else{
-																
-													$sql2 = "UPDATE project  
-															SET project_status =  
-															CASE  
-																WHEN NOW() > project_due_date THEN 'Delayed' 
+
+													$sql2 = "UPDATE project
+															SET project_status =
+															CASE
+																WHEN NOW() > project_due_date THEN 'Delayed'
 																WHEN NOW() < project_due_date THEN 'In Progress'
-																END 
+																END
 																WHERE project_id = $project_id
 																";
-																
+
 													$result2 = $conn -> query($sql2);
 												}
 												?>
@@ -551,21 +551,21 @@ header("location: manager_login.html");
 												</div>
 											</td>
 
-									
-											
+
+
 									 <!-- Update Project List -->
 										<div class="modal fade" id="defaultModal<?php echo $project_id; ?>" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Update Project</h4>
+														<h4 class="modal-title" id="defaultModalLabel">UPDATE ASSIGNMENT</h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_id" value="<?php echo $project_id; ?>">
 
-														
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="project_name">Title</label>
@@ -573,12 +573,12 @@ header("location: manager_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="project_name" name="project_name" value="<?php echo $project_name; ?>" class="form-control" placeholder="Enter Project Title">
+																			<input type="text" id="project_name" name="project_name" value="<?php echo $project_name; ?>" class="form-control" placeholder="Enter Assignment Title">
 																		</div>
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="project_description">Description</label>
@@ -591,7 +591,7 @@ header("location: manager_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="project_date_created">Start Date</label>
@@ -604,10 +604,10 @@ header("location: manager_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="project_due_date">End Date</label>
+																	<label for="project_due_date">Due Date</label>
 																</div>
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
@@ -617,38 +617,38 @@ header("location: manager_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect" name="update_project"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_project"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
 															</div>
-														</form>													
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
-										
-										
+
+
 									 <!-- Delete Project List -->
 										<div class="modal fade" id="delete<?php echo $project_id; ?>" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Delete Project</h4>
+														<h4 class="modal-title" id="defaultModalLabel">Delete Assignment</h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="delete_id" value="<?php echo $project_id; ?>">
-															
+
 																<p><strong>Are you sure you want to delete <?php echo $project_name; ?> ?</strong></p>
-															
-															
+
+
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 															</div>
-														</form>													
+														</form>
 													</div>
 												</div>
 											</div>
@@ -659,29 +659,29 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Completed Project</h4>
+														<h4 class="modal-title" id="defaultModalLabel">Completed Assignment</h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_project_complete" value="<?php echo $project_id; ?>">
-															
+
 																<p><strong>Change status <?php echo $project_name; ?> to <font color = 'blue'>Completed</font>?</strong></p>
-															
-															
+
+
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>Close</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>Close</button>
 																<button type="submit" class="btn btn-success waves-effect" name="complete"><span class="glyphicon glyphicon-ok"></span>Completed</button>
 															</div>
-														</form>													
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
-									
+
 									<?php
 									$x++;}
-									
+
 									//Update Project
 									if(isset($_POST['update_project'])){
 										$edit_id = $_POST['edit_id'];
@@ -694,7 +694,7 @@ header("location: manager_login.html");
 										//$item_code = $_POST['item_code'];
 										//$item_category = $_POST['item_category'];
 										//$item_description = $_POST['item_description'];
-										$sql = "UPDATE project SET 
+										$sql = "UPDATE project SET
 											project_name='$project_name',
 											project_description='$project_description',
 											project_date_created='$project_date_created',
@@ -707,7 +707,7 @@ header("location: manager_login.html");
 											echo "Error updating record: " . $conn->error;
 										}
 									}
-									
+
 									//Complete Project
 									if(isset($_POST['complete'])){
 										$edit_project_complete = $_POST['edit_project_complete'];
@@ -716,9 +716,9 @@ header("location: manager_login.html");
 										$project_date_created = $_POST['project_date_created'];
 										$project_due_date = $_POST['project_due_date'];
 										$project_status = $_POST['project_status'];
-										$sql = "UPDATE project SET 
+										$sql = "UPDATE project SET
 											project_status='Completed'
-											
+
 										   WHERE project_id='$edit_project_complete' ";
 										if ($conn->query($sql) === TRUE) {
 											echo '<script>window.location.href="manager_view_project_list.php"</script>';
@@ -737,17 +737,17 @@ header("location: manager_login.html");
 											} else {
 												echo "Error deleting record: " . $conn->error;
 											}
-										} 
-									
+										}
+
 								}
 									?>
-									
+
 								<!-- Add New Project -->
 								<div class="modal fade" id="addProject" tabindex="-1" role="dialog">
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h4 class="modal-title" id="defaultModalLabel">Add New Project</h4>
+												<h4 class="modal-title" id="defaultModalLabel">ADD NEW ADDRESS</h4>
 											</div>
 											<div class="modal-body">
 														<form action = "manager_add_project.php" method="post" class="form-horizontal" role="form">
@@ -758,12 +758,12 @@ header("location: manager_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" name="project_name" class="form-control" placeholder="Enter Project Title">
+																			<input type="text" name="project_name" class="form-control" placeholder="Enter Assignment Title">
 																		</div>
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="project_description">Description</label>
@@ -771,12 +771,12 @@ header("location: manager_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																		<textarea name="project_description" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Project Description" required></textarea>
+																		<textarea name="project_description" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Assignment Description" required></textarea>
 																		</div>
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="project_date_created">Start Date</label>
@@ -789,7 +789,7 @@ header("location: manager_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																	<label for="project_due_date">End Date</label>
@@ -802,14 +802,14 @@ header("location: manager_login.html");
 																	</div>
 																</div>
 															</div>
-															
+
 															<div class="modal-footer">
 																<button type="submit" class="btn btn-info waves-effect"><span class="glyphicon glyphicon-plus"></span>ADD NEW</button>
 																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 															</div>
-														</form>												
+														</form>
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
