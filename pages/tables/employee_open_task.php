@@ -50,12 +50,12 @@ header("location: employee_login.html");
 
 </head>
 
-<body class="theme-cyan">
+<body class="theme-green">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
-                <div class="spinner-layer pl-red">
+                <div class="spinner-layer pl-green">
                     <div class="circle-clipper left">
                         <div class="circle"></div>
                     </div>
@@ -563,7 +563,7 @@ header("location: employee_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">UPDATE TASK</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>EDIT TASK</h4>
 													</div>
 													<div class="modal-body">
 
@@ -617,7 +617,7 @@ header("location: employee_login.html");
 																							<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																								<div class="form-group">
 																									<div class="form-line">
-																									<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Correction Action"><?php echo $task_comment; ?></textarea>
+																									<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Solutions"><?php echo $task_comment; ?></textarea>
 																									</div>
 																								</div>
 																							</div>
@@ -639,7 +639,7 @@ header("location: employee_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">DELETE TASK</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>DELETE TASK</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -651,7 +651,7 @@ header("location: employee_login.html");
 
 															<div class="modal-footer">
 																<button type="button" class="btn btn-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-success waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE TASK</button>
+																<button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 															</div>
 														</form>
 													</div>
@@ -665,19 +665,19 @@ header("location: employee_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Completed Task</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>COMPLETE TASK</center></h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_task_complete" value="<?php echo $task_id; ?>">
 
-																<p><strong>Change status <?php echo $task_title; ?> to <font color = 'blue'>Completed</font>?</strong></p>
+																<p><strong>Change status <?php echo $task_title; ?> to <font color = 'green'>Completed</font>?</strong></p>
 
 
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>Close</button>
-																<button type="submit" class="btn btn-success waves-effect" name="complete"><span class="glyphicon glyphicon-ok"></span>Completed</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="complete"><span class="glyphicon glyphicon-ok"></span>YES</button>
 															</div>
 														</form>
 													</div>
@@ -754,7 +754,7 @@ header("location: employee_login.html");
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h4 class="modal-title" id="defaultModalLabel">ADD NEW TASK</h4>
+												<h4 class="modal-title" id="defaultModalLabel"><center>ADD NEW TASK</center></h4>
 											</div>
 											<div class="modal-body">
 														<form action = "employee_add_task.php" method="post" class="form-horizontal" role="form">
@@ -808,7 +808,7 @@ header("location: employee_login.html");
 
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="task_due_date">End Date</label>
+																	<label for="task_due_date">Due Date</label>
 																</div>
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
@@ -835,7 +835,7 @@ header("location: employee_login.html");
 
 															<div class="modal-footer">
 															<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-															<button type="submit" class="btn btn-success waves-effect"><span class="glyphicon glyphicon-plus"></span>ADD NEW</button>
+															<button type="submit" class="btn btn-success waves-effect"><span class="glyphicon glyphicon-plus"></span>SUBMIT</button>
 															</div>
 														</form>
 											</div>

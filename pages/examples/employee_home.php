@@ -39,12 +39,12 @@ header("location: sign-in.html");
     <link href="../../css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
-<body class="theme-cyan">
+<body class="theme-green">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
-                <div class="spinner-layer pl-cyan">
+                <div class="spinner-layer pl-green">
                     <div class="circle-clipper left">
                         <div class="circle"></div>
                     </div>
@@ -122,7 +122,7 @@ header("location: sign-in.html");
 																	 AS count
 																	 FROM task
 																	 WHERE task_status='delayed'
-
+                                   AND employee_id = '".$_SESSION['employee_id']."'
 																	 '";
 														$result=mysqli_query($con,$sql);
 
@@ -132,7 +132,7 @@ header("location: sign-in.html");
 															{
 														echo '<h4>';
 														 echo '
-																 '.$row['count'].' delayed task
+																 You have '.$row['count'].' delayed task
 																';
 																echo '<h4>';
 														 }}
@@ -148,7 +148,7 @@ header("location: sign-in.html");
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
+                                <!-- <a href="javascript:void(0);">View All Notifications</a> -->
                             </li>
                         </ul>
                     </li>

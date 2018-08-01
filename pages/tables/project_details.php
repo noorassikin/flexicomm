@@ -53,12 +53,12 @@ $employee_id = $_SESSION['employee_id'];
 
 </head>
 
-<body class="theme-cyan">
+<body class="theme-green">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
-                <div class="spinner-layer pl-red">
+                <div class="spinner-layer pl-green">
                     <div class="circle-clipper left">
                         <div class="circle"></div>
                     </div>
@@ -624,22 +624,22 @@ $employee_id = $_SESSION['employee_id'];
 																		$task_title = $row['task_title'];
 																		$project_name = $row['project_name'];
 																		$task_status = $row['task_status'];
-																		
-																		
+
+
 																		if($task_status == 'Delayed'){
 																			$alert = "<div class='badge bg-red'>
-																			<strong>$task_status</strong> 
+																			<strong>$task_status</strong>
 																			</div>";
-																			
+
 																		}else if($task_status == 'In Progress'){
 																			$alert = "<div class='badge bg-blue'>
-																			<strong>$task_status</strong> 
+																			<strong>$task_status</strong>
 																			</div>";
-																			
+
 																		}else {
 																			$alert = $alert = "<div class='badge bg-green'>
-																			<strong>$task_status</strong> 
-																			</div>";	
+																			<strong>$task_status</strong>
+																			</div>";
 																			}
 
 																		$task_created = $row['task_created'];
@@ -672,7 +672,7 @@ $employee_id = $_SESSION['employee_id'];
 																		<a href="#complete<?php echo $task_id;?>" data-toggle="modal"><button type='button' class='btn btn-success btn-sm'><span class='glyphicon glyphicon-ok' aria-hidden='true'></span></button></a>
 
 																	</div>
-																</td> 
+																</td>
 
 
 
@@ -681,14 +681,14 @@ $employee_id = $_SESSION['employee_id'];
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">UPDATE TASK</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>EDIT TASK</center></h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_task_id" value="<?php echo $task_id; ?>">
 															<input type="hidden" name="edit_employee_id" value="<?php echo $employee_id;  ?>">
-														
+
 															<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																								<label for="task_title">Task Details</label>
@@ -727,7 +727,7 @@ $employee_id = $_SESSION['employee_id'];
 																								</div>
 																							</div>
 																						</div>
-																						
+
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
 																								<label for="task_comment">Solutions</label>
@@ -740,73 +740,73 @@ $employee_id = $_SESSION['employee_id'];
 																								</div>
 																							</div>
 																						</div>
-															
+
 															<div class="modal-footer">
 																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 																<button type="submit" class="btn btn-success waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 															</div>
-														</form>													
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
-										
-										
+
+
 									 <!-- Delete Task List -->
 										<div class="modal fade" id="delete<?php echo $task_id; ?>" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">DELETE TASK</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>DELETE TASK</center></h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="delete_id" value="<?php echo $task_id; ?>">
-															
+
 																<p><strong>Are you sure you want to delete <?php echo $task_title; ?> ?</strong></p>
-															
-															
+
+
 															<div class="modal-footer">
 																<button type="button" class="btn btn-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-success waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE TASK</button>
+																<button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 															</div>
-														</form>													
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
-										
-										
+
+
 									<!-- Complete Task List -->
 										<div class="modal fade" id="complete<?php echo $task_id; ?>" tabindex="-1" role="dialog">
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Completed Task</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>COMPLETE TASK<center></h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_task_complete" value="<?php echo $task_id; ?>">
-															
-																<p><strong>Change status <?php echo $task_title; ?> to <font color = 'blue'>Completed</font>?</strong></p>
-															
-															
+
+																<p><strong>Change status <?php echo $task_title; ?> to <font color = 'green'>Completed</font>?</strong></p>
+
+
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>Close</button>
-																<button type="submit" class="btn btn-success waves-effect" name="complete"><span class="glyphicon glyphicon-ok"></span>Completed</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="complete"><span class="glyphicon glyphicon-ok"></span>YES</button>
 															</div>
-														</form>													
+														</form>
 													</div>
 												</div>
 											</div>
 										</div>
-									
-									
+
+
 									<?php
 									$x++;}
-									
+
 									//Update Task
 									if(isset($_POST['update_task'])){
 										$edit_task_id = $_POST['edit_task_id'];
@@ -817,7 +817,7 @@ $employee_id = $_SESSION['employee_id'];
 										$task_due_date = $_POST['task_due_date'];
 										$task_description = $_POST['task_description'];
 										$task_comment = $_POST['task_comment'];
-										$sql = "UPDATE task SET 
+										$sql = "UPDATE task SET
 											task_title='$task_title',
 											task_due_date='$task_due_date',
 											task_description='$task_description',
@@ -829,7 +829,7 @@ $employee_id = $_SESSION['employee_id'];
 											echo "Error updating record: " . $conn->error;
 										}
 									}
-									
+
 									//Complete Task
 									if(isset($_POST['complete'])){
 										$edit_task_complete = $_POST['edit_task_complete'];
@@ -840,9 +840,9 @@ $employee_id = $_SESSION['employee_id'];
 										$task_due_date = $_POST['task_due_date'];
 										$task_description = $_POST['task_description'];
 										$task_comment = $_POST['task_comment'];
-										$sql = "UPDATE task SET 
+										$sql = "UPDATE task SET
 											task_status='Completed'
-											
+
 										   WHERE task_id='$edit_task_complete' ";
 										if ($conn->query($sql) === TRUE) {
 											echo "<script>alert('*Completed*');window.location.href='javascript:history.back(-1);'</script>";
@@ -850,11 +850,11 @@ $employee_id = $_SESSION['employee_id'];
 											echo "Error updating record: " . $conn->error;
 										}
 									}
-									
-									
+
+
 									// Delete Task
 									if(isset($_POST['delete'])){
-										
+
 										$delete_id = $_POST['delete_id'];
 										$sql = "DELETE FROM task WHERE task_id='$delete_id' ";
 										if ($conn->query($sql) === TRUE) {
@@ -862,10 +862,10 @@ $employee_id = $_SESSION['employee_id'];
 											} else {
 												echo "Error deleting record: " . $conn->error;
 											}
-										} 
-									
+										}
+
 								}
-								
+
 																?>
 
 

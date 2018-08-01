@@ -46,12 +46,12 @@ $manager_idd = $_SESSION['manager_id'];
 
 </head>
 
-<body class="theme-cyan">
+<body class="theme-green">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
-                <div class="spinner-layer pl-cyan">
+                <div class="spinner-layer pl-green">
                     <div class="circle-clipper left">
                         <div class="circle"></div>
                     </div>
@@ -173,7 +173,7 @@ $manager_idd = $_SESSION['manager_id'];
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                    <!-- <img src="../../images/user.png" width="48" height="48" alt="User" /> -->
                 </div>
 
 				<?php

@@ -46,12 +46,12 @@ header("location: employee_login.html");
     <link href="../../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />-->
 </head>
 
-<body class="theme-cyan">
+<body class="theme-green">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
-                <div class="spinner-layer pl-red">
+                <div class="spinner-layer pl-green">
                     <div class="circle-clipper left">
                         <div class="circle"></div>
                     </div>
@@ -173,7 +173,7 @@ header("location: employee_login.html");
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                    <!-- <img src="../../images/user.png" width="48" height="48" alt="User" /> -->
                 </div>
 
 				<?php
@@ -225,7 +225,7 @@ header("location: employee_login.html");
                             <span>Profile</span>
                         </a>
                     </li>
-					
+
 					<li>
                         <a href="../../pages/tables/employee_view_project_list.php">
                             <i class="material-icons">library_books</i>
@@ -434,16 +434,16 @@ header("location: employee_login.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header clearfix">
-                            <h2>
+                        <div class="header clearfix bg-blue-grey">
+                            <h2><center><b>
                                 TASKS LIST (DELAYED)
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
-                       
-						  <a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>NEW TASK</a>
-                       
+
+						  <!-- <a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>NEW TASK</a> -->
+
                                 </button>
-                            </h2>
+                            </b></center></h2>
                         </div>
                         <div class="body">
 
@@ -457,7 +457,7 @@ header("location: employee_login.html");
 										<th width="15%">End Date</th>
 										<th width="10%">Status</th>
 										<th width="25%">Issues</th>
-										<th width="25%">Corrective Action</th>
+										<th width="25%">Solutions</th>
 										<th width="15%">Action</th>
 									</tr>
                                     </tr>
@@ -544,7 +544,7 @@ header("location: employee_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">UPDATE TASK</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>EDIT TASK</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -620,7 +620,7 @@ header("location: employee_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Delete Assignment</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>DELETE TASK</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -632,7 +632,7 @@ header("location: employee_login.html");
 
 															<div class="modal-footer">
 																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-success waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
+																<button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 															</div>
 														</form>
 													</div>

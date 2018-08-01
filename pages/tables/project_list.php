@@ -49,12 +49,12 @@ header("location: manager_login.html");
 	</style>
 </head>
 
-<body class="theme-cyan">
+<body class="theme-green">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
-                <div class="spinner-layer pl-cyan">
+                <div class="spinner-layer pl-green">
                     <div class="circle-clipper left">
                         <div class="circle"></div>
                     </div>
@@ -175,7 +175,7 @@ header("location: manager_login.html");
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                    <!-- <img src="../../images/user.png" width="48" height="48" alt="User" /> -->
                 </div>
 
 				<?php
@@ -244,7 +244,7 @@ header("location: manager_login.html");
 					<li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
-                            <span>Employee</span>
+                            <span>Staff</span>
                         </a>
                         <ul class="ml-menu">
 							<li>
@@ -447,15 +447,15 @@ header("location: manager_login.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>
+                        <div class="header bg-blue-grey">
+                            <h2><center>
 								<?php
 									$project_name = $_GET['project_name'];
 									//echo "<label>Project Title:</label>" ;
-									echo 'Assignment Details : ';
+									echo 'ASSIGNMENT : ';
 
-									echo '<font color= "red">' .$project_name. '</font>';
-								?>                            </h2>
+									echo '<font color= "black"><b>' .$project_name. '</b></font>';
+								?>                            </center></h2>
 
                         </div>
                         <div class="body">
@@ -481,7 +481,7 @@ header("location: manager_login.html");
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active" id="home_with_icon_title">
-                                    <b>Home Content</b>
+
                                     <p>
 									<div class="body table-responsive">
 													<table class="table">
@@ -561,29 +561,13 @@ header("location: manager_login.html");
 												</p>
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
-                                    <b>Profile Content</b>
+
                                     <p>
 									<!-- Exportable Table -->
 									<div class="row clearfix">
 										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 											<div class="card">
-												<div class="header">
-													<h2>
-														EXPORTABLE TABLE
-													</h2>
-													<ul class="header-dropdown m-r--5">
-														<li class="dropdown">
-															<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-																<i class="material-icons">more_vert</i>
-															</a>
-															<ul class="dropdown-menu pull-right">
-																<li><a href="javascript:void(0);">Action</a></li>
-																<li><a href="javascript:void(0);">Another action</a></li>
-																<li><a href="javascript:void(0);">Something else here</a></li>
-															</ul>
-														</li>
-													</ul>
-												</div>
+
 												<div class="body">
 													<table class="table table-bordered table-striped table-hover dataTable js-exportable">
 														<thead>
@@ -664,7 +648,7 @@ header("location: manager_login.html");
 																	<div class="modal-dialog" role="document">
 																		<div class="modal-content">
 																			<div class="modal-header">
-																				<h4 class="modal-title" id="defaultModalLabel">Update Task</h4>
+																				<h4 class="modal-title" id="defaultModalLabel"><center>EDIT TASK</center></h4>
 																			</div>
 																			<div class="modal-body">
 
@@ -720,15 +704,15 @@ header("location: manager_login.html");
 																						<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																							<div class="form-group">
 																								<div class="form-line">
-																								<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Correction Action"><?php echo $task_comment; ?></textarea>
+																								<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Solutions"><?php echo $task_comment; ?></textarea>
 																								</div>
 																							</div>
 																						</div>
 																					</div>
 
 																					<div class="modal-footer">
-																						<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																						<button type="submit" class="btn btn-danger waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
+																						<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																						<button type="submit" class="btn btn-success waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 																					</div>
 																				</form>
 																			</div>
@@ -742,7 +726,7 @@ header("location: manager_login.html");
 																	<div class="modal-dialog" role="document">
 																		<div class="modal-content">
 																			<div class="modal-header">
-																				<h4 class="modal-title" id="defaultModalLabel">Delete Project</h4>
+																				<h4 class="modal-title" id="defaultModalLabel"><center>DELETE TASK</center></h4>
 																			</div>
 																			<div class="modal-body">
 
@@ -753,9 +737,10 @@ header("location: manager_login.html");
 																					</div>
 
 																					<div class="modal-footer">
-																						<button type="submit" class="btn btn-info waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
-																						<button type="button" class="btn btn bg-pink waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																					</div>
+
+																						<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+                                            <button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
+                                          </div>
 																				</form>
 																			</div>
 																		</div>
