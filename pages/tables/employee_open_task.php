@@ -419,8 +419,8 @@ header("location: employee_login.html");
                                     <i class="material-icons">date_range</i> Tasks
                                 </li>
                             </ol>
-
-							<center>ASSIGNMENT LIST</center>
+							
+							<h3><center><b>ASSIGNMENT LIST</b></center></h3>
                             <BR>
                         </div>
              <!--<div class="block-header">

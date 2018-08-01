@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>FlexiCOMM | Sign-in</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="../../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="../../plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="../../css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../../css/themes/all-themes.css" rel="stylesheet" />
+</head>
+
+<body class="theme-cyan">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-cyan">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="">FlexiCOMMUNICATOR</a>
+            </div>
+            
+        </div>
+    </nav>
+	
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+			<div class="row">
+                <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+				
+					<div class="logo">
+						<h3><center><a href="javascript:void(0);"><font color ='black'>Flexi<font><b><font color ='green'>COMM</font></b></a></center></h3>
+						<p>
+						<center><small>Team Communication System</small></center>
+					</div>
+					<br>
+                    <div class="card">
+                        <div class="body">
+						<div class="panel-body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#staff" data-toggle="tab">Staff</a>
+                                </li>
+                                <li><a href="#manager" data-toggle="tab">Manager</a>
+                                </li>
+                               
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="staff">
+									<form action="employee_login_verify.php" id="employee_login" method="POST">
+									<div class="msg"><center>Sign in to explore Live Demo<center></div>
+									<br><br>
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">person</i>
+										</span>
+										<div class="form-line">
+											<input type="text" class="form-control" name="employee_id" placeholder="Staff ID" required autofocus>
+										</div>
+									</div>
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">lock</i>
+										</span>
+										<div class="form-line">
+											<input type="password" class="form-control" name="employee_password" placeholder="Staff Password" required>
+										</div>
+									</div>
+									 <div class="row">
+										
+										<div class="col-xs-4">
+											<center><button class="btn btn-block bg-green waves-effect" type="submit">SIGN IN</button></center>
+										</div>
+									</div>
+									</form>   
+									<p class="font-bold col-blue align-right"><i>Demo Mode:</i></p>
+									<p class="align-right">Username: <b>StaffDemo</b></p>
+									<p class="align-right">Password: <b>password</b></p>
+									
+								</div>
+								
+                                <div class="tab-pane fade" id="manager">
+									<form id="sign_in" method="POST" action="manager_login_verify.php">
+									<div class="msg"><center>Sign in to explore Live Demo</center></div>
+									<br><br>
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">person</i>
+										</span>
+										<div class="form-line">
+											<input type="text" class="form-control" name="manager_id" placeholder="Manager ID" required autofocus>
+										</div>
+									</div>
+									<div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">lock</i>
+										</span>
+										<div class="form-line">
+											<input type="password" class="form-control" name="manager_password" placeholder="Manager Password" required>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-4">
+											<button class="btn btn-block bg-green waves-effect" type="submit">SIGN IN</button>
+										</div>
+									</div>
+									</form>    
+									<p class="font-bold col-blue align-right"><i>Demo Mode:</i></p>
+									<p class="align-right">Username: <b>ManagerDemo</b></p>
+									<p class="align-right">Password: <b>password</b></p>
+								</div>												
+                            </div>
+                        </div>                       
+						</div>
+                    </div>
+                </div>
+                
+            </div>            
+			</div>
+        </div>
+    </section>
+	
+	
+
+    <!-- Jquery Core Js -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="../../plugins/node-waves/waves.js"></script>
+
+    <!-- Custom Js -->
+    <script src="../../js/admin.js"></script>
+	<script src="../../js/pages/examples/sign-in.js"></script>
+
+    <!-- Demo Js -->
+    <script src="../../js/demo.js"></script>
+</body>
+
+</html>

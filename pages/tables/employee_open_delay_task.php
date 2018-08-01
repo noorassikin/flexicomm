@@ -220,6 +220,13 @@ header("location: employee_login.html");
                     </li>
 
 					<li>
+                        <a href="../../pages/examples/employee_view_profile.php">
+                            <i class="material-icons">person</i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+					
+					<li>
                         <a href="../../pages/tables/employee_view_project_list.php">
                             <i class="material-icons">library_books</i>
                             <span>Assignments</span>
@@ -429,12 +436,12 @@ header("location: employee_login.html");
                     <div class="card">
                         <div class="header clearfix">
                             <h2>
-                                TASKS LIST
+                                TASKS LIST (DELAYED)
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
-
-						  <a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>New Task</a>
-
+                       
+						  <a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>NEW TASK</a>
+                       
                                 </button>
                             </h2>
                         </div>
@@ -537,7 +544,7 @@ header("location: employee_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Update Task</h4>
+														<h4 class="modal-title" id="defaultModalLabel">UPDATE TASK</h4>
 													</div>
 													<div class="modal-body">
 
@@ -598,8 +605,8 @@ header("location: employee_login.html");
 																						</div>
 
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-danger waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 															</div>
 														</form>
 													</div>
@@ -624,8 +631,8 @@ header("location: employee_login.html");
 
 
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 															</div>
 														</form>
 													</div>

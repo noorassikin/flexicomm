@@ -517,8 +517,8 @@ header("location: manager_login.html");
 
 											echo "<tr>
 													<td>$x</td>
-													<td><a href = 'manager_project_details.php?project_id=$project_id&project_name=$project_name'>$project_name</a></td>
-													";
+													<td><a href = 'project_list.php?project_id=$project_id&project_name=$project_name'>$project_name</a></td>
+													";	
 									?>
 
 											<td><?php echo $project_description; ?></td>
