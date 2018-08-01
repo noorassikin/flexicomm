@@ -551,8 +551,8 @@ $manager_idd = $_SESSION['manager_id'];
                 <!-- Task Info -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
-                        <div class="header">
-                                <h2>
+                        <div class="header bg-blue-grey">
+                                <h2><center><strong>
                                 HIGHLIGHTS
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
@@ -560,7 +560,7 @@ $manager_idd = $_SESSION['manager_id'];
 								<a href = "new_highlight.php" class="btn btn-success pull-right"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></a>
 
                                 </button>
-                            </h2>
+                            </strong></center></h2>
 
                         </div>
                         <div class="body">
@@ -729,7 +729,7 @@ $manager_idd = $_SESSION['manager_id'];
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">CHANGE PASSWORD</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>CHANGE PASSWORD</center></h4>
 													</div>
 													<div class="modal-body">
 

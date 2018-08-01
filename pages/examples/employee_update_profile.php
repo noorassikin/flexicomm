@@ -418,8 +418,8 @@ header("location: sign-in.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>PROFILE DETAILS</h2>
+                        <div class="header bg-blue-grey">
+                            <h2><center>PROFILE DETAILS</center></h2>
 
                         </div>
                         <div class="body">

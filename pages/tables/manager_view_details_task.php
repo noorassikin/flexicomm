@@ -13,7 +13,7 @@ header("location: manager_login.html");
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>FlexiCOMM| Employee Task Details</title>
+    <title>FlexiCOMM| Staff Task Details</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -236,7 +236,7 @@ header("location: manager_login.html");
 					<li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
-                            <span>Employee</span>
+                            <span>Staff</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
@@ -445,12 +445,12 @@ header("location: manager_login.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>
+                        <div class="header bg-white">
+                            <h2><center><strong>
                                 TASK LIST FOR
 								<?php $employee_id = $_GET['employee_id'];
 							echo $employee_id; ?>
-                            </h2>
+            </strong></center></h2>
 
                         </div>
                         <div class="body">
@@ -464,7 +464,7 @@ header("location: manager_login.html");
 										<th width="15%">Due Date</th>
 										<th width="15%">Status</th>
 										<th width="25%">Issues</th>
-										<th width="25%">Solution(s)</th>
+										<th width="25%">Solutions</th>
 										<th width="10%">Action</th>
 
                                     </tr>
@@ -560,7 +560,7 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">UPDATE TASK</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>ADD SOLUTIONS</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -623,12 +623,12 @@ header("location: manager_login.html");
 
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																								<label for="task_comment">Solution(s)</label>
+																								<label for="task_comment">Solutions</label>
 																							</div>
 																							<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																								<div class="form-group">
 																									<div class="form-line">
-																									<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Correction Action"><?php echo $task_comment; ?></textarea>
+																									<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Solutions"><?php echo $task_comment; ?></textarea>
 																									</div>
 																								</div>
 																							</div>
@@ -636,7 +636,7 @@ header("location: manager_login.html");
 
 															<div class="modal-footer">
 																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-success waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SUBMIT</button>
 															</div>
 														</form>
 													</div>

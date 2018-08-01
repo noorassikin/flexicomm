@@ -12,7 +12,7 @@ header("location: manager_login.html");
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>FlexiCOMM | Register Employee</title>
+    <title>FlexiCOMM | Register Staff</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -227,7 +227,7 @@ header("location: manager_login.html");
 					<li  class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
-                            <span>Employee</span>
+                            <span>Staff</span>
                         </a>
                         <ul class="ml-menu">
 							<li class="active">
@@ -418,7 +418,7 @@ header("location: manager_login.html");
                                     </a>
                                 </li>
                                 <li class="active">
-                                    <i class="material-icons">group_add</i> Register New Employee
+                                    <i class="material-icons">group_add</i> Register New Staff
                                 </li>
                             </ol>
 
@@ -431,10 +431,10 @@ header("location: manager_login.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>
+                        <div class="header bg-blue-grey">
+                            <h2><center><strong>
                               STAFF DETAILS
-                            </h2>
+                            </strong></center></h2>
 
                         </div>
                         <div class="body">

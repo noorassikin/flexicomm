@@ -13,7 +13,7 @@ header("location: manager_login.html");
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>FlexiCOMM| Employee List</title>
+    <title>FlexiCOMM| Staff List</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -227,7 +227,7 @@ header("location: manager_login.html");
 					<li class="active">
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
-                            <span>Employee</span>
+                            <span>Staff</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
@@ -418,7 +418,7 @@ header("location: manager_login.html");
                                     </a>
                                 </li>
                                 <li class="active">
-                                    <i class="material-icons">group</i> Employee List
+                                    <i class="material-icons">group</i> Staff List
                                 </li>
                             </ol>
 
@@ -434,8 +434,8 @@ header("location: manager_login.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header clearfix">
-                            <h2>
+                        <div class="header clearfix bg-blue-grey">
+                            <h2><center><strong>
                                 STAFF LIST
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
@@ -443,7 +443,7 @@ header("location: manager_login.html");
 						  <a href= "register_employee.php" class="btn btn-success pull-right"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>REGISTER STAFF</a>
 
                                 </button>
-                            </h2>
+                            </strong></center></h2>
                         </div>
                         <div class="body">
 
@@ -504,7 +504,7 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">VIEW STAFF PROFILE</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>STAFF PROFILE<center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -606,7 +606,7 @@ header("location: manager_login.html");
 															</div>
 
 															<div class="modal-footer">
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 															</div>
 														</form>
 													</div>
@@ -620,7 +620,7 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Update Staff Details</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>EDIT STAFF DETAILS<center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -672,7 +672,7 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Delete Employee</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>DELETE STAFF</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -683,9 +683,10 @@ header("location: manager_login.html");
 															</div>
 
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
-																<button type="button" class="btn btn bg-pink waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-															</div>
+
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+                                <button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
+                              </div>
 														</form>
 													</div>
 												</div>

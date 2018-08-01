@@ -433,16 +433,16 @@ $employee_id = $_SESSION['employee_id'];
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>
+                        <div class="header bg-blue-grey">
+                            <h2><center>
 								<?php
 									$project_name = $_GET['project_name'];
 									//echo "<label>Project Title:</label>" ;
 									echo 'ASSIGNMENT : ';
 
-									echo '<font color= "red">' .$project_name. '</font>';
+									echo '<font color= "black"><strong>' .$project_name. '</strong></font>';
 								?>
-                            </h2>
+                          </center></h2>
 
                         </div>
                         <div class="body">

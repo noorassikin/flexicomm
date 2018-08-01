@@ -242,7 +242,7 @@ $manager_idd = $_SESSION['manager_id'];
 					<li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
-                            <span>Employee</span>
+                            <span>Staff</span>
                         </a>
                         <ul class="ml-menu">
 							<li>
@@ -433,8 +433,8 @@ $manager_idd = $_SESSION['manager_id'];
                 <!-- Task Info -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
-                        <div class="header">
-                                <h2>
+                        <div class="header bg-blue-grey">
+                                <h2><center><strong>
                                 HIGHLIGHTS
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
@@ -442,7 +442,7 @@ $manager_idd = $_SESSION['manager_id'];
 								<a class="btn btn-success pull-right" data-toggle="modal" data-target="#addHighlight"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></a>
 
                                 </button>
-                            </h2>
+                            </strong><center></h2>
 
                         </div>
                         <div class="body">
@@ -535,7 +535,7 @@ $manager_idd = $_SESSION['manager_id'];
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">UPDATE HIGHLIGHT</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>EDIT HIGHLIGHTS</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -588,19 +588,19 @@ $manager_idd = $_SESSION['manager_id'];
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Delete Message</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>DELETE MESSAGE</center></h4>
 													</div>
 													<div class="modal-body">
 
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="delete_id" value="<?php echo $id_highlight; ?>">
 
-																<p><strong>Are you sure you want to delete?</strong></p>
+																<p><strong>Are you sure you want to delete this message?</strong></p>
 
 
 															<div class="modal-footer">
 																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-success waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
+																<button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 															</div>
 														</form>
 													</div>
@@ -654,7 +654,7 @@ $manager_idd = $_SESSION['manager_id'];
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h4 class="modal-title" id="defaultModalLabel">Post Announcement</h4>
+												<h4 class="modal-title" id="defaultModalLabel"><center>NEW MESSAGE FOR HIGHLIGHTS</center></h4>
 											</div>
 											<div class="modal-body">
 														<form action = "manager_add_highlight.php" method="post" class="form-horizontal" role="form">
@@ -691,9 +691,10 @@ $manager_idd = $_SESSION['manager_id'];
 
 
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect"><span class="glyphicon glyphicon-plus"></span>ADD NEW</button>
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-															</div>
+
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+                                <button type="submit" class="btn btn-success waves-effect"><span class="glyphicon glyphicon-plus"></span>POST</button>
+                              </div>
 														</form>
 											</div>
 

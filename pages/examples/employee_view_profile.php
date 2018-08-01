@@ -12,7 +12,7 @@ header("location: sign-in.html");
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>FlexiCOMM | Employee Profile</title>
+    <title>FlexiCOMM | Staff Profile</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -421,8 +421,8 @@ header("location: sign-in.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>Profile Details</h2>
+                        <div class="header bg-blue-grey">
+                            <h2><center><strong>PROFILE DETAILS</strong></center></h2>
 
                         </div>
                         <div class="body">
