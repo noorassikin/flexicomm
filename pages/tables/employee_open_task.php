@@ -159,13 +159,13 @@ header("location: employee_login.html");
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
+                                <!-- <a href="javascript:void(0);">View All Notifications</a> -->
                             </li>
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
 
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li> -->
                 </ul>
             </div>
         </div>
@@ -260,10 +260,10 @@ header("location: employee_login.html");
         </aside>
         <!-- #END# Left Sidebar -->
         <!-- Right Sidebar -->
-        <aside id="rightsidebar" class="right-sidebar">
+        <!-- <aside id="rightsidebar" class="right-sidebar">
             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                 <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
-                <!--<li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li> -->
+                <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
@@ -400,7 +400,7 @@ header("location: employee_login.html");
                     </div>
                 </div>
             </div>
-        </aside>
+        </aside> -->
         <!-- #END# Right Sidebar -->
     </section>
 
@@ -411,11 +411,12 @@ header("location: employee_login.html");
 
                             <ol class="breadcrumb">
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="../../pages/examples/employee_home.php">
                                         <i class="material-icons">home</i> Home
                                     </a>
                                 </li>
                                 <li class="active">
+                                  <a href="../../pages/examples/employee_open_task.php">
                                     <i class="material-icons">date_range</i> Tasks
                                 </li>
                             </ol>
@@ -861,7 +862,7 @@ header("location: employee_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Change Password</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>CHANGE PASSWORD</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -876,7 +877,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
+																			<input type="password" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
 																		</div>
 																	</div>
 																</div>
@@ -889,7 +890,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
+																			<input type="password" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
 																		</div>
 																	</div>
 																</div>
@@ -902,7 +903,7 @@ header("location: employee_login.html");
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">
 																		<div class="form-line">
-																			<input type="text" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
+																			<input type="password" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
 																		</div>
 																	</div>
 																</div>
@@ -910,16 +911,17 @@ header("location: employee_login.html");
 																<input type="hidden" name="employee_id" value="<?php echo $_SESSION['employee_id']; ?>"  />
 
 															<div class="modal-footer">
-																<button type="submit" class="btn btn-info waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
-																<button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-															</div>
+
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+                                <button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
+                              </div>
 
 														<?php
 
 															if(isset($_POST['update_password'])){
-																$host = "localhost";
-																$user = "root";
-																$pass = "";
+																$host = "mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com";
+																$user = "mastermaster";
+																$pass = "mastermaster";
 																$db = "task";
 
 																$employee_id = mysqli_real_escape_string($con,$_POST['employee_id']);

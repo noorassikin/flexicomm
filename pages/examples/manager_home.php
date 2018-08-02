@@ -188,7 +188,7 @@ $manager_idd = $_SESSION['manager_id'];
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="manager_update_profile.php"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="manager_update_profile.php"><i class="material-icons">person</i>Edit Profile</a></li>
                             <li role="seperator" class="divider"></li>
                             <li><a href="#changepass" data-toggle="modal"><i class="material-icons">create</i>Edit Password</a></li>
                             <li role="seperator" class="divider"></li>
@@ -479,7 +479,7 @@ $manager_idd = $_SESSION['manager_id'];
 												</div>";
 
 											}else if($highlight_status == 'All'){
-												$alert = "<div class='badge bg-blue'>
+												$alert = "<div class='badge bg-green'>
 												<strong>$highlight_status</strong>
 												</div>";
 
@@ -489,7 +489,7 @@ $manager_idd = $_SESSION['manager_id'];
 												</div>";
 
 											}else if($highlight_status == 'Staff'){
-												$alert = "<div class='badge bg-green'>
+												$alert = "<div class='badge bg-blue'>
 												<strong>$highlight_status</strong>
 												</div>";
 
@@ -648,15 +648,15 @@ $manager_idd = $_SESSION['manager_id'];
 
 															<div class="modal-footer">
 																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 															</div>
 
 														<?php
 
 															if(isset($_POST['update_password'])){
-																$host = "localhost";
-																$user = "root";
-																$pass = "";
+																$host = "mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com";
+																$user = "mastermaster";
+																$pass = "mastermaster";
 																$db = "task";
 
 																$manager_id = mysqli_real_escape_string($con,$_POST['manager_id']);

@@ -544,7 +544,7 @@ $employee_id = $_SESSION['employee_id'];
 																				echo "<th>Due Date</th>";
 																				echo "<td>" . $row["project_due_date"]. "</td>";
 																			echo "</tr>";
-																	
+
 
 																			echo "<tr>";
 																				echo "<th>Status</th>";
@@ -567,7 +567,7 @@ $employee_id = $_SESSION['employee_id'];
 																					}
 																				echo "<td>" . $alert. "</td>";
 																			echo "</tr>";
-																				
+
 
 																			echo "<tr>";
 																				echo "<th>Staff (PIC)</th>";
@@ -810,7 +810,7 @@ $employee_id = $_SESSION['employee_id'];
 														<form method="post" class="form-horizontal" role="form">
 															<input type="hidden" name="edit_task_complete" value="<?php echo $task_id; ?>">
 
-																<p><strong>Change status <?php echo $task_title; ?> to <font color = 'green'>Completed</font>?</strong></p>
+																<p><strong>Change status of <?php echo $task_title; ?> to <font color = 'green'>Completed</font>?</strong></p>
 
 
 															<div class="modal-footer">
@@ -904,8 +904,12 @@ $employee_id = $_SESSION['employee_id'];
 
 
 								<div role="tabpanel" class="tab-pane fade" id="messages_with_icon_title">
-                                    <center><font color = 'green'><b>CHAT WITH YOUR TEAM MEMBERS!</b></font></center>
+                                    <h4><center><font color = 'green'><b>CHAT WITH YOUR TEAM MEMBERS!</b></font></center></h4>
                                     <p>
+
+                                    <p><center><i>Only persons in charge (PIC) are allowed to join discussion. </i></center></p>
+
+
 									<!-- Basic Example -->
 
 									<?php
@@ -988,7 +992,7 @@ $employee_id = $_SESSION['employee_id'];
 												echo "Sorry! Not part of project team";
 												echo '</div>';
 
-												
+
 												}*/
 												}
 												?>

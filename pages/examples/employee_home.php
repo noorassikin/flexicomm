@@ -90,7 +90,7 @@ header("location: sign-in.html");
 										 AS count
 										 FROM task
 										 WHERE task_status="delayed"
-										 AND employee_id = "'.$_SESSION['employee_id'].'"
+                     AND employee_id = "'.$_SESSION['employee_id'].'"
 										 ';
 
 										 $result=mysqli_query($con,$sql);
@@ -105,12 +105,12 @@ header("location: sign-in.html");
 											}
 							?>
                         </a>
-                       <ul class="dropdown-menu">
+                        <ul class="dropdown-menu">
                             <li class="header">NOTIFICATIONS</li>
                             <li class="body">
                                 <ul class="menu">
                                     <li>
-                                        <a href="employee_open_delay_task.php">
+                                        <a href="../../pages/tables/employee_open_delay_task.php">
                                             <div class="icon-circle bg-red">
                                                 <i class="material-icons">date_range</i>
                                             </div>
@@ -122,7 +122,7 @@ header("location: sign-in.html");
 																	 AS count
 																	 FROM task
 																	 WHERE task_status='delayed'
-																	 AND employee_id = '".$_SESSION['employee_id']."'
+                                   AND employee_id = '".$_SESSION['employee_id']."'
 																	 '";
 														$result=mysqli_query($con,$sql);
 
@@ -147,9 +147,9 @@ header("location: sign-in.html");
 
                                 </ul>
                             </li>
-                             <!--<li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
-                            </li>-->
+                            <li class="footer">
+                                <!-- <a href="javascript:void(0);">View All Notifications</a> -->
+                            </li>
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
@@ -188,7 +188,7 @@ header("location: sign-in.html");
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="employee_update_profile.php"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="employee_update_profile.php"><i class="material-icons">person</i>Edit Profile</a></li>
                             <li role="seperator" class="divider"></li>
                             <li><a href="#changepass" data-toggle="modal"><i class="material-icons">create</i>Edit Password</a></li>
                             <li role="seperator" class="divider"></li>
@@ -449,17 +449,17 @@ header("location: sign-in.html");
 												</div>";
 
 											}else if($highlight_status == 'All'){
-												$alert = "<div class='badge bg-blue'>
+												$alert = "<div class='badge bg-green'>
 												<strong>$highlight_status</strong>
 												</div>";
 
-											}else if($highlight_status == 'employee'){
+											}else if($highlight_status == 'Manager'){
 												$alert = "<div class='badge bg-orange'>
 												<strong>$highlight_status</strong>
 												</div>";
 
 											}else if($highlight_status == 'Staff'){
-												$alert = "<div class='badge bg-green'>
+												$alert = "<div class='badge bg-blue'>
 												<strong>$highlight_status</strong>
 												</div>";
 
@@ -618,7 +618,7 @@ header("location: sign-in.html");
 
 															<div class="modal-footer">
 																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 															</div>
 
 														<?php

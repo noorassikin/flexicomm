@@ -4,7 +4,7 @@
 session_start();
 error_reporting(0);
 if(!isset($_SESSION['employee_id'])){
-header("location: employee_login.html");
+header("location: sign-in.html");
 }
 ?>
 
@@ -250,7 +250,7 @@ header("location: employee_login.html");
         </aside>
         <!-- #END# Left Sidebar -->
         <!-- Right Sidebar -->
-        <aside id="rightsidebar" class="right-sidebar">
+        <!-- <aside id="rightsidebar" class="right-sidebar">
             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                 <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
                 <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
@@ -390,7 +390,7 @@ header("location: employee_login.html");
                     </div>
                 </div>
             </div>
-        </aside>
+        </aside> -->
         <!-- #END# Right Sidebar -->
     </section>
 
@@ -427,7 +427,7 @@ header("location: employee_login.html");
                                 ASSIGNMENT LIST
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project </button>-->
-							
+
 								<a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>NEW ASSIGNMENT</a>
 								<!--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 align-right">
 									<button type="button" class="btn btn-success waves-effect">NEW ASSIGNMENT</button>
@@ -652,8 +652,8 @@ header("location: employee_login.html");
 
 
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>Close</button>
-																<button type="submit" class="btn btn-success waves-effect" name="complete"><span class="glyphicon glyphicon-ok"></span>Completed</button>
+																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="complete"><span class="glyphicon glyphicon-ok"></span>COMPLETED</button>
 															</div>
 														</form>
 													</div>
@@ -802,7 +802,7 @@ header("location: employee_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Change Password</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>CHANGE PASSWORD</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -852,15 +852,15 @@ header("location: employee_login.html");
 
 															<div class="modal-footer">
 																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 															</div>
 
 														<?php
 
 															if(isset($_POST['update_password'])){
-																$host = "localhost";
-																$user = "root";
-																$pass = "";
+																$host = "mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com";
+																$user = "mastermaster";
+																$pass = "mastermaster";
 																$db = "task";
 
 																$employee_id = mysqli_real_escape_string($con,$_POST['employee_id']);
