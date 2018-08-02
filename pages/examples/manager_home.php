@@ -67,7 +67,7 @@ $manager_idd = $_SESSION['manager_id'];
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../pages/examples/employee_home.php">Flexi<b>COMMUNICATOR</b></a>
+                <a class="navbar-brand" href="../../pages/examples/manager_home.php">Flexi<b>COMMUNICATOR</b></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -148,13 +148,11 @@ $manager_idd = $_SESSION['manager_id'];
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="javascript:void(0);">View All Notifications</a>
+                                <!-- <a href="javascript:void(0);">View All Notifications</a> -->
                             </li>
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
-
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
             </div>
         </div>
@@ -283,6 +281,7 @@ $manager_idd = $_SESSION['manager_id'];
 
 			 <!-- Widgets -->
             <div class="row clearfix">
+            <a href= "../../pages/tables/manager_view_project_list.php">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-light-green hover-expand-effect">
                         <div class="icon">
@@ -312,6 +311,9 @@ $manager_idd = $_SESSION['manager_id'];
                         </div>
                     </div>
                 </div>
+                </a>
+
+                <a href= "../../pages/tables/manager_view_employee_task.php">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-cyan hover-expand-effect">
                         <div class="icon">
@@ -340,6 +342,9 @@ $manager_idd = $_SESSION['manager_id'];
                         </div>
                     </div>
                 </div>
+                </a>
+
+        				<a href= "../../pages/tables/manager_open_delay_task.php">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-red hover-expand-effect">
                         <div class="icon">
@@ -371,6 +376,9 @@ $manager_idd = $_SESSION['manager_id'];
                         </div>
                     </div>
                 </div>
+                </a>
+
+        				<a href= "../../pages/tables/manager_view_employee.php">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-orange hover-expand-effect">
                         <div class="icon">
@@ -402,6 +410,7 @@ $manager_idd = $_SESSION['manager_id'];
                         </div>
                     </div>
                 </div>
+              </a>
             </div>
             <!-- #END# Widgets -->
 

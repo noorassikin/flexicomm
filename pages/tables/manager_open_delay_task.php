@@ -160,8 +160,6 @@ header("location: manager_login.html");
                         </ul>
                     </li>
                     <!-- #END# Notifications -->
-
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
             </div>
         </div>
@@ -243,7 +241,7 @@ header("location: manager_login.html");
 					<li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
-                            <span>Employee</span>
+                            <span>Staff</span>
                         </a>
                         <ul class="ml-menu">
 							<li>
@@ -253,7 +251,7 @@ header("location: manager_login.html");
                                 <a href="../../pages/tables/register_manager.php">Register Manager</a>
                             </li>
                             <li>
-                                <a href="../../pages/tables/manager_view_employee.php">Profiles Employee</a>
+                                <a href="../../pages/tables/manager_view_employee.php">Profiles Staff</a>
                             </li>
 							<li>
                                 <a href="../../pages/tables/manager_view_manager.php">Profiles Manager</a>
@@ -278,147 +276,6 @@ header("location: manager_login.html");
         </aside>
         <!-- #END# Left Sidebar -->
         <!-- Right Sidebar -->
-        <aside id="rightsidebar" class="right-sidebar">
-            <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
-                <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
-            </ul>
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
-                    <ul class="demo-choose-skin">
-                        <li data-theme="red" class="active">
-                            <div class="red"></div>
-                            <span>Red</span>
-                        </li>
-                        <li data-theme="pink">
-                            <div class="pink"></div>
-                            <span>Pink</span>
-                        </li>
-                        <li data-theme="purple">
-                            <div class="purple"></div>
-                            <span>Purple</span>
-                        </li>
-                        <li data-theme="deep-purple">
-                            <div class="deep-purple"></div>
-                            <span>Deep Purple</span>
-                        </li>
-                        <li data-theme="indigo">
-                            <div class="indigo"></div>
-                            <span>Indigo</span>
-                        </li>
-                        <li data-theme="blue">
-                            <div class="blue"></div>
-                            <span>Blue</span>
-                        </li>
-                        <li data-theme="light-blue">
-                            <div class="light-blue"></div>
-                            <span>Light Blue</span>
-                        </li>
-                        <li data-theme="cyan">
-                            <div class="cyan"></div>
-                            <span>Cyan</span>
-                        </li>
-                        <li data-theme="teal">
-                            <div class="teal"></div>
-                            <span>Teal</span>
-                        </li>
-                        <li data-theme="green">
-                            <div class="green"></div>
-                            <span>Green</span>
-                        </li>
-                        <li data-theme="light-green">
-                            <div class="light-green"></div>
-                            <span>Light Green</span>
-                        </li>
-                        <li data-theme="lime">
-                            <div class="lime"></div>
-                            <span>Lime</span>
-                        </li>
-                        <li data-theme="yellow">
-                            <div class="yellow"></div>
-                            <span>Yellow</span>
-                        </li>
-                        <li data-theme="amber">
-                            <div class="amber"></div>
-                            <span>Amber</span>
-                        </li>
-                        <li data-theme="orange">
-                            <div class="orange"></div>
-                            <span>Orange</span>
-                        </li>
-                        <li data-theme="deep-orange">
-                            <div class="deep-orange"></div>
-                            <span>Deep Orange</span>
-                        </li>
-                        <li data-theme="brown">
-                            <div class="brown"></div>
-                            <span>Brown</span>
-                        </li>
-                        <li data-theme="grey">
-                            <div class="grey"></div>
-                            <span>Grey</span>
-                        </li>
-                        <li data-theme="blue-grey">
-                            <div class="blue-grey"></div>
-                            <span>Blue Grey</span>
-                        </li>
-                        <li data-theme="black">
-                            <div class="black"></div>
-                            <span>Black</span>
-                        </li>
-                    </ul>
-                </div>
-                <div role="tabpanel" class="tab-pane fade" id="settings">
-                    <div class="demo-settings">
-                        <p>GENERAL SETTINGS</p>
-                        <ul class="setting-list">
-                            <li>
-                                <span>Report Panel Usage</span>
-                                <div class="switch">
-                                    <label><input type="checkbox" checked><span class="lever"></span></label>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Email Redirect</span>
-                                <div class="switch">
-                                    <label><input type="checkbox"><span class="lever"></span></label>
-                                </div>
-                            </li>
-                        </ul>
-                        <p>SYSTEM SETTINGS</p>
-                        <ul class="setting-list">
-                            <li>
-                                <span>Notifications</span>
-                                <div class="switch">
-                                    <label><input type="checkbox" checked><span class="lever"></span></label>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Auto Updates</span>
-                                <div class="switch">
-                                    <label><input type="checkbox" checked><span class="lever"></span></label>
-                                </div>
-                            </li>
-                        </ul>
-                        <p>ACCOUNT SETTINGS</p>
-                        <ul class="setting-list">
-                            <li>
-                                <span>Offline</span>
-                                <div class="switch">
-                                    <label><input type="checkbox"><span class="lever"></span></label>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Location Permission</span>
-                                <div class="switch">
-                                    <label><input type="checkbox" checked><span class="lever"></span></label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </aside>
         <!-- #END# Right Sidebar -->
     </section>
 
@@ -434,7 +291,7 @@ header("location: manager_login.html");
                                     </a>
                                 </li>
                                 <li>
-									<a href="../../pages/tables/employee_open_task.php">
+									<a href="../../pages/tables/manager_view_employee_task.php">
                                     <i class="material-icons">date_range</i> Tasks
 									</a>
                                 </li>
@@ -456,16 +313,13 @@ header("location: manager_login.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header clearfix">
-                            <h2>
-                                TASKS LIST
+                        <div class="header clearfix bg-blue-grey">
+                            <h2><center>
+                                TASKS LIST : <b>DELAYED</b>
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
-
-						  <a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>New Task</a>
-
                                 </button>
-                            </h2>
+                            </center></h2>
                         </div>
                         <div class="body">
 
@@ -476,10 +330,10 @@ header("location: manager_login.html");
 										<th width="10%">Assignments</th>
 										<th width="15%">Tasks</th>
 										<th width="15%">Start Date</th>
-										<th width="15%">End Date</th>
+										<th width="15%">Due Date</th>
 										<th width="10%">Status</th>
 										<th width="25%">Issues</th>
-										<th width="25%">Corrective Action</th>
+										<th width="25%">Solutions</th>
 										<th width="15%">Action</th>
 									</tr>
                                     </tr>
@@ -518,6 +372,19 @@ header("location: manager_login.html");
 											$task_title = $row['task_title'];
 											$project_name = $row['project_name'];
 											$task_status = $row['task_status'];
+
+                      if($task_status == 'Delayed'){
+                      $alert = "<div class='badge bg-red'>
+                      <strong>$task_status</strong>
+                      </div>";
+                        }else if($task_status == 'In Progress'){
+                          $alert = "<div class='badge bg-green'>
+                          <strong>$task_status</strong>
+                          </div>";
+                        }else {
+                          $alert = $task_status;
+                        }
+
 											$task_created = $row['task_created'];
 											$task_due_date = $row['task_due_date'];
 											$task_description = $row['task_description'];
@@ -748,7 +615,7 @@ header("location: manager_login.html");
 
 															<div class="row clearfix">
 																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="task_due_date">End Date</label>
+																	<label for="task_due_date">Due Date</label>
 																</div>
 																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																	<div class="form-group">

@@ -230,7 +230,7 @@ header("location: manager_login.html");
 					<li class="active">
                         <a href="../../pages/tables/manager_view_project_list.php">
                             <i class="material-icons">view_list</i>
-                            <span>Projects</span>
+                            <span>Assignments</span>
                         </a>
                     </li>
 
@@ -433,11 +433,11 @@ header("location: manager_login.html");
 					</li>
 					<li>
 						<a href="../../pages/tables/manager_view_project_list.php">
-							<i class="material-icons">library_books</i> Projects
+							<i class="material-icons">library_books</i> Assignments
 						</a>
 					</li>
 					<li class="active">
-						<i class="material-icons">library_books</i> Project Details
+						<i class="material-icons">library_books</i> Assignment Details
 					</li>
 				</ol>
             </div>
@@ -644,6 +644,7 @@ header("location: manager_login.html");
 																			<strong>$project_status</strong>
 																			</div>";
 																		}
+
 																	$task_created = $row['task_created'];
 																	$task_due_date = $row['task_due_date'];
 																	$task_description = $row['task_description'];
