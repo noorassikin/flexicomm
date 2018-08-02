@@ -434,7 +434,7 @@ header("location: employee_login.html");
                             </strong><center></h2>
                         </div>
                         <div class="body">
-
+						<div class = "table-responsive">
                             <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
                                     <tr>
@@ -903,6 +903,7 @@ header("location: employee_login.html");
 										</div>
                                 </tbody>
                             </table>
+						</div>
                         </div>
                     </div>
                 </div>
