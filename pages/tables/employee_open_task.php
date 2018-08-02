@@ -420,8 +420,8 @@ header("location: employee_login.html");
                                 </li>
                             </ol>
 
-							<h3><center><b>ASSIGNMENT LIST</b></center></h3>
-                            <BR>
+							<!--<h3><center><b>TASK LIST</b></center></h3>
+                            <BR>-->
                         </div>
              <!--<div class="block-header">
                 <h2>
@@ -434,6 +434,9 @@ header("location: employee_login.html");
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
+						<div class="header bg-blue-grey">
+							 <h2><center><strong> TASK LIST</strong></center></h2>
+                        </div>
                         <div class="header clearfix">
 
                                 <div class="col-md-3">
@@ -454,6 +457,7 @@ header("location: employee_login.html");
                         </div>
                         <div class="body">
 						<div id="task_table">
+						<div class = "table-responsive">
                             <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
                                     <tr>
@@ -845,6 +849,7 @@ header("location: employee_login.html");
 								</div>
                                 </tbody>
                             </table>
+							</div>
                         </div>
                     </div>
                 </div>

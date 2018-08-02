@@ -90,7 +90,7 @@ header("location: sign-in.html");
 										 AS count
 										 FROM task
 										 WHERE task_status="delayed"
-
+										 AND employee_id = "'.$_SESSION['employee_id'].'"
 										 ';
 
 										 $result=mysqli_query($con,$sql);
@@ -105,12 +105,12 @@ header("location: sign-in.html");
 											}
 							?>
                         </a>
-                        <ul class="dropdown-menu">
+                       <ul class="dropdown-menu">
                             <li class="header">NOTIFICATIONS</li>
                             <li class="body">
                                 <ul class="menu">
                                     <li>
-                                        <a href="../../pages/tables/employee_open_delay_task.php">
+                                        <a href="employee_open_delay_task.php">
                                             <div class="icon-circle bg-red">
                                                 <i class="material-icons">date_range</i>
                                             </div>
@@ -122,7 +122,7 @@ header("location: sign-in.html");
 																	 AS count
 																	 FROM task
 																	 WHERE task_status='delayed'
-                                   AND employee_id = '".$_SESSION['employee_id']."'
+																	 AND employee_id = '".$_SESSION['employee_id']."'
 																	 '";
 														$result=mysqli_query($con,$sql);
 
@@ -147,9 +147,9 @@ header("location: sign-in.html");
 
                                 </ul>
                             </li>
-                            <li class="footer">
-                                <!-- <a href="javascript:void(0);">View All Notifications</a> -->
-                            </li>
+                             <!--<li class="footer">
+                                <a href="javascript:void(0);">View All Notifications</a>
+                            </li>-->
                         </ul>
                     </li>
                     <!-- #END# Notifications -->

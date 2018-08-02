@@ -450,6 +450,7 @@ header("location: manager_login.html");
 
                         </div>
                         <div class="body">
+						<div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr class="bg-blue-grey">
@@ -555,6 +556,7 @@ header("location: manager_login.html");
 								?>
                                 </tbody>
                             </table>
+							</div>
                         </div>
                     </div>
                 </div>

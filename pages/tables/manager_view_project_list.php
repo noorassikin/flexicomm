@@ -454,6 +454,7 @@ header("location: manager_login.html");
                             </strong></center></h2>
                         </div>
                         <div class="body">
+						<div class="table-responsive">
 
                             <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
@@ -544,7 +545,7 @@ header("location: manager_login.html");
 												?>
 											</td>
 											<td>
-												<div class='btn-group' role='group' aria-label='...'>
+												<div>
 													<a href="#defaultModal<?php echo $project_id;?>" data-toggle="modal"><button type='button' class='btn btn-warning btn-sm'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button></a>
 													<a href="#delete<?php echo $project_id;?>" data-toggle="modal"><button type='button' class='btn btn-danger btn-sm'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></a>
 													<a href="#complete<?php echo $project_id;?>" data-toggle="modal"><button type='button' class='btn btn-success btn-sm'><span class='glyphicon glyphicon-ok' aria-hidden='true'></span></button></a>
@@ -804,9 +805,8 @@ header("location: manager_login.html");
 															</div>
 
 															<div class="modal-footer">
-                                <button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-                                <button type="submit" class="btn btn-success waves-effect"><span class="glyphicon glyphicon-plus"></span>SUBMIT</button>
-
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect"><span class="glyphicon glyphicon-plus"></span>SUBMIT</button>
 															</div>
 														</form>
 											</div>
@@ -816,6 +816,7 @@ header("location: manager_login.html");
 								</div>
                                 </tbody>
                             </table>
+							</div>
                         </div>
                     </div>
                 </div>

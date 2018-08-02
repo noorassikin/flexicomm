@@ -446,6 +446,7 @@ header("location: manager_login.html");
                             </strong></center></h2>
                         </div>
                         <div class="body">
+						<div class="table-responsive">
 
                             <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
@@ -491,7 +492,7 @@ header("location: manager_login.html");
 												";
 									?>
 									<td>
-										<div class='btn-group' role='group' aria-label='...'>
+										<div>
 											<a href="#profile<?php echo $id;?>" data-toggle="modal"><button type='button' class='btn btn-info btn-sm'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></button></a>
 											<a href="#defaultModal<?php echo $id;?>" data-toggle="modal"><button type='button' class='btn btn-warning btn-sm'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button></a>
 											<a href="#delete<?php echo $id;?>" data-toggle="modal"><button type='button' class='btn btn-danger btn-sm'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></a>
@@ -751,6 +752,7 @@ header("location: manager_login.html");
 
                                 </tbody>
                             </table>
+							</div>
                         </div>
                     </div>
                 </div>

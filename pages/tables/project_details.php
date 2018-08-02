@@ -544,11 +544,30 @@ $employee_id = $_SESSION['employee_id'];
 																				echo "<th>Due Date</th>";
 																				echo "<td>" . $row["project_due_date"]. "</td>";
 																			echo "</tr>";
+																	
 
 																			echo "<tr>";
 																				echo "<th>Status</th>";
-																				echo "<td>" . $row["project_status"]. "</td>";
+																				$project_status = $row['project_status'];
+
+																				if($project_status == 'Delayed'){
+																					$alert = "<div class='badge bg-red'>
+																					<strong>$project_status</strong>
+																					</div>";
+
+																				}else if($project_status == 'In Progress'){
+																					$alert = "<div class='badge bg-blue'>
+																					<strong>$project_status</strong>
+																					</div>";
+
+																				}else {
+																					$alert = "<div class='badge bg-green'>
+																					<strong>$project_status</strong>
+																					</div>";
+																					}
+																				echo "<td>" . $alert. "</td>";
 																			echo "</tr>";
+																				
 
 																			echo "<tr>";
 																				echo "<th>Staff (PIC)</th>";
@@ -583,6 +602,7 @@ $employee_id = $_SESSION['employee_id'];
 												<div class="card">
 
 													<div class="body">
+													<div class = "table-responsive">
 
 														<table class="table table-bordered table-striped table-hover dataTable js-exportable">
 															<thead>
@@ -872,6 +892,7 @@ $employee_id = $_SESSION['employee_id'];
 															</tbody>
 														</table>
 													</div>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -967,7 +988,7 @@ $employee_id = $_SESSION['employee_id'];
 												echo "Sorry! Not part of project team";
 												echo '</div>';
 
-												break;
+												
 												}*/
 												}
 												?>

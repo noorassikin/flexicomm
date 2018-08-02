@@ -426,12 +426,13 @@ header("location: employee_login.html");
                             <h2><center><strong>
                                 ASSIGNMENT LIST
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
-                                     <i class="material-icons">add_circle_outline</i>New Project -->
-
-						  <a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>NEW ASSIGNMENT</a>
-
-                                </button>
-                            </strong><center></h2>
+                                     <i class="material-icons">add_circle_outline</i>New Project </button>-->
+							
+								<a class="btn btn-success pull-right" data-toggle="modal" data-target="#addProject"><span class='glyphicon glyphicon-plus' aria-hidden='true'></span>NEW ASSIGNMENT</a>
+								<!--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 align-right">
+									<button type="button" class="btn btn-success waves-effect">NEW ASSIGNMENT</button>
+                                </div>-->
+							</strong><center></h2>
                         </div>
                         <div class="body">
 						<div class = "table-responsive">
@@ -525,7 +526,7 @@ header("location: employee_login.html");
 												?></td>
 
 									<td>
-										<div class='btn-group' role='group' aria-label='...'>
+										<div>
 											<a href="#defaultModal<?php echo $project_id;?>" data-toggle="modal"><button type='button' class='btn btn-warning btn-sm'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button></a>
 											<a href="#delete<?php echo $project_id;?>" data-toggle="modal"><button type='button' class='btn btn-danger btn-sm'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></a>
 											<!--<a href="#complete<?php //echo $project_id;?>" data-toggle="modal"><button type='button' class='btn btn-success btn-sm'><span class='glyphicon glyphicon-ok' aria-hidden='true'></span></button></a> -->

@@ -540,7 +540,24 @@ header("location: manager_login.html");
 
 																			echo "<tr>";
 																				echo "<th>Status</th>";
-																				echo "<td>" . $row["project_status"]. "</td>";
+																				$project_status = $row['project_status'];
+
+																				if($project_status == 'Delayed'){
+																					$alert = "<div class='badge bg-red'>
+																					<strong>$project_status</strong>
+																					</div>";
+
+																				}else if($project_status == 'In Progress'){
+																					$alert = "<div class='badge bg-blue'>
+																					<strong>$project_status</strong>
+																					</div>";
+
+																				}else {
+																					$alert = "<div class='badge bg-green'>
+																					<strong>$project_status</strong>
+																					</div>";
+																					}
+																				echo "<td>" . $alert. "</td>";
 																			echo "</tr>";
 
 																			echo "<tr>";
@@ -569,6 +586,7 @@ header("location: manager_login.html");
 											<div class="card">
 
 												<div class="body">
+												<div class="table-responsive">
 													<table class="table table-bordered table-striped table-hover dataTable js-exportable">
 														<thead>
 															<tr>
@@ -611,16 +629,20 @@ header("location: manager_login.html");
 																	$project_name = $row['project_name'];
 																	$task_status = $row['task_status'];
 
-																	if($task_status == 'Delayed'){
-																	$alert = "<div class='badge bg-red'>
-																	<strong>$task_status</strong>
-																	</div>";
-																		}else if($task_status == 'In Progress'){
-																			$alert = "<div class='badge bg-green'>
-																			<strong>$task_status</strong>
+																	if($project_status == 'Delayed'){
+																		$alert = "<div class='badge bg-red'>
+																		<strong>$project_status</strong>
+																		</div>";
+
+																		}else if($project_status == 'In Progress'){
+																			$alert = "<div class='badge bg-blue'>
+																			<strong>$project_status</strong>
 																			</div>";
+
 																		}else {
-																			$alert = $task_status;
+																			$alert = "<div class='badge bg-green'>
+																			<strong>$project_status</strong>
+																			</div>";
 																		}
 																	$task_created = $row['task_created'];
 																	$task_due_date = $row['task_due_date'];
@@ -637,7 +659,7 @@ header("location: manager_login.html");
 																<td><?php echo nl2br($task_description); ?></td>
 																<td><?php echo nl2br($task_comment); ?></td>
 																<td>
-																	<div class='btn-group' role='group' aria-label='...'>
+																	<div>
 																		<a href="#defaultModal<?php echo $task_id;?>" data-toggle="modal"><button type='button' class='btn btn-warning btn-sm'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button></a>
 																		<a href="#delete<?php echo $task_id;?>" data-toggle="modal"><button type='button' class='btn btn-danger btn-sm'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button></a>
 																	</div>
@@ -786,6 +808,7 @@ header("location: manager_login.html");
 															?>
 														</tbody>
 													</table>
+													</div>
 												</div>
 											</div>
 										</div>
