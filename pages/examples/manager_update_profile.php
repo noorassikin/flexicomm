@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <?php
 session_start();
 //error_reporting(0);
@@ -7,6 +6,7 @@ if(!isset($_SESSION['manager_id'])){
 header("location: manager_login.html");
 }
 ?>
+
 <html>
 
 <head>
@@ -29,18 +29,14 @@ header("location: manager_login.html");
     <!-- Animation Css -->
     <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
 
+    <!-- Sweet Alert Css -->
+    <link href="../../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
     <!-- Custom Css -->
     <link href="../../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../../css/themes/all-themes.css" rel="stylesheet" />
-
-	<!-- Sweet Alert Css -->
-    <link href="../../pages/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
-
-
-
-
 </head>
 
 <body class="theme-green">
@@ -76,7 +72,7 @@ header("location: manager_login.html");
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Notifications -->
-					<li class="dropdown">
+                    <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
 
@@ -155,7 +151,7 @@ header("location: manager_login.html");
                             </li>-->
                         </ul>
                     </li>
-					<!-- #END# Notifications -->
+                    <!-- #END# Notifications -->
 
                     <!--<li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>-->
                 </ul>
@@ -168,9 +164,9 @@ header("location: manager_login.html");
         <aside id="leftsidebar" class="sidebar">
             <!-- User Info -->
             <div class="user-info">
-                <div class="image">
-                    <!-- <img src="../../images/user.png" width="48" height="48" alt="User" /> -->
-                </div>
+               <!-- <div class="image">
+                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                </div> -->
 
 				<?php
 
@@ -239,7 +235,7 @@ header("location: manager_login.html");
 					<li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">group</i>
-                            <span>Employee</span>
+                            <span>Staff</span>
                         </a>
                         <ul class="ml-menu">
 							<li>
@@ -249,10 +245,10 @@ header("location: manager_login.html");
                                 <a href="../../pages/tables/register_manager.php">Register Manager</a>
                             </li>
                             <li>
-                                <a href="../../pages/tables/manager_view_employee.php">Profiles Staff</a>
+                                <a href="../../pages/tables/manager_view_employee.php">Staff Profiles</a>
                             </li>
 							<li>
-                                <a href="../../pages/tables/manager_view_manager.php">Profiles Manager</a>
+                                <a href="../../pages/tables/manager_view_manager.php">Manager Profiles</a>
                             </li>
 
                         </ul>
@@ -261,8 +257,8 @@ header("location: manager_login.html");
             </div>
             <!-- #Menu -->
             <!-- Footer -->
-           <div class="legal">
-                <div class="copyright">
+            <div class="legal">
+               <div class="copyright">
                     <a href="javascript:void(0);">Powered by <a href= "http://flexcility.com/"><img src="../../images/flexcility.png" alt="Flexcility Logo" width="100" height="20"> </a></a>.
                 </div>
                 <div class="version">
@@ -420,6 +416,7 @@ header("location: manager_login.html");
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
+                <h2></h2>
             </div>
 
 			<div class="body">
@@ -429,20 +426,26 @@ header("location: manager_login.html");
                         <i class="material-icons">home</i> Home
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
+						<a href="../../pages/examples/manager_view_profile.php">
+                        <i class="material-icons">person</i>Profile Details
+						</a>
+                    </li>
+
+					<li class="active">
                         <i class="material-icons">edit</i> Manage Profile Details
                     </li>
              </ol>
+             </ol>
             </div>
-        </div>
-
-		<!-- Basic Validation -->
+            <!-- Vertical Layout -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header bg-blue-grey">
-                            <h2><center><strong>Profile Details</strong></center></h2>
-
+                            <h2>
+                                <center><strong>UPDATE PROFILE DETAILS</strong></center>
+                            </h2>
                         </div>
                         <div class="body">
 
@@ -467,44 +470,44 @@ header("location: manager_login.html");
 
 						?>
                             <form id="form_validation" action="update_manager_profile.php" method="post">
-
-
-								<div class="form-group form-float">
+                                <label for="manager_name">Name</label>
+                                <div class="form-group">
                                     <div class="form-line">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-											<label class="form-label">Name</label>
-										</div>
-										<input type="text" class="form-control" name="manager_name" value="<?php echo $manager_name; ?>" required>
+                                        <input type="text" id="manager_name" class="form-control" name="manager_name" value="<?php echo $manager_name; ?>" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+								<!--<label for="email_address">Department</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="email_address" class="form-control" placeholder="Enter your department">
+                                    </div>
+                                </div>
+								<label for="email_address">Position</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="email_address" class="form-control" placeholder="Enter your position">
+                                    </div>
+                                </div>-->
+								<label for="email_address">Email</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="email" id="email_address" class="form-control" name="manager_email" value="<?php echo $manager_email; ?>" placeholder="Enter your email address" required>
+                                    </div>
+                                </div>
+								<label for="manager_phoneno">Phone Number</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="manager_phoneno" class="form-control" name="manager_phoneno" value="<?php echo $manager_phoneno; ?>" placeholder="Enter your phone number" required>
+                                    </div>
+                                </div>
+								<label for="manager_address">Address</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="manager_address" class="form-control" name="manager_address" value="<?php echo $manager_address; ?>" placeholder="Enter your address" required>
                                     </div>
                                 </div>
 
-								<div class="form-group form-float">
-                                    <div class="form-line">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-											<label class="form-label">Email</label>
-										</div>
-										<input type="email" class="form-control" name="manager_email" value="<?php echo $manager_email; ?>" required>
-                                    </div>
-                                </div>
-
-								<div class="form-group form-float">
-                                    <div class="form-line">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-											<label class="form-label">Phone Number</label>
-										</div>
-										<input type="text" class="form-control" name="manager_phoneno" value="<?php echo $manager_phoneno; ?>" required>
-                                    </div>
-                                </div>
-
-								<div class="form-group form-float">
-                                    <div class="form-line">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-											<label class="form-label">Address</label>
-										</div>
-										<input type="text" class="form-control" name="manager_address" value="<?php echo $manager_address; ?>" required>
-                                    </div>
-                                </div>
-
+								<br>
 								<div class="form-group" align="right">
                                 <button type="submit" class="btn btn-success waves-effect" type="submit"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 								</div>
@@ -513,7 +516,112 @@ header("location: manager_login.html");
                     </div>
                 </div>
             </div>
-            <!-- #END# Basic Validation -->
+            <!-- #END# Vertical Layout -->
+
+			<!-- Update Password -->
+			<div class="modal fade" id="changepass" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title" id="defaultModalLabel"><center>CHANGE PASSWORD</center></h4>
+						</div>
+						<div class="modal-body">
+
+							<form method="post" class="form-horizontal" role="form">
+								<input type="hidden" name="edit_id" value="<?php echo $manager_id; ?>">
+
+
+								<div class="row clearfix">
+									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+										<label for="manager_password">Current Password</label>
+									</div>
+									<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+										<div class="form-group">
+											<div class="form-line">
+												<input type="password" id="manager_password" name="manager_password" value="" class="form-control" placeholder="Enter Current Password">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row clearfix">
+									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+										<label for="password1">New Password</label>
+									</div>
+									<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+										<div class="form-group">
+											<div class="form-line">
+												<input type="password" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row clearfix">
+									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+										<label for="password2">Confirm Password</label>
+									</div>
+									<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+										<div class="form-group">
+											<div class="form-line">
+												<input type="password" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
+											</div>
+										</div>
+									</div>
+								</div>
+									<input type="hidden" name="manager_id" value="<?php echo $_SESSION['manager_id']; ?>"  />
+
+								<div class="modal-footer">
+									<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+									<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
+								</div>
+
+							<?php
+
+								if(isset($_POST['update_password'])){
+									$host = "localhost";
+									$user = "root";
+									$pass = "";
+									$db = "task";
+
+									$manager_id = mysqli_real_escape_string($con,$_POST['manager_id']);
+									$password1 = mysqli_real_escape_string($con,$_POST['password1']);
+									$password2 = mysqli_real_escape_string($con,$_POST['password2']);
+									$manager_password = mysqli_real_escape_string($con,$_POST['manager_password']);
+
+									$select = "SELECT * FROM manager WHERE manager_id = '$manager_id' ";
+									$result = $con->query($select);
+									while($row = $result->fetch_assoc()){
+										$password = $row["manager_password"];
+									}
+
+									if($manager_password == $password){
+										if($password1===$password2){
+											$query = "UPDATE manager SET manager_id= '$manager_id', manager_password='$password1' WHERE  manager_id='$manager_id'  ";
+											$result = $con->query($query);
+										}
+										else{
+											echo "<script type = \"text/javascript\">
+														alert(\"Password Not Match\");
+														window.location = (\"manager_home.php\")
+													</script>";
+										}
+									}
+									else{
+										echo "<script type = \"text/javascript\">
+														alert(\"Wrong Password\");
+														window.location = (\"manager_home.php\")
+													</script>";
+									}
+								}
+							?>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
     </section>
 
     <!-- Jquery Core Js -->
@@ -536,16 +644,6 @@ header("location: manager_login.html");
 
     <!-- Demo Js -->
     <script src="../../js/demo.js"></script>
-
-	<!-- Sweet Alert Plugin Js -->
-    <script src="../../plugins/sweetalert/sweetalert.min.js"></script>
-
-	<!-- Jquery Validation Plugin Css -->
-    <script src="../../plugins/jquery-validation/jquery.validate.js"></script>
-
-	<!-- Custom Js -->
-    <script src="../../js/admin.js"></script>
-    <script src="../../js/pages/forms/form-validation.js"></script>
 </body>
 
 </html>

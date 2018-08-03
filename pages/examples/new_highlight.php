@@ -252,10 +252,10 @@ $manager_idd = $_SESSION['manager_id'];
                                 <a href="../../pages/tables/register_manager.php">Register Manager</a>
                             </li>
                             <li>
-                                <a href="../../pages/tables/manager_view_employee.php">Profiles Staff</a>
+                                <a href="../../pages/tables/manager_view_employee.php">Staff Profiles</a>
                             </li>
 							 <li>
-                                <a href="../../pages/tables/manager_view_manager.php">Profiles Manager</a>
+                                <a href="../../pages/tables/manager_view_manager.php">Manager Profiles</a>
                             </li>
 
                         </ul>

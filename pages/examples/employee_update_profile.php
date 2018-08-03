@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <?php
 session_start();
 //error_reporting(0);
@@ -7,12 +6,13 @@ if(!isset($_SESSION['employee_id'])){
 header("location: sign-in.html");
 }
 ?>
+
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>FlexiCOMM | Employee Update Profile</title>
+    <title>FlexiCOMM | Staff Update Profile</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -29,18 +29,14 @@ header("location: sign-in.html");
     <!-- Animation Css -->
     <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
 
+    <!-- Sweet Alert Css -->
+    <link href="../../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
     <!-- Custom Css -->
     <link href="../../css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../../css/themes/all-themes.css" rel="stylesheet" />
-
-	<!-- Sweet Alert Css -->
-    <link href="../../pages/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
-
-
-
-
 </head>
 
 <body class="theme-green">
@@ -75,8 +71,9 @@ header("location: sign-in.html");
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
+
                     <!-- Notifications -->
-					<li class="dropdown">
+                    <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
 
@@ -150,12 +147,12 @@ header("location: sign-in.html");
 
                                 </ul>
                             </li>
-                            <li class="footer">
+                            <!--<li class="footer">
                                 <a href="javascript:void(0);">View All Notifications</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </li>
-					<!-- #END# Notifications -->
+                    <!-- #END# Notifications -->
 
                     <!--<li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>-->
                 </ul>
@@ -169,32 +166,32 @@ header("location: sign-in.html");
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <!--<img src="../../images/user.png" width="48" height="48" alt="User" />-->
+                    <!-- <img src="../../images/user.png" width="48" height="48" alt="User" /> -->
                 </div>
 
 				<?php
 
-							$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
+					$con=mysqli_connect("mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com","mastermaster","mastermaster","task");
 
-							if (mysqli_connect_errno())
-							  {
-							  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-							  }
-							$abc=$_SESSION['employee_id'];
-							$sql = mysqli_query($con,"SELECT * FROM employee WHERE employee_id = '$abc'");
-							$row = mysqli_fetch_array($sql);
-							$employee_id=$row['employee_id'];
-							$employee_name=$row['employee_name'];
-							$employee_email=$row['employee_email'];
+					if (mysqli_connect_errno())
+					  {
+					  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+					  }
+					$abc=$_SESSION['employee_id'];
+					$sql = mysqli_query($con,"SELECT * FROM employee WHERE employee_id = '$abc'");
+					$row = mysqli_fetch_array($sql);
+					$employee_id=$row['employee_id'];
+					$employee_name=$row['employee_name'];
+					$employee_email=$row['employee_email'];
 				?>
 
-                <div class="info-container">
+                <<div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $employee_name; ?></div>
                     <div class="email"><?php echo $employee_email; ?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="employee_update_profile.php"><i class="material-icons">person</i>Edit Profile</a></li>
+                            <li><a href="e_u_profile.php"><i class="material-icons">person</i>Edit Profile</a></li>
                             <li role="seperator" class="divider"></li>
                             <li><a href="#changepass" data-toggle="modal"><i class="material-icons">create</i>Edit Password</a></li>
                             <li role="seperator" class="divider"></li>
@@ -208,7 +205,7 @@ header("location: sign-in.html");
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                     <li>
+                    <li>
                         <a href="../../pages/examples/employee_home.php">
                             <i class="material-icons">home</i>
                             <span>Home</span>
@@ -239,8 +236,8 @@ header("location: sign-in.html");
             </div>
             <!-- #Menu -->
             <!-- Footer -->
-           <div class="legal">
-                <div class="copyright">
+            <div class="legal">
+               <div class="copyright">
                     <a href="javascript:void(0);">Powered by <a href= "http://flexcility.com/"><img src="../../images/flexcility.png" alt="Flexcility Logo" width="100" height="20"> </a></a>.
                 </div>
                 <div class="version">
@@ -398,29 +395,35 @@ header("location: sign-in.html");
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
+                <h2></h2>
             </div>
 
 			<div class="body">
                 <ol class="breadcrumb">
 					<li>
                         <a href="../../pages/examples/employee_home.php">
-                        <i class="material-icons">home</i> Home
+							<i class="material-icons">home</i> Home
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
+						<a href="../../pages/examples/employee_view_profile.php">
+							<i class="material-icons">person</i> Profile Details
+						</a>
+                    </li>
+
+					 <li class="active">
                         <i class="material-icons">edit</i> Manage Profile Details
                     </li>
              </ol>
             </div>
-        </div>
-
-		<!-- Basic Validation -->
+            <!-- Vertical Layout -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header bg-blue-grey">
-                            <h2><center>PROFILE DETAILS</center></h2>
-
+                            <h2>
+                                <center><strong>UPDATE PROFILE DETAILS</strong></center>
+                            </h2>
                         </div>
                         <div class="body">
 
@@ -447,62 +450,44 @@ header("location: sign-in.html");
 
 						?>
                             <form id="form_validation" action="update_employee_profile.php" method="post">
-
-
-								<div class="form-group form-float">
+                                <label for="employee_name">Name</label>
+                                <div class="form-group">
                                     <div class="form-line">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-											<label class="form-label">Name</label>
-										</div>
-										<input type="text" class="form-control" name="employee_name" value="<?php echo $employee_name; ?>" required>
+                                        <input type="text" id="employee_name" class="form-control" name="employee_name" value="<?php echo $employee_name; ?>" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+								<label for="employee_department">Department</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="employee_department" name="employee_department" value="<?php echo $employee_department; ?>" class="form-control" placeholder="Enter your department" required>
+                                    </div>
+                                </div>
+								<label for="employee_position">Position</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="employee_position" class="form-control" name="employee_position" value="<?php echo $employee_position; ?>" placeholder="Enter your position" required>
+                                    </div>
+                                </div>
+								<label for="employee_email">Email</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="email" id="employee_email" class="form-control" name="employee_email" value="<?php echo $employee_email; ?>" placeholder="Enter your email address" required>
+                                    </div>
+                                </div>
+								<label for="employee_phoneno">Phone Number</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="employee_phoneno" class="form-control" name="employee_phoneno" value="<?php echo $employee_phoneno; ?>" placeholder="Enter your phone number" required>
+                                    </div>
+                                </div>
+								<label for="employee_address">Address</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="employee_address" class="form-control" name="employee_address" value="<?php echo $employee_address; ?>" placeholder="Enter your address" required>
                                     </div>
                                 </div>
 
-								<div class="form-group form-float">
-                                    <div class="form-line">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-											<label class="form-label">Department</label>
-										</div>
-										<input type="text" class="form-control" name="employee_department" value="<?php echo $employee_department; ?>" required>
-                                    </div>
-                                </div>
-
-								<div class="form-group form-float">
-                                    <div class="form-line">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-											<label class="form-label">Position</label>
-										</div>
-										<input type="text" class="form-control" name="employee_position" value="<?php echo $employee_position; ?>" required>
-                                    </div>
-                                </div>
-
-								<div class="form-group form-float">
-                                    <div class="form-line">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-											<label class="form-label">Email</label>
-										</div>
-										<input type="email" class="form-control" name="employee_email" value="<?php echo $employee_email; ?>" required>
-                                    </div>
-                                </div>
-
-								<div class="form-group form-float">
-                                    <div class="form-line">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-											<label class="form-label">Phone Number</label>
-										</div>
-										<input type="text" class="form-control" name="employee_phoneno" value="<?php echo $employee_phoneno; ?>" required>
-                                    </div>
-                                </div>
-
-								<div class="form-group form-float">
-                                    <div class="form-line">
-                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-											<label class="form-label">Address</label>
-										</div>
-										<input type="text" class="form-control" name="employee_address" value="<?php echo $employee_address; ?>" required>
-                                    </div>
-                                </div>
-
+								<br>
 								<div class="form-group" align="right">
                                 <button type="submit" class="btn btn-success waves-effect" type="submit"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 								</div>
@@ -511,117 +496,111 @@ header("location: sign-in.html");
                     </div>
                 </div>
             </div>
-            <!-- #END# Basic Validation -->
-
-
+            <!-- #END# Vertical Layout -->
 			<!-- Update Password -->
-										<div class="modal fade" id="changepass" tabindex="-1" role="dialog">
-											<div class="modal-dialog" role="document">
-												<div class="modal-content">
-													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Change Password</h4>
-													</div>
-													<div class="modal-body">
+			<div class="modal fade" id="changepass" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title" id="defaultModalLabel"><center>CHANGE PASSWORD</center></h4>
+						</div>
+						<div class="modal-body">
 
-														<form method="post" class="form-horizontal" role="form">
-															<input type="hidden" name="edit_id" value="<?php echo $employee_id; ?>">
+							<form method="post" class="form-horizontal" role="form">
+								<input type="hidden" name="edit_id" value="<?php echo $employee_id; ?>">
 
 
-															<div class="row clearfix">
-																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="employee_password">Current Password</label>
-																</div>
-																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																	<div class="form-group">
-																		<div class="form-line">
-																			<input type="password" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
-																		</div>
-																	</div>
-																</div>
-															</div>
-
-															<div class="row clearfix">
-																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="password1">New Password</label>
-																</div>
-																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																	<div class="form-group">
-																		<div class="form-line">
-																			<input type="password" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
-																		</div>
-																	</div>
-																</div>
-															</div>
-
-															<div class="row clearfix">
-																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																	<label for="password2">Confirm Password</label>
-																</div>
-																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-																	<div class="form-group">
-																		<div class="form-line">
-																			<input type="password" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
-																		</div>
-																	</div>
-																</div>
-															</div>
-																<input type="hidden" name="employee_id" value="<?php echo $_SESSION['employee_id']; ?>"  />
-
-															<div class="modal-footer">
-																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
-															</div>
-
-														<?php
-
-															if(isset($_POST['update_password'])){
-																$host = "localhost";
-																$user = "root";
-																$pass = "";
-																$db = "task";
-
-																$employee_id = mysqli_real_escape_string($con,$_POST['employee_id']);
-																$password1 = mysqli_real_escape_string($con,$_POST['password1']);
-																$password2 = mysqli_real_escape_string($con,$_POST['password2']);
-																$employee_password = mysqli_real_escape_string($con,$_POST['employee_password']);
-
-																$select = "SELECT * FROM employee WHERE employee_id = '$employee_id' ";
-																$result = $con->query($select);
-																while($row = $result->fetch_assoc()){
-																	$password = $row["employee_password"];
-																}
-
-																if($employee_password == $password){
-																	if($password1===$password2){
-
-																		$query = "UPDATE employee SET employee_id= '$employee_id', employee_password='$password1' WHERE  employee_id='$employee_id'  ";
-																		echo "<script type = \"text/javascript\">
-																					alert(\"Password Updated\");
-
-																				</script>";
-																		$result = $con->query($query);
-																	}
-																	else{
-																		echo "<script type = \"text/javascript\">
-																					alert(\"Password Not Match\");
-																					window.location = (\"employee_home.php\")
-																				</script>";
-																	}
-																}
-																else{
-																	echo "<script type = \"text/javascript\">
-																					alert(\"Wrong Password\");
-																					window.location = (\"employee_home.php\")
-																				</script>";
-																}
-															}
-														?>
-
-														</form>
-													</div>
-												</div>
+								<div class="row clearfix">
+									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+										<label for="employee_password">Current Password</label>
+									</div>
+									<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+										<div class="form-group">
+											<div class="form-line">
+												<input type="password" id="employee_password" name="employee_password" value="" class="form-control" placeholder="Enter Current Password">
 											</div>
 										</div>
+									</div>
+								</div>
+
+								<div class="row clearfix">
+									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+										<label for="password1">New Password</label>
+									</div>
+									<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+										<div class="form-group">
+											<div class="form-line">
+												<input type="password" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row clearfix">
+									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+										<label for="password2">Confirm Password</label>
+									</div>
+									<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+										<div class="form-group">
+											<div class="form-line">
+												<input type="password" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
+											</div>
+										</div>
+									</div>
+								</div>
+									<input type="hidden" name="employee_id" value="<?php echo $_SESSION['employee_id']; ?>"  />
+
+								<div class="modal-footer">
+									<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+									<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>UPDATE</button>
+								</div>
+
+							<?php
+
+								if(isset($_POST['update_password'])){
+									$host = "localhost";
+									$user = "root";
+									$pass = "";
+									$db = "task";
+
+									$employee_id = mysqli_real_escape_string($con,$_POST['employee_id']);
+									$password1 = mysqli_real_escape_string($con,$_POST['password1']);
+									$password2 = mysqli_real_escape_string($con,$_POST['password2']);
+									$employee_password = mysqli_real_escape_string($con,$_POST['employee_password']);
+
+									$select = "SELECT * FROM employee WHERE employee_id = '$employee_id' ";
+									$result = $con->query($select);
+									while($row = $result->fetch_assoc()){
+										$password = $row["employee_password"];
+									}
+
+									if($employee_password == $password){
+										if($password1===$password2){
+											$query = "UPDATE employee SET employee_id= '$employee_id', employee_password='$password1' WHERE  employee_id='$employee_id'  ";
+											$result = $con->query($query);
+										}
+										else{
+											echo "<script type = \"text/javascript\">
+														alert(\"Password Not Match\");
+														window.location = (\"employee_home.php\")
+													</script>";
+										}
+									}
+									else{
+										echo "<script type = \"text/javascript\">
+														alert(\"Wrong Password\");
+														window.location = (\"employee_home.php\")
+													</script>";
+									}
+								}
+							?>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
     </section>
 
     <!-- Jquery Core Js -->
@@ -644,16 +623,6 @@ header("location: sign-in.html");
 
     <!-- Demo Js -->
     <script src="../../js/demo.js"></script>
-
-	<!-- Sweet Alert Plugin Js -->
-    <script src="../../plugins/sweetalert/sweetalert.min.js"></script>
-
-	<!-- Jquery Validation Plugin Css -->
-    <script src="../../plugins/jquery-validation/jquery.validate.js"></script>
-
-	<!-- Custom Js -->
-    <script src="../../js/admin.js"></script>
-    <script src="../../js/pages/forms/form-validation.js"></script>
 </body>
 
 </html>

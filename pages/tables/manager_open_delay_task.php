@@ -197,7 +197,7 @@ header("location: manager_login.html");
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-							<li><a href="../../pages/examples/manager_update_profile.php"><i class="material-icons">person</i>Profile</a></li>
+							<li><a href="../../pages/examples/manager_update_profile.php"><i class="material-icons">person</i>Edit Profile</a></li>
                             <li role="seperator" class="divider"></li>
                             <li><a href="#changepass" data-toggle="modal"><i class="material-icons">create</i>Edit Password</a></li>
                             <li role="seperator" class="divider"></li>
@@ -251,10 +251,10 @@ header("location: manager_login.html");
                                 <a href="../../pages/tables/register_manager.php">Register Manager</a>
                             </li>
                             <li>
-                                <a href="../../pages/tables/manager_view_employee.php">Profiles Staff</a>
+                                <a href="../../pages/tables/manager_view_employee.php">Staff Profiles</a>
                             </li>
 							<li>
-                                <a href="../../pages/tables/manager_view_manager.php">Profiles Manager</a>
+                                <a href="../../pages/tables/manager_view_manager.php">Manager Profiles</a>
                             </li>
 
                         </ul>
@@ -398,7 +398,7 @@ header("location: manager_login.html");
 												<td><?php echo $task_title; ?></td>
 												<td><?php echo $task_created; ?></td>
 												<td><?php echo $task_due_date; ?></td>
-												<td><?php echo $task_status; ?></td>
+												<td><?php echo $alert; ?></td>
 												<td><?php echo nl2br($task_description); ?></td>
 												<td><?php echo nl2br($task_comment); ?></td>
 
@@ -418,7 +418,7 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Update Task</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>UPDATE TASK</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -467,20 +467,20 @@ header("location: manager_login.html");
 
 																						<div class="row clearfix">
 																							<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-																								<label for="task_comment">Correction Action</label>
+																								<label for="task_comment">Solutions</label>
 																							</div>
 																							<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
 																								<div class="form-group">
 																									<div class="form-line">
-																									<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Correction Action"><?php echo $task_comment; ?></textarea>
+																									<textarea name="task_comment" id="task_comment" cols="30" rows="5" class="form-control no-resize" placeholder="Enter Solutions"><?php echo $task_comment; ?></textarea>
 																									</div>
 																								</div>
 																							</div>
 																						</div>
 
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
-																<button type="submit" class="btn btn-danger waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE CHANGES</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_task"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
 															</div>
 														</form>
 													</div>
@@ -494,7 +494,7 @@ header("location: manager_login.html");
 											<div class="modal-dialog" role="document">
 												<div class="modal-content">
 													<div class="modal-header">
-														<h4 class="modal-title" id="defaultModalLabel">Delete Assignment</h4>
+														<h4 class="modal-title" id="defaultModalLabel"><center>DELETE TASK</center></h4>
 													</div>
 													<div class="modal-body">
 
@@ -505,7 +505,7 @@ header("location: manager_login.html");
 
 
 															<div class="modal-footer">
-																<button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
 																<button type="submit" class="btn btn-danger waves-effect" name="delete"><span class="glyphicon glyphicon-trash"></span>DELETE</button>
 															</div>
 														</form>

@@ -436,7 +436,7 @@ header("location: employee_login.html");
                     <div class="card">
                         <div class="header clearfix bg-blue-grey">
                             <h2><center><b>
-                                TASKS LIST (DELAYED)
+                                TASKS LIST : <b>DELAYED</b>
 								<!--<button type="button" class="btn bg-teal waves-effect pull-right">
                                      <i class="material-icons">add_circle_outline</i>New Project -->
 
@@ -454,7 +454,7 @@ header("location: employee_login.html");
 										<th width="10%">Project</th>
 										<th width="15%">Tasks</th>
 										<th width="15%">Start Date</th>
-										<th width="15%">End Date</th>
+										<th width="15%">Due Date</th>
 										<th width="10%">Status</th>
 										<th width="25%">Issues</th>
 										<th width="25%">Solutions</th>

@@ -191,7 +191,7 @@ header("location: manager_login.html");
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="../../pages/examples/manager_update_profile.php"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="../../pages/examples/manager_update_profile.php"><i class="material-icons">person</i>Edit Profile</a></li>
                             <li role="seperator" class="divider"></li>
                             <li><a href="#changepass" data-toggle="modal"><i class="material-icons">create</i>Edit Password</a></li>
                             <li role="seperator" class="divider"></li>
@@ -246,10 +246,10 @@ header("location: manager_login.html");
                                 <a href="../../pages/tables/register_manager.php">Register Manager</a>
                             </li>
                             <li>
-                                <a href="../../pages/tables/manager_view_employee.php">Profiles Staff</a>
+                                <a href="../../pages/tables/manager_view_employee.php">Staff Profiles</a>
                             </li>
 							 <li>
-                                <a href="../../pages/tables/manager_view_manager.php">Profiles Manager</a>
+                                <a href="../../pages/tables/manager_view_manager.php">Manager Profiles</a>
                             </li>
 
                         </ul>
@@ -562,7 +562,109 @@ header("location: manager_login.html");
                 </div>
             </div>
             <!-- #END# Exportable Table -->
+			<!-- Update Password -->
+										<div class="modal fade" id="changepass" tabindex="-1" role="dialog">
+											<div class="modal-dialog" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h4 class="modal-title" id="defaultModalLabel"><center>CHANGE PASSWORD</center></h4>
+													</div>
+													<div class="modal-body">
 
+														<form method="post" class="form-horizontal" role="form">
+															<input type="hidden" name="edit_id" value="<?php echo $manager_id; ?>">
+
+
+															<div class="row clearfix">
+																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+																	<label for="manager_password">Current Password</label>
+																</div>
+																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+																	<div class="form-group">
+																		<div class="form-line">
+																			<input type="password" id="manager_password" name="manager_password" value="" class="form-control" placeholder="Enter Current Password">
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="row clearfix">
+																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+																	<label for="password1">New Password</label>
+																</div>
+																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+																	<div class="form-group">
+																		<div class="form-line">
+																			<input type="password" id="password1" name="password1" value="" class="form-control" placeholder="Enter New Password">
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="row clearfix">
+																<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+																	<label for="password2">Confirm Password</label>
+																</div>
+																<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+																	<div class="form-group">
+																		<div class="form-line">
+																			<input type="password" id="password2" name="password2" value="" class="form-control" placeholder="Enter Confirm Password">
+																		</div>
+																	</div>
+																</div>
+															</div>
+																<input type="hidden" name="manager_id" value="<?php echo $_SESSION['manager_id']; ?>"  />
+
+															<div class="modal-footer">
+																<button type="button" class="btn btn-bg-grey waves-effect" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span>CLOSE</button>
+																<button type="submit" class="btn btn-success waves-effect" name="update_password"><span class="glyphicon glyphicon-edit"></span>SAVE</button>
+															</div>
+
+														<?php
+
+															if(isset($_POST['update_password'])){
+																$host = "mytaskdb.cxqaqsbao9lc.ap-southeast-1.rds.amazonaws.com";
+																$user = "mastermaster";
+																$pass = "mastermaster";
+																$db = "task";
+
+																$manager_id = mysqli_real_escape_string($con,$_POST['manager_id']);
+																$password1 = mysqli_real_escape_string($con,$_POST['password1']);
+																$password2 = mysqli_real_escape_string($con,$_POST['password2']);
+																$manager_password = mysqli_real_escape_string($con,$_POST['manager_password']);
+
+																$select = "SELECT * FROM manager WHERE manager_id = '$manager_id' ";
+																$result = $con->query($select);
+																while($row = $result->fetch_assoc()){
+																	$password = $row["manager_password"];
+																}
+
+																if($manager_password == $password){
+																	if($password1===$password2){
+																		$query = "UPDATE manager SET manager_id= '$manager_id', manager_password='$password1' WHERE  manager_id='$manager_id'  ";
+																		$result = $con->query($query);
+																	}
+																	else{
+																		echo "<script type = \"text/javascript\">
+																					alert(\"Password Not Match\");
+																					window.location = (\"manager_home.php\")
+																				</script>";
+																	}
+																}
+																else{
+																	echo "<script type = \"text/javascript\">
+																					alert(\"Wrong Password\");
+																					window.location = (\"manager_home.php\")
+																				</script>";
+																}
+															}
+														?>
+
+														</form>
+													</div>
+												</div>
+											</div>
+										</div>
 
         </div>
     </section>
